@@ -1,3 +1,5 @@
+install:
+	npm install && docker-compose up
 
 start-dev:
-	npm install && docker-compose up
+	docker-compose up
