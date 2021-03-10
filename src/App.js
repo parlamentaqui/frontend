@@ -4,7 +4,6 @@ import Home from './screens/HomeScreen';
 import DeputyProfileScreen from './screens/DeputyProfileScreen';
 import DeputiesScreen from './screens/DeputiesScreen';
 import ErrorScreen from './screens/ErrorScreen';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
