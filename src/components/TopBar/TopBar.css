@@ -15,6 +15,21 @@
   border-color: #a4d4b4;
 }
 
+.navbar-light.navbar-expand-lg .navbar-toggler {
+  color: #a4d4b4;
+  border-color: #3b1c32;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: auto !important;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
 /* .navbar-light .navbar-toggler-icon {
-  background-image: url(../TopBar/images/List.svg);
+  background-image: url(/images/List.svg);
 } */
