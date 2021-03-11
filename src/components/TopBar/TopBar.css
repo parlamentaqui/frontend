@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #3b1c32;
+}
+
+.navbar-light.navbar .navbar-nav .nav-link {
+  color: #ffff;
+}
+
+.navbar-light.navbar .navbar-nav .nav-link:hover {
+  color: #ffff;
+}
+
+.btn-outline-info.btn {
+  color: #a4d4b4;
+  border-color: #a4d4b4;
+}
+
+/* .navbar-light .navbar-toggler-icon {
+  background-image: url(../TopBar/images/List.svg);
+} */
