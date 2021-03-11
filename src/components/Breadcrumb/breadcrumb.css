@@ -1,5 +1,12 @@
+.breadcrumb-item  {
+    font-weight: lighter;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
     content: ">";
+}
+.breadcrumb>.active {
+    font-weight: normal;
 }
 
 .breadcrumb { 
