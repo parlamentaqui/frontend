@@ -15,7 +15,7 @@ import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
 
 const deputy = {
-  name: 'Érika Kokay',
+  name: 'Érika Kokay Almeida',
   politicalParty: 'PT',
   state: 'Distrito Federal',
   image: ProfileImage,
@@ -31,7 +31,7 @@ const noticy = {
 
 const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
 const noticyArray = [noticy, noticy];
-const tweetUrl = '/tweets';
+/* const tweetUrl = '/tweets'; */
 
 function HomeScreen() {
   return (
@@ -56,15 +56,15 @@ function HomeScreen() {
 
         <Col md="18" lg="6">
           {/* Tweets e noticias */}
-          <Link to={`${tweetUrl}`} className="link">
-            <Row className="tweetBox">
-              <div className="rectangle">
-                {/* usar a classe de iframe (?) */}
-                <h4 className="center">Tweets</h4>
-              </div>
-              <box />
-            </Row>
-          </Link>
+          {/* <Link to={`${tweetUrl}`} className="link">*
+          </Link> */}
+          <Row className="tweetBox">
+            <div className="rectangle">
+              {/* usar a classe de iframe (?) */}
+              <h4 className="center">Tweets</h4>
+            </div>
+            <box />
+          </Row>
 
           {/* Linha dos cards */}
           <Row className="mt-3">

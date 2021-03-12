@@ -39,3 +39,14 @@
   text-decoration: none !important; 
   color: #212529;
 }
+
+@media (max-width: 700px){
+  .profileImage{
+    align-self: center;
+  }
+  .targetInfoStrings{
+    font-size: 12px;
+    margin-bottom: 6px;
+    line-height: 100%;
+  }
+}

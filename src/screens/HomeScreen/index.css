@@ -41,29 +41,30 @@
   border: 0.1rem solid;
 }
 
-.rectangle:hover{
+/*.rectangle:hover{
   pointer-events: fill;
   cursor: pointer;
   box-shadow: #2E2E2E 0 2px 20px -5px;
-}
+}*/
 
 
 /* É uma media carry <> serve como um if */
 /* Quando a tela chegar na largura de 768px, isso vai acontecer */
-@media (max-width: 768px){
-  .fullImage{
-    display: none;
-  }
-  
-  .smallImage{
-    display: inline-block;
-  }
-
+@media (max-width: 1030px){
   .tweetBox{
     display: none !important;
   }
 
   .rectangle{
     display: none;
+  }
+}
+@media (max-width: 700px){
+  .fullImage{
+    display: none;
+  }
+  
+  .smallImage{
+    display: inline-block;
   }
 }

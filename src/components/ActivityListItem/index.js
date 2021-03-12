@@ -22,9 +22,9 @@ function ActivityListItem({ targetInfo }) {
             <Image src={targetInfo.image} alt={`${targetInfo.name} profile.`} roundCircle />
           </Col>
           <Col>
-            <h5>{targetInfo.name}</h5>
-            <p>{targetInfo.politicalParty}</p>
-            <p>{targetInfo.state}</p>
+            <h5 className="targetInfoStrings">{targetInfo.name}</h5>
+            <p className="targetInfoStrings">{targetInfo.politicalParty}</p>
+            <p className="targetInfoStrings">{targetInfo.state}</p>
           </Col>
           <Col xs={2} className="center">
             <Image src={ArrowRight} alt={`${targetInfo.name} profile.`} className="arrowRight" />
