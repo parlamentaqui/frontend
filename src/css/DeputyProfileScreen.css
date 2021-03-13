@@ -1,0 +1,91 @@
+.breadcrumbs {
+  background-color: #ffffff;
+}
+
+.icon {
+  width: 40%;
+  height: 60%;
+}
+.divInfoComplete {
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.rowImage {
+  height: 295px;
+  width: 100%;
+}
+
+.rowInfo {
+  height: 162.5px;
+}
+
+.rowTitle {
+  height: 40px;
+  background: #a4d4b4;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+  display: flex;
+  align-items: center;
+
+  /* Text/01. Body */
+
+  color: #212529;
+}
+
+.rowSocial {
+  height: 65px;
+}
+/*****************************/
+/*Divs*/
+.divInfos {
+  width: 744px;
+  height: 703px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*****************************/
+/*Fonts*/
+.nameDeputy {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+  color: #343a40;
+}
+
+.subDataDeputy {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 38px;
+  /* identical to box height, or 274% */
+
+  /* Global/08. Dark */
+
+  color: #343a40;
+}
+
+.othersInfo {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 125% */
+
+  color: #000000;
+}
