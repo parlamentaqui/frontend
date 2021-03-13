@@ -1,10 +1,9 @@
 import React from 'react';
+import Home from './HomeScreen/index';
 
 function HomeScreen() {
   return (
-    <main>
-      <h1>HomeScreen</h1>
-    </main>
+    <Home />
   );
 }
 
