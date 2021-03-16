@@ -9,14 +9,16 @@ Para conferir a documentação deste projeto, basta [clicar aqui](https://github
 Este projeto é desenvolvido por: 
 
 ### Equipe de gerência, composta por alunos de Engenharia do Produto de Software
-
+| Nome           | Função                |
+|----------------|-----------------------|
 | Felipe Campos  | Devops                |
 | Gabriel Albino | Product Owner         |
 | Helena Bretas  | Scrum master          |
 | Lucas Machado  | Arquiteto de software |
-
 ### Equipe de desenvolvimento, composta por alunos de Métodos de Desenvolvimento de Software
 
+| Nome              | Função         |
+|-------------------|----------------|
 | Cibele Freitas    | Desenvolvedora |
 | Cristian Furtado  | Desenvolvedor  |
 | Eduarda Rodrigues | Desenvolvedora |
