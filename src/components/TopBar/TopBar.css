@@ -27,6 +27,7 @@
 .btn-outline-info.btn {
   color: #a4d4b4;
   border-color: #a4d4b4;
+  background-color: transparent;
 }
 
 .navbar-light.navbar-expand-lg .navbar-toggler {

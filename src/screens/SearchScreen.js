@@ -1,6 +1,8 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap';
 import '../components/Breadcrumb/breadcrumb.css';
+import SearchFilter from './SearchScreen/SearchFilter';
+// import { useHistory } from 'react-router-dom';
 
 function SearchScreen() {
   return (
@@ -9,7 +11,7 @@ function SearchScreen() {
         <BreadcrumbItem href="/">Página Inicial</BreadcrumbItem>
         <BreadcrumbItem active>Busca</BreadcrumbItem>
       </Breadcrumb>
-      <h1>SearchScreen</h1>
+      <SearchFilter />
     </main>
   );
 }
