@@ -9,11 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProjectsScreen from './screens/ProjectsScreen';
 import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
+import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 
 function App() {
   return (
     <main>
       <TopBar />
+      <Breadcrumbs />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/deputado/:id" component={DeputyProfileScreen} />
