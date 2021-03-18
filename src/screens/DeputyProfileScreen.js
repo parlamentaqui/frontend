@@ -7,14 +7,10 @@ import IconFace from '../img/icon-face.png';
 import IconInsta from '../img/icon-insta.png';
 import IconTT from '../img/icon-tt.png';
 
-function DeputyProfileScreen(props) {
-  const { match } = props;
-  const { id } = match.params;
-
+function DeputyProfileScreen() {
   return (
     <main>
       <Container>
-        {id}
         <Row>
           {/* Coluna da esquerda / demais informações */}
           <Col>
@@ -39,22 +35,55 @@ function DeputyProfileScreen(props) {
           </Col>
           {/* Coluna da direita / informações pontuais */}
           <Col lg="4" className="divInfoComplete">
-            <Row className="rowImage">
-              <Image src={ProfileImage} fluid />
+            <Row>
+              <Col className="colImage"><Image src={ProfileImage} fluid /></Col>
             </Row>
-            <Row className="rowTitle d-flex justify-content-center">
-              {' '}
-              Redes sociais
+            <Row>
+              <Col className="rowTitle d-flex justify-content-center">Informações pessoais</Col>
             </Row>
-            <Row className="rowInfo"> </Row>
-            <Row className="rowTitle d-flex justify-content-center">
-              {' '}
-              Informações do Gabinete
+            <Row>
+              <Col lg="6">
+                <div className="colInfo">
+                  <p>Nome</p>
+                  <p>Partido</p>
+                  <p>Estado</p>
+                  <p>Idade</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo1">
+                  <p>Érika Jucá Kokay</p>
+                  <p>PT</p>
+                  <p>Distrito Federal</p>
+                  <p>56 (15/08/1957)</p>
+                </div>
+              </Col>
             </Row>
-            <Row className="rowInfo" />
-            <Row className="rowTitle d-flex justify-content-center">
-              {' '}
-              Redes sociais
+            <Row>
+              <Col className="rowTitle d-flex justify-content-center">Informações do Gabinete</Col>
+            </Row>
+            <Row>
+              <Col lg="6">
+                <div className="colInfo">
+                  <p>Número da sala</p>
+                  <p>Andar</p>
+                  <p>Prédio</p>
+                  <p>Telefone</p>
+                  <p>Email</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo1">
+                  <p>234</p>
+                  <p>2</p>
+                  <p>4</p>
+                  <p>3215-5203</p>
+                  <p>dep.erikakokay@camara.leg.br</p>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="rowTitle d-flex justify-content-center">Informações do Gabinete</Col>
             </Row>
             <Row className="rowSocial">
               <Col className="d-flex justify-content-center align-items-center">

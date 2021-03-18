@@ -12,13 +12,37 @@
   border-radius: 4px;
 }
 
-.rowImage {
+.colImage {
   height: 295px;
   width: 100%;
 }
 
-.rowInfo {
-  height: 162.5px;
+.colInfo p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.colInfo1 p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  word-wrap: break-word; 
+}
+
+.colInfo {
+  height: 100%;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.colInfo1 {
+  height: 100%;
+  font-family: Open Sans;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .rowTitle {
@@ -43,8 +67,7 @@
 .rowSocial {
   height: 65px;
 }
-/*****************************/
-/*Divs*/
+
 .divInfos {
   width: 744px;
   height: 703px;
@@ -55,6 +78,8 @@
   align-items: center;
   justify-content: center;
 }
+
+
 /*****************************/
 /*Fonts*/
 .nameDeputy {
