@@ -13,6 +13,7 @@ import ProfileImage from '../../images/Kokay.jpg';
 import ActivityListItem from '../../components/ActivityListItem/index';
 import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
+import Tweet from '../../components/Tweet/Tweet';
 
 const deputy = {
   name: 'Érika Kokay Almeida',
@@ -44,8 +45,8 @@ function HomeScreen() {
       </Row>
 
       {/* Segunda linha > Atividades recentes / Tweets e noticias */}
-      <Row className="justify-content-space-between m-5">
-        <Col md="18" lg="6">
+      <Row className="justify-content-space-between my-5">
+        <Col md="12" lg="6">
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
@@ -54,18 +55,12 @@ function HomeScreen() {
           </ListGroup>
         </Col>
 
-        <Col md="18" lg="6">
+        <Col md="12" lg="6">
           {/* Tweets e noticias */}
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
-          <Row className="tweetBox">
-            <div className="rectangle">
-              {/* usar a classe de iframe (?) */}
-              <h4 className="center">Tweets</h4>
-            </div>
-            <box />
-          </Row>
-
+          <h3 className="recentActivity">Tweets recentes</h3>
+          <Tweet />
           {/* Linha dos cards */}
           <Row className="mt-3">
             {/* Card 1 */}
