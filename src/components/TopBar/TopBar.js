@@ -10,15 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function TopBar() {
+  const [open, setOpen] = useState(false);
+  const [searchString, setSearchString] = useState('');
   const history = useHistory();
 
   const onClickSearchHandle = () => {
-    const path = '/busca';
+    const path = `/busca/${searchString}`;
     history.push(path);
-    window.location.reload();
   };
-
-  const [open, setOpen] = useState(false);
 
   const notInSearch = history.location.pathname.indexOf('busca') === -1;
   const notInHome = history.location.pathname !== '/';
@@ -78,13 +77,18 @@ function TopBar() {
           </Nav>
           {notInSearch ? (
             <div className="d-none d-lg-block">
-              <Form inline>
+              <Form inline action="/busca">
                 <FormControl
+                  name="q"
                   type="text"
                   placeholder="Pesquisar por deputados ou projetos"
                   className="mr-sm-2"
+                  value={searchString}
+                  onChange={(e) => {
+                    setSearchString(e.target.value);
+                  }}
                 />
-                <Button variant="outline-info" onClick={onClickSearchHandle}>
+                <Button variant="outline-info" type="submit">
                   Buscar
                 </Button>
               </Form>
