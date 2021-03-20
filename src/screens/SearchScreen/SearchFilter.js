@@ -10,7 +10,6 @@ import {
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import './SearchFilter.css';
-import DeputiesList from '../../components/DeputiesList/DeputiesList';
 
 function SearchFilter() {
   const location = useLocation();
@@ -79,10 +78,6 @@ function SearchFilter() {
           </Form>
         </Container>
       </div>
-      <Container>
-        <Row className="space" />
-        <DeputiesList />
-      </Container>
     </>
   );
 }

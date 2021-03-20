@@ -1,17 +1,16 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap';
-import '../components/Breadcrumb/breadcrumb.css';
+import { Container, Row } from 'react-bootstrap';
 import SearchFilter from './SearchScreen/SearchFilter';
-// import { useHistory } from 'react-router-dom';
+import DeputiesList from '../components/DeputiesList/DeputiesList';
 
 function SearchScreen() {
   return (
     <main>
-      <Breadcrumb>
-        <BreadcrumbItem href="/">Página Inicial</BreadcrumbItem>
-        <BreadcrumbItem active>Busca</BreadcrumbItem>
-      </Breadcrumb>
       <SearchFilter />
+      <Container>
+        <Row className="space" />
+        <DeputiesList />
+      </Container>
     </main>
   );
 }
