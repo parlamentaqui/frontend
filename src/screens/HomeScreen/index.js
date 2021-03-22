@@ -3,25 +3,15 @@ import {
   Row,
   Container,
   Col,
-  ListGroup,
   Card
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './index.css';
-import ProfileImage from '../../images/Kokay.jpg';
-import ActivityListItem from '../../components/ActivityListItem/index';
 import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
 import Tweet from '../../components/Tweet/Tweet';
-
-const deputy = {
-  name: 'Érika Kokay Almeida',
-  politicalParty: 'PT',
-  state: 'Distrito Federal',
-  image: ProfileImage,
-  id: 0
-};
+import DeputiesList from '../../components/DeputiesList/DeputiesList';
 
 const noticy = {
   title: 'Título da Notícia',
@@ -30,7 +20,6 @@ const noticy = {
   url: '/noticia/id'
 };
 
-const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
 const noticyArray = [noticy, noticy];
 /* const tweetUrl = '/tweets'; */
 
@@ -50,9 +39,7 @@ function HomeScreen() {
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
-          <ListGroup>
-            {testArray.map((element) => <ActivityListItem targetInfo={element} />)}
-          </ListGroup>
+          <DeputiesList deputados={[]} />
         </Col>
 
         <Col md="12" lg="6">

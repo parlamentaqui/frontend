@@ -46,7 +46,7 @@ function SearchFilter() {
                   name="partido"
                   defaultValue={parameters.partido}
                 >
-                  <option>Todos</option>
+                  <option value="">Todos</option>
                   <option>Partido 1</option>
                   <option>Partido 2</option>
                   <option>Partido 3</option>
@@ -61,7 +61,7 @@ function SearchFilter() {
                   name="estado"
                   defaultValue={parameters.estado}
                 >
-                  <option>Todos</option>
+                  <option value="">Todos</option>
                   <option>Estado 1</option>
                   <option>Estado 2</option>
                   <option>Estado 3</option>
