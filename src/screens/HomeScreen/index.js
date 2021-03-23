@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Row,
   Container,
@@ -6,6 +6,7 @@ import {
   ListGroup,
   Card
 } from 'react-bootstrap';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './index.css';
@@ -14,6 +15,7 @@ import ActivityListItem from '../../components/ActivityListItem/index';
 import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
 import Tweet from '../../components/Tweet/Tweet';
+import { homeTweetRoute } from '../../Api';
 
 const deputy = {
   name: 'Érika Kokay Almeida',
@@ -35,6 +37,13 @@ const noticyArray = [noticy, noticy];
 /* const tweetUrl = '/tweets'; */
 
 function HomeScreen() {
+  const [tweets, setTweets] = useState([]);
+  useEffect(() => {
+    axios.get(homeTweetRoute).then((response) => {
+      const data = response.data.split(' ');
+      setTweets(data);
+    });
+  }, []);
   return (
     <Container as="main" className="layout">
       {/* Primeira linha > Logo */}
@@ -60,7 +69,7 @@ function HomeScreen() {
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
           <h3 className="recentActivity">Tweets recentes</h3>
-          <Tweet />
+          <Tweet tweets={tweets} />
           {/* Linha dos cards */}
           <Row className="mt-3">
             {/* Card 1 */}

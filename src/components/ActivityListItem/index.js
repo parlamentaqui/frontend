@@ -13,13 +13,17 @@ import ArrowRight from '../../images/ArrowRight.svg';
 function ActivityListItem({ targetInfo }) {
   return (
     // fazer o cast do LisGroupItem pra div pra retornar corretamente
-    <ListGroupItem as="div" className="activityContainer">
+    <ListGroupItem as="div" className="activityContainer" key={targetInfo.id}>
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
       <Link to={`/deputados/${targetInfo.id}`} className="link">
         <Row className="center">
           <Col xs={2} className="mr-2 profileImage">
-            <Image src={targetInfo.image} alt={`${targetInfo.name} profile.`} roundCircle />
+            <Image
+              src={targetInfo.image}
+              alt={`${targetInfo.name} profile.`}
+              roundCircle
+            />
           </Col>
           <Col>
             <h5 className="targetInfoStrings">{targetInfo.name}</h5>
@@ -27,7 +31,11 @@ function ActivityListItem({ targetInfo }) {
             <p className="targetInfoStrings">{targetInfo.state}</p>
           </Col>
           <Col xs={2} className="center">
-            <Image src={ArrowRight} alt={`${targetInfo.name} profile.`} className="arrowRight" />
+            <Image
+              src={ArrowRight}
+              alt={`${targetInfo.name} profile.`}
+              className="arrowRight"
+            />
           </Col>
         </Row>
       </Link>

@@ -5,26 +5,21 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 function tweetCol(tweet) {
   return (
-    <Col lg="12">
+    <Col lg="12" key={tweet}>
       <TwitterTweetEmbed
-        tweetId={tweet.tweetId}
+        tweetId={tweet}
       />
     </Col>
   );
 }
 
-function Tweet() {
-  const tweet = {
-    tweetId: '933354946111705097'
-  };
-
-  const tweetArray = [tweet, tweet];
-
+function Tweet(props) {
+  const { tweets } = props;
   return (
     <div className="tweet-wrapper">
       <Container>
         <Row>
-          {tweetArray.map(tweetCol)}
+          {tweets.map(tweetCol)}
         </Row>
 
       </Container>
