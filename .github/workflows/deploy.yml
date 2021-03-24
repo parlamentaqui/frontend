@@ -21,5 +21,6 @@ jobs:
             npm install
             npm run build
             nohup serve -s build -l 80 &
+            sleep 5
           host: ${{ secrets.DO_HOST }}
           pass: ${{ secrets.DO_PASSWORD }}
