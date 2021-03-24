@@ -1,0 +1,52 @@
+.navbar {
+  background-color: #3b1c32;
+  min-height: 66px;
+}
+
+.navbar .mobile-search {
+  width: calc(100% - 96px);
+}
+.navbar-light.navbar .navbar-nav .nav-link {
+  color: #ffff;
+}
+
+.navbar-light.navbar .navbar-nav .nav-link:hover {
+  color: #ffff;
+}
+
+.btn-outline-info.btn:focus:not(:disabled):not(.disabled),
+.btn-outline-info.btn:active:not(:disabled):not(.disabled),
+.btn-outline-info.btn:not(:disabled):not(.disabled):active:focus,
+.btn-outline-info.btn:hover {
+  color: #ffffff;
+  background-color: #a4d4b4;
+  border-color: #a4d4b4;
+  box-shadow: none;
+}
+
+.btn-outline-info.btn {
+  color: #a4d4b4;
+  border-color: #a4d4b4;
+  background-color: transparent;
+}
+
+.navbar-light.navbar-expand-lg .navbar-toggler {
+  color: #a4d4b4;
+  border-color: #3b1c32;
+  padding: 0;
+  margin-right: 8px;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: auto !important;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-light.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5 23C5.5 22.8674 5.55268 22.7402 5.64645 22.6464C5.74021 22.5527 5.86739 22.5 6 22.5H26C26.1326 22.5 26.2598 22.5527 26.3536 22.6464C26.4473 22.7402 26.5 22.8674 26.5 23C26.5 23.1326 26.4473 23.2598 26.3536 23.3536C26.2598 23.4473 26.1326 23.5 26 23.5H6C5.86739 23.5 5.74021 23.4473 5.64645 23.3536C5.55268 23.2598 5.5 23.1326 5.5 23ZM5.5 15C5.5 14.8674 5.55268 14.7402 5.64645 14.6464C5.74022 14.5527 5.86739 14.5 6 14.5H26C26.1326 14.5 26.2598 14.5527 26.3536 14.6464C26.4473 14.7402 26.5 14.8674 26.5 15C26.5 15.1326 26.4473 15.2598 26.3536 15.3536C26.2598 15.4473 26.1326 15.5 26 15.5H6C5.86739 15.5 5.74022 15.4473 5.64645 15.3536C5.55268 15.2598 5.5 15.1326 5.5 15ZM5.5 7C5.5 6.86739 5.55268 6.74022 5.64645 6.64645C5.74022 6.55268 5.86739 6.5 6 6.5H26C26.1326 6.5 26.2598 6.55268 26.3536 6.64645C26.4473 6.74021 26.5 6.86739 26.5 7C26.5 7.13261 26.4473 7.25979 26.3536 7.35355C26.2598 7.44732 26.1326 7.5 26 7.5H6C5.86739 7.5 5.74022 7.44732 5.64645 7.35355C5.55268 7.25978 5.5 7.13261 5.5 7Z' fill='%23A4D4B4' stroke='%23A4D4B4'/%3E%3C/svg%3E%0A");
+}
