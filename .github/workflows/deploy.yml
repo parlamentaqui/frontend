@@ -20,7 +20,7 @@ jobs:
             cd frontend
             npm install
             npm run build
-            pm2 serve build 80 --spa
+            pm2 serve build -f 80 --spa 
             sleep 5
           host: ${{ secrets.DO_HOST }}
           pass: ${{ secrets.DO_PASSWORD }}
