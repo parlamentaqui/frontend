@@ -15,6 +15,24 @@ function SearchFilter(props) {
   const location = useLocation();
   const parameters = queryString.parse(location.search);
   const { estados, partidos } = props;
+  function partiesElement(element) {
+    return element === parameters.partido ? (
+      <option selected value={element}>
+        {element}
+      </option>
+    ) : (
+      <option value={element}>{element}</option>
+    );
+  }
+  function ufElement(element) {
+    return element.uf === parameters.estado ? (
+      <option selected value={element.uf}>
+        {element.name}
+      </option>
+    ) : (
+      <option value={element.uf}>{element.name}</option>
+    );
+  }
 
   return (
     <>
@@ -42,28 +60,16 @@ function SearchFilter(props) {
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
                 <h6>Partido</h6>
-                <Form.Control
-                  as="select"
-                  name="partido"
-                  defaultValue={parameters.partido}
-                >
+                <Form.Control as="select" name="partido">
                   <option value="">Todos</option>
-                  {partidos.map((element) => (
-                    <option value={element}>{element}</option>
-                  ))}
+                  {partidos.map(partiesElement)}
                 </Form.Control>
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
                 <h6>Estado</h6>
-                <Form.Control
-                  as="select"
-                  name="estado"
-                  defaultValue={parameters.estado}
-                >
+                <Form.Control as="select" name="estado">
                   <option value="">Todos</option>
-                  {estados.map((element) => (
-                    <option value={element.uf}>{element.name}</option>
-                  ))}
+                  {estados.map(ufElement)}
                 </Form.Control>
               </Col>
               <Col md={2} className="mb-3 mb-md-0">
