@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.breadcrumb-item a {
+    font-weight: lighter;
+    font-family: 'Montserrat';
+    color: #0059B8;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+.breadcrumb>.active {
+    font-weight: normal;
+    color: #343A40
+}
+
+.breadcrumb { 
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: white;
+    border-radius: .25rem;
+    font-size: 15px;
+};

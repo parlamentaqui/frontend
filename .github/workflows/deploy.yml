@@ -1,0 +1,26 @@
+name: Run deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy etl_news to DigitalOcean
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd 
+            kill -9 $(lsof -t -i:80)
+            rm -rf frontend
+            git clone https://github.com/parlamentaqui/frontend
+            cd frontend
+            npm install
+            npm run build
+            pm2 serve build 80 --spa
+            sleep 5
+          host: ${{ secrets.DO_HOST }}
+          pass: ${{ secrets.DO_PASSWORD }}

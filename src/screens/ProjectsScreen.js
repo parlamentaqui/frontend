@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function DeputiesScreen() {
+function ProjectsScreen() {
   return (
     <main>
-      <h1>Lista de deputados</h1>
+      <h1>Lista de projetos</h1>
     </main>
   );
 }
 
-export default DeputiesScreen;
+export default ProjectsScreen;
