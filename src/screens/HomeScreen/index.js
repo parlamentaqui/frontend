@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Row,
   Container,
   Col,
-  ListGroup,
-  Card
+  ListGroup
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import ProfileImage from '../../images/Kokay.jpg';
 import ActivityListItem from '../../components/ActivityListItem/index';
 import MobileLogo from '../../images/LogoMobile.svg';
-import CardImage from '../../images/CardImage.jpg';
+import News from '../../components/News/News';
 import Tweet from '../../components/Tweet/Tweet';
+import { homeNewsRoute } from '../../Api';
 
 const deputy = {
   name: 'Érika Kokay Almeida',
@@ -23,18 +23,16 @@ const deputy = {
   id: 0
 };
 
-const noticy = {
-  title: 'Título da Notícia',
-  target: 'Érika Konkay',
-  description: 'Lorem Ipsum Dolor hic descrição da noticia xD',
-  url: '/noticia/id'
-};
-
 const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
-const noticyArray = [noticy, noticy];
-/* const tweetUrl = '/tweets'; */
 
 function HomeScreen() {
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    axios.get(homeNewsRoute).then((response) => {
+      setNews(response.data);
+      console.log(response);
+    });
+  }, []);
   return (
     <Container as="main" className="layout">
       {/* Primeira linha > Logo */}
@@ -51,7 +49,9 @@ function HomeScreen() {
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
           <ListGroup>
-            {testArray.map((element) => <ActivityListItem targetInfo={element} />)}
+            {testArray.map((element) => (
+              <ActivityListItem targetInfo={element} />
+            ))}
           </ListGroup>
         </Col>
 
@@ -63,33 +63,7 @@ function HomeScreen() {
           <Tweet />
           {/* Linha dos cards */}
           <Row className="mt-3">
-            {/* Card 1 */}
-            <Col className="center">
-              <Link to={`${noticyArray[0].url}`} className="link">
-                <Card className="card">
-                  <Card.Img variant="top" src={CardImage} />
-                  <Card.Body>
-                    <Card.Title>{noticyArray[0].title}</Card.Title>
-                    <Card.Text>{noticyArray[0].target}</Card.Text>
-                    <Card.Text>{noticyArray[0].description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </Col>
-
-            {/* Card 2 */}
-            <Col className="center">
-              <Link to={`${noticyArray[1].url}`} className="link">
-                <Card className="card">
-                  <Card.Img variant="top" src={CardImage} />
-                  <Card.Body>
-                    <Card.Title>{noticyArray[1].title}</Card.Title>
-                    <Card.Text>{noticyArray[1].target}</Card.Text>
-                    <Card.Text>{noticyArray[1].description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </Col>
+            <News news={news} />
           </Row>
         </Col>
       </Row>
