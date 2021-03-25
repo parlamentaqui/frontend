@@ -11,9 +11,10 @@ import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import './SearchFilter.css';
 
-function SearchFilter() {
+function SearchFilter(props) {
   const location = useLocation();
   const parameters = queryString.parse(location.search);
+  const { estados, partidos } = props;
 
   return (
     <>
@@ -47,11 +48,9 @@ function SearchFilter() {
                   defaultValue={parameters.partido}
                 >
                   <option value="">Todos</option>
-                  <option>Partido 1</option>
-                  <option>Partido 2</option>
-                  <option>Partido 3</option>
-                  <option>Partido 4</option>
-                  <option>Partido 5</option>
+                  {partidos.map((element) => (
+                    <option value={element}>{element}</option>
+                  ))}
                 </Form.Control>
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
@@ -62,11 +61,9 @@ function SearchFilter() {
                   defaultValue={parameters.estado}
                 >
                   <option value="">Todos</option>
-                  <option>Estado 1</option>
-                  <option>Estado 2</option>
-                  <option>Estado 3</option>
-                  <option>Estado 4</option>
-                  <option>Estado 5</option>
+                  {estados.map((element) => (
+                    <option value={element.uf}>{element.name}</option>
+                  ))}
                 </Form.Control>
               </Col>
               <Col md={2} className="mb-3 mb-md-0">
