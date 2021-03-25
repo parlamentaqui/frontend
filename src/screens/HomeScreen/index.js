@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Row,
   Container,
@@ -6,12 +6,14 @@ import {
   Card
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
 import Tweet from '../../components/Tweet/Tweet';
 import DeputiesList from '../../components/DeputiesList/DeputiesList';
+import { deputadosHomeRoute } from '../../Api';
 
 const noticy = {
   title: 'Título da Notícia',
@@ -24,6 +26,13 @@ const noticyArray = [noticy, noticy];
 /* const tweetUrl = '/tweets'; */
 
 function HomeScreen() {
+  const [deputados, setDeputados] = useState([]);
+  useEffect(() => {
+    axios.get(deputadosHomeRoute).then((response) => {
+      setDeputados(response.data);
+    });
+  }, []);
+
   return (
     <Container as="main" className="layout">
       {/* Primeira linha > Logo */}
@@ -39,7 +48,7 @@ function HomeScreen() {
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
-          <DeputiesList deputados={[]} />
+          <DeputiesList deputados={deputados} />
         </Col>
 
         <Col md="12" lg="6">
