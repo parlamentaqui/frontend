@@ -14,7 +14,7 @@ jobs:
         with:
           command: |
             cd 
-            kill -9 $(lsof -t -i:80)
+            pm2 stop 0
             rm -rf frontend
             git clone https://github.com/parlamentaqui/frontend
             cd frontend
