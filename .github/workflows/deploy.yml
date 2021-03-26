@@ -14,13 +14,13 @@ jobs:
         with:
           command: |
             cd 
-            kill -9 $(lsof -t -i:80)
+            pm2 stop 0
             rm -rf frontend
             git clone https://github.com/parlamentaqui/frontend
             cd frontend
             npm install
             npm run build
-            pm2 serve build 80 --spa
+            pm2 serve build -f 80 --spa 
             sleep 5
           host: ${{ secrets.DO_HOST }}
           pass: ${{ secrets.DO_PASSWORD }}

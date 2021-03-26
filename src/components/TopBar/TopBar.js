@@ -88,7 +88,7 @@ function TopBar() {
                     setSearchString(e.target.value);
                   }}
                 />
-                <Button variant="outline-info" type="submit">
+                <Button variant="outline-info" type="submit" disabled={searchString.length === 0}>
                   Buscar
                 </Button>
               </Form>
