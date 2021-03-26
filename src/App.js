@@ -18,7 +18,7 @@ function App() {
       <Breadcrumbs />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/deputado/:id" component={DeputyProfileScreen} />
+        <Route path="/deputados/:id" component={DeputyProfileScreen} />
         <Route path="/deputados" component={DeputiesScreen} />
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />

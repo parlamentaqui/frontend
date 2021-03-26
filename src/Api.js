@@ -5,3 +5,4 @@ export const camaraURL = `${apiURL}/camara`;
 export const camaraSearchRoute = `${camaraURL}/resultado`;
 export const partiesSearchRoute = `${camaraURL}/parties`;
 export const ufSearchRoute = `${camaraURL}/federative_unities`;
+export const profileRoute = (id) => `${camaraURL}/profile/${id}`;

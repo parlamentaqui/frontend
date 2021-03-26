@@ -7,17 +7,21 @@ import Image from 'react-bootstrap/Image';
 import IconFace from '../img/icon-face.png';
 import IconInsta from '../img/icon-insta.png';
 import IconTT from '../img/icon-tt.png';
+import { profileRoute } from '../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
-  const urlRequest = `http://localhost:8001/profile/${id}`;
   const [deputado, setDeputado] = useState({});
   useEffect(() => {
-    axios.get(urlRequest).then((response) => {
+    axios.get(profileRoute(id)).then((response) => {
       setDeputado(response.data);
     });
   }, []);
-  console.log(id, deputado);
+  function calculateAge(birthday) { // birthday is a date
+    const ageDifMs = Date.now() - new Date(birthday).getTime();
+    const ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
   return (
     <main>
       <Container>
@@ -32,7 +36,8 @@ function DeputyProfileScreen() {
                     <h4 className="nameDeputy">{deputado.full_name}</h4>
                     <p>
                       TITULAR EM EXERCÍCIO
-                      {deputado.inicial_legislature_year}
+                      {' '}
+                      {deputado.initial_legislature_year}
                       {' - '}
                       {deputado.final_legislature_year}
                     </p>
@@ -60,19 +65,46 @@ function DeputyProfileScreen() {
               <Col lg="6">
                 <div className="colInfo">
                   <p>Nome</p>
-                  <p>Partido</p>
-                  <p>Estado</p>
-                  <p>Idade</p>
                 </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>{deputado.full_name}</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo">
+                  <p>Partido</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo1">
                   <p>{deputado.party}</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo">
+                  <p>Estado</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo1">
                   <p>{deputado.federative_unity}</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo">
+                  <p>Idade</p>
+                </div>
+              </Col>
+              <Col lg="6">
+                <div className="colInfo1">
                   <p>
-                    Idade NAO ACHEI NO DB
-                    {deputado.birth_date}
+                    {deputado.birth_date && calculateAge(deputado.birth_date)}
+                    {' '}
+                    (
+                    {(new Date(deputado.birth_date).toLocaleString().split(' ')[0])}
+                    )
                   </p>
                 </div>
               </Col>
@@ -105,7 +137,9 @@ function DeputyProfileScreen() {
             </Row>
             <Row className="rowSocial">
               <Col className="d-flex justify-content-center align-items-center">
-                <Image className="icon" src={IconFace} />
+                <a target="_blank" rel="noreferrer" href={`https://www.facebook.com/${deputado.facebook_username}`}>
+                  <Image className="icon" src={IconFace} />
+                </a>
               </Col>
               <Col className="d-flex justify-content-center align-items-center">
                 <Image className="icon" src={IconInsta} />
