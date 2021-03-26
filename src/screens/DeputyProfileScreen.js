@@ -1,13 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import '../css/DeputyProfileScreen.css';
 import Image from 'react-bootstrap/Image';
-import ProfileImage from '../img/perfil.png';
 import IconFace from '../img/icon-face.png';
 import IconInsta from '../img/icon-insta.png';
 import IconTT from '../img/icon-tt.png';
 
 function DeputyProfileScreen() {
+  const { id } = useParams();
+  const urlRequest = `http://localhost:8001/profile/${id}`;
+  const [deputado, setDeputado] = useState({});
+  useEffect(() => {
+    axios.get(urlRequest).then((response) => {
+      setDeputado(response.data);
+    });
+  }, []);
+  console.log(id, deputado);
   return (
     <main>
       <Container>
@@ -19,8 +29,13 @@ function DeputyProfileScreen() {
                 {/* Linha com nome e exercicio */}
                 <Row>
                   <div>
-                    <h4 className="nameDeputy">ERIKA KOKAY</h4>
-                    <p>TITULAR EM EXERCÍCIO 2019 - 2023</p>
+                    <h4 className="nameDeputy">{deputado.full_name}</h4>
+                    <p>
+                      TITULAR EM EXERCÍCIO
+                      {deputado.inicial_legislature_year}
+                      {' - '}
+                      {deputado.final_legislature_year}
+                    </p>
                   </div>
                 </Row>
                 {/* Linha para demais informações */}
@@ -36,7 +51,7 @@ function DeputyProfileScreen() {
           {/* Coluna da direita / informações pontuais */}
           <Col lg="4" className="divInfoComplete">
             <Row>
-              <Col className="colImage"><Image src={ProfileImage} fluid /></Col>
+              <Col className="colImage"><Image src={deputado.photo_url} fluid /></Col>
             </Row>
             <Row>
               <Col className="rowTitle d-flex justify-content-center">Informações pessoais</Col>
@@ -52,10 +67,13 @@ function DeputyProfileScreen() {
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
-                  <p>Érika Jucá Kokay</p>
-                  <p>PT</p>
-                  <p>Distrito Federal</p>
-                  <p>56 (15/08/1957)</p>
+                  <p>{deputado.full_name}</p>
+                  <p>{deputado.party}</p>
+                  <p>{deputado.federative_unity}</p>
+                  <p>
+                    Idade NAO ACHEI NO DB
+                    {deputado.birth_date}
+                  </p>
                 </div>
               </Col>
             </Row>
@@ -74,11 +92,11 @@ function DeputyProfileScreen() {
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
-                  <p>234</p>
-                  <p>2</p>
-                  <p>4</p>
-                  <p>3215-5203</p>
-                  <p>dep.erikakokay@camara.leg.br</p>
+                  <p>NUMERO DA SALA NAO TEM NO DB</p>
+                  <p>ANDAR NAO TEM NO DB</p>
+                  <p>PREDIO NAO TEM NO DB</p>
+                  <p>TELEFONE NAO TEM NO DB</p>
+                  <p>{deputado.email}</p>
                 </div>
               </Col>
             </Row>
