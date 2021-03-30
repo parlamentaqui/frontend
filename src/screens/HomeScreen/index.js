@@ -14,6 +14,7 @@ import CardImage from '../../images/CardImage.jpg';
 import Tweet from '../../components/Tweet/Tweet';
 import DeputiesList from '../../components/DeputiesList/DeputiesList';
 import { deputadosHomeRoute } from '../../Api';
+import SearchHome from '../../components/SearchHome/SearchHome';
 
 const noticy = {
   title: 'Título da Notícia',
@@ -36,12 +37,12 @@ function HomeScreen() {
   return (
     <Container as="main" className="layout">
       {/* Primeira linha > Logo */}
-      <Row className="justify-content-center">
+      <Row className="justify-content-center pt-3 mt-3">
         {/* Imagem principal - Logo */}
         <img src={Logo} alt="Logo" className="fullImage" />
         <img src={MobileLogo} alt="Logo" className="smallImage" />
       </Row>
-
+      <SearchHome />
       {/* Segunda linha > Atividades recentes / Tweets e noticias */}
       <Row className="justify-content-space-between my-5">
         <Col md="12" lg="6">
