@@ -5,13 +5,14 @@ import {
   Col,
   Card
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
 import CardImage from '../../images/CardImage.jpg';
 import Tweet from '../../components/Tweet/Tweet';
 import DeputiesList from '../../components/DeputiesList/DeputiesList';
+import ShareButton from '../../components/ShareButton/ShareButton';
 
 const noticy = {
   title: 'Título da Notícia',
@@ -52,30 +53,31 @@ function HomeScreen() {
           <Row className="mt-3">
             {/* Card 1 */}
             <Col className="center">
-              <Link to={`${noticyArray[0].url}`} className="link">
-                <Card className="card">
-                  <Card.Img variant="top" src={CardImage} />
-                  <Card.Body>
-                    <Card.Title>{noticyArray[0].title}</Card.Title>
-                    <Card.Text>{noticyArray[0].target}</Card.Text>
-                    <Card.Text>{noticyArray[0].description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Link>
+              {/* <Link to={`${noticyArray[0].url}`} className="link"> */}
+              <Card className="card">
+                <Card.Img variant="top" src={CardImage} />
+                <Card.Body>
+                  <Card.Title>{noticyArray[0].title}</Card.Title>
+                  <Card.Text>{noticyArray[0].target}</Card.Text>
+                  <Card.Text>{noticyArray[0].description}</Card.Text>
+                </Card.Body>
+              </Card>
+              {/* </Link> */}
             </Col>
 
             {/* Card 2 */}
             <Col className="center">
-              <Link to={`${noticyArray[1].url}`} className="link">
-                <Card className="card">
-                  <Card.Img variant="top" src={CardImage} />
-                  <Card.Body>
-                    <Card.Title>{noticyArray[1].title}</Card.Title>
-                    <Card.Text>{noticyArray[1].target}</Card.Text>
-                    <Card.Text>{noticyArray[1].description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Link>
+              {/* <Link to={`${noticyArray[1].url}`} className="link"> */}
+              <Card className="card">
+                <Card.Img variant="top" src={CardImage} />
+                <Card.Body>
+                  <Card.Title>{noticyArray[1].title}</Card.Title>
+                  <Card.Text>{noticyArray[1].target}</Card.Text>
+                  <Card.Text>{noticyArray[1].description}</Card.Text>
+                  <ShareButton />
+                </Card.Body>
+              </Card>
+              {/* </Link> */}
             </Col>
           </Row>
         </Col>
