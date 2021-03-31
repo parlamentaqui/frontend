@@ -58,14 +58,18 @@ function TopBar() {
             <Button
               variant="success"
               type="submit"
-              className={notInSearch && notInHome ? 'd-lg-none ml-2' : 'd-none'}
+              className={
+                notInSearch && notInHome ? 'd-lg-none ml-2 pr-0' : 'd-none'
+              }
               disabled={searchString.length === 0}
             >
               <FontAwesomeIcon
                 icon={faSearch}
                 color="#a4d4b4"
                 size="lg"
-                className={notInSearch && notInHome ? 'd-lg-none' : 'd-none'}
+                className={
+                  notInSearch && notInHome ? 'd-lg-none pr-0' : 'd-none'
+                }
                 onClick={() => {
                   if (!open) {
                     setOpen(true);
@@ -80,14 +84,16 @@ function TopBar() {
         <Button
           variant="success"
           type="submit"
-          className={notInSearch && notInHome && !open ? 'd-lg-none' : 'd-none'}
+          className={
+            notInSearch && notInHome && !open ? 'd-lg-none pr-0' : 'd-none'
+          }
           disabled={searchString.length === 0}
         >
           <FontAwesomeIcon
             icon={faSearch}
             color="#a4d4b4"
             size="lg"
-            className={notInSearch && notInHome ? 'd-lg-none' : 'd-none'}
+            className={notInSearch && notInHome ? 'd-lg-none pr-0' : 'd-none'}
             onClick={() => {
               if (!open) {
                 setOpen(true);
