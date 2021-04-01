@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Row,
-  Container,
-  Col,
-  ListGroup
-} from 'react-bootstrap';
+import { Row, Container, Col, ListGroup } from 'react-bootstrap';
 import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
@@ -20,7 +15,7 @@ const deputy = {
   politicalParty: 'PT',
   state: 'Distrito Federal',
   image: ProfileImage,
-  id: 0
+  id: 0,
 };
 
 const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
@@ -29,8 +24,8 @@ function HomeScreen() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     axios.get(homeNewsRoute).then((response) => {
+      console.log(response.data);
       setNews(response.data);
-      console.log(response);
     });
   }, []);
   return (
@@ -62,8 +57,10 @@ function HomeScreen() {
           <h3 className="recentActivity">Tweets recentes</h3>
           <Tweet />
           {/* Linha dos cards */}
+
+          <h3 className="recentActivity">Noticias recentes</h3>
           <Row className="mt-3">
-            <News news={news} />
+            <News news={news} quantity={2} />
           </Row>
         </Col>
       </Row>

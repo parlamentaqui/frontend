@@ -1,24 +1,29 @@
+import { getElementError } from '@testing-library/react';
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
-import CardImage from '../../images/CardImage.jpg';
+import { Card, CardGroup, Col, Row } from 'react-bootstrap';
 import './News.css';
 
-function News() {
+function News(props) {
+  const { news } = props;
+  let { quantity } = props;
+  quantity = !quantity ? news.length : quantity;
   return (
-    <div>
-      <Col className="center">
-        {/* <Link to={`${noticyArray[0].url}`} className="link"> */}
-        <Card className="card">
-          <Card.Img variant="top" src={CardImage} />
-          <Card.Body>
-            {/* <Card.Title>{noticyArray[0].title}</Card.Title>
-            <Card.Text>{noticyArray[0].target}</Card.Text>
-            <Card.Text>{noticyArray[0].description}</Card.Text> */}
-          </Card.Body>
-        </Card>
-        {/* </Link> */}
-      </Col>
+    <div className="root">
+      <Row>
+        {news.slice(0, quantity).map((element) => (
+          <Col xs={6}>
+            <Card>
+              <Card.Img variant="top" src={element.photo} className="img" />
+              <Card.Body>
+                <Card.Text className="title">{element.title}</Card.Text>
+                <Card.Text className="text pt-2">
+                  {element.deputy_name}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }
