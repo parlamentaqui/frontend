@@ -1,8 +1,14 @@
+.btn-secondary.focus.btn,
+.btn-secondary:focus.btn {
+  color: #fff;
+  background-color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
 .btn-secondary.btn {
-    color: black;
-    background-color: #3B1C32;
+    background-color: #ffffff;
     border-color: #ffffff;
-    align-items: flex-end;
 }
 
 .btn-secondary:not(:disabled):not(.disabled).active.btn, .btn-secondary:not(:disabled):not(.disabled):active.btn, .show>.btn-secondary.dropdown-toggle.btn {
@@ -39,15 +45,15 @@
 }
 
 .imagem {
-    width: 18px;
-    height: 16px;
+    width: 100%;
+    height: 100%;
 }
 
 .align {
-    align-content: flex-end;
+    justify-content: right;
 }
 
-.popover {
+.popover.popover {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,4 +78,5 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: padding-box;
+    border: none;
 }
