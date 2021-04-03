@@ -17,6 +17,7 @@ import IconGrafico from '../images/grafico.png';
 import IconAnexo from '../images/anexo.png';
 import IconFiltro from '../images/filtro.png';
 import '../css/DeputyProfileScreen.css';
+import Tweet from '../components/Tweet/Tweet';
 
 function DeputyProfileScreen() {
   return (
@@ -182,6 +183,16 @@ function DeputyProfileScreen() {
                 </tr>
               </tbody>
             </Table>
+          </Col>
+        </Row>
+        <Row className="space" />
+        <Row>
+          <Col md="6">
+            <h1>Notícias</h1>
+          </Col>
+          <Col md="6" className="body-tweets">
+            <h1>Tweets</h1>
+            <Tweet />
           </Col>
         </Row>
       </Container>

@@ -133,6 +133,10 @@ h6 {
   text-align: end;
 }
 
+.body-tweets {
+  height: 700px;
+}
+
 .scpace {
    height: 60px;
 }

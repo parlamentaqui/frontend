@@ -1,5 +1,5 @@
 .tweet-wrapper {
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 280px;
+    max-height: 600px;
 }
