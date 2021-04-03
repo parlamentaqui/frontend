@@ -3,6 +3,8 @@
   background-position: -15px -15px;
   width: 325px;
   height: 320px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
   
 .background-div {
@@ -20,19 +22,29 @@
   
 .tam-row-name {
   padding-top: 20px;
-  height: 100px;
+  height: auto;
 }
 .tam-row-info {
   padding-top: 20px;
-  height: 184px;
+  height: auto;
 }
 .tam-row-social {
-  height: 100px;
+  height: auto;
+  margin-top: 20px;
 }
 .col-info {
   border-left: 2px solid #FFFFFF;
 }
-  
+.col-line-top {
+  border-top: 1px solid #DADADA;
+}
+
+/*ICONS*/
+.icon-share-responsivo {
+  display: flex!important;
+  justify-content: flex-end!important;
+  align-items: flex-start!important;
+}
 .icon-email {
   width: 32px;
   height: 24px;
@@ -61,14 +73,19 @@
   width: 23px;
   height: 20px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 .icon-votacao {
+  margin-top: 20px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .icon-grafico {
   margin-left: 20px;
   margin-bottom: 10px;
+}
+.icon-confirma, .icon-cancela, .icon-share-table {
+  margin: 10px;
 }
   
 h3 {
@@ -130,6 +147,8 @@ h6 {
 }
 
 .alinhamento-end {
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: end;
 }
 
@@ -139,4 +158,21 @@ h6 {
 
 .scpace {
    height: 60px;
+}
+
+@media only screen and (max-width: 500px) {
+  .col-info {
+    border-left: 0px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+  }
+  .text-responsivo {
+    text-align: center;
+  }
+  .icon-share-responsivo {
+    display: flex!important;
+    justify-content: center!important;
+  }
+  .scpace {
+    height: 60px;
+ }
 }

@@ -1,0 +1,24 @@
+.icon-share-black, .icon-grafico {
+    width: 23px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    display: flex!important;
+    justify-content: flex-end!important;
+}
+
+.icon-gasto {
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+.test {
+    background-color: aqua;
+}
+
+.col-line-top {
+    border-top: 1px solid #DADADA;
+    padding: 20px;
+}
