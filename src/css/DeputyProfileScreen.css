@@ -1,57 +1,77 @@
 .img-arredondada {
   border-radius: 50%;
   background-position: -15px -15px;
-  height: 300px;
-  width: 300px;
- }
+  width: 325px;
+  height: 320px;
+}
   
- .background-div {
+.background-div {
   width: 100%;
   background: #2C2229;
   border-radius: 24px;
- }
+}
+
+.background-div-1 {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid #343A40;
+}
   
- .tam-row-name {
+.tam-row-name {
   padding-top: 20px;
   height: 100px;
- }
- .tam-row-info {
+}
+.tam-row-info {
   padding-top: 20px;
   height: 184px;
- }
- .tam-row-social {
+}
+.tam-row-social {
   height: 100px;
- }
- .col-info {
+}
+.col-info {
   border-left: 2px solid #FFFFFF;
- }
+}
   
- .icon-email {
+.icon-email {
   width: 32px;
   height: 24px;
   margin: 10px;
- }
- .icon-insta {
+}
+.icon-insta {
   width: 28px;
   height: 28px;
   margin: 10px;
- }
- .icon-face {
+}
+.icon-face {
   width: 31px;
   height: 30.81px;
   margin: 10px;
- }
- .icon-tt {
+}
+.icon-tt {
   width: 32px;
   height: 25.99px;
   margin: 10px;
- }
- .icon-share {
+}
+.icon-share {
   width: 23px;
   height: 20px;
- }
+}
+.icon-share-black {
+  width: 23px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.icon-votacao {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.icon-grafico {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
   
- h3 {
+h3 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -59,33 +79,60 @@
   line-height: 40px;
   color: #FFFFFF;
   opacity: 0.87;
- }
+}
   
- h4 {
+h4 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 23.04px;
   line-height: 23px;
   color: #FFFFFF;
+}
   
- }
-  
- h5 {
+h5 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 19.2px;
   line-height: 19px;
   color: #FFFFFF;
- }
+}
   
- h6 {
+h6 {
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   color: #FFFFFF;
- }
- 
+}
+
+.h4-table {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23.04px;
+  line-height: 23px;
+  color: #212529;
+}
+
+.p-table {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #212529;
+}
+
+.alinhamento-end {
+  text-align: end;
+}
+
+.scpace {
+   height: 60px;
+}
