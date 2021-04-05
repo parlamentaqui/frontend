@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Container, Col, ListGroup } from 'react-bootstrap';
+import {
+  Row,
+  Container,
+  Col,
+  Card,
+  ListGroup
+} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
-import ProfileImage from '../../images/Kokay.jpg';
-import ActivityListItem from '../../components/ActivityListItem/index';
 import MobileLogo from '../../images/LogoMobile.svg';
 import News from '../../components/News/News';
 import Tweet from '../../components/Tweet/Tweet';
-import { homeNewsRoute } from '../../Api';
-
-const deputy = {
-  name: 'Érika Kokay Almeida',
-  politicalParty: 'PT',
-  state: 'Distrito Federal',
-  image: ProfileImage,
-  id: 0,
-};
-
-const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
+import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
+import DeputiesList from '../../components/DeputiesList/DeputiesList';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);
+  const [deputados, setDeputados] = useState([]);
   useEffect(() => {
     axios.get(homeNewsRoute).then((response) => {
-      console.log(response.data);
       setNews(response.data);
+    axios.get(deputadosHomeRoute).then((response) => {
+      setDeputados(response.data);
     });
   }, []);
+
   return (
     <Container as="main" className="layout">
       {/* Primeira linha > Logo */}
@@ -43,11 +42,7 @@ function HomeScreen() {
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
-          <ListGroup>
-            {testArray.map((element) => (
-              <ActivityListItem targetInfo={element} />
-            ))}
-          </ListGroup>
+          <DeputiesList deputados={deputados} />
         </Col>
 
         <Col md="12" lg="6">

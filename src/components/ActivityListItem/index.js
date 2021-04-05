@@ -16,18 +16,26 @@ function ActivityListItem({ targetInfo }) {
     <ListGroupItem as="div" className="activityContainer">
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
-      <Link to={`/deputados/${targetInfo.id}`} className="link">
+      <Link to={`/deputados/${targetInfo.id}`} className="link d-block">
         <Row className="center">
-          <Col xs={2} className="mr-2 profileImage">
-            <Image src={targetInfo.image} alt={`${targetInfo.name} profile.`} roundCircle />
+          <Col xs={2}>
+            <Image
+              className="w-100 img-deputados"
+              src={targetInfo.photo_url}
+              alt={`${targetInfo.name} profile.`}
+            />
           </Col>
           <Col>
             <h5 className="targetInfoStrings">{targetInfo.name}</h5>
-            <p className="targetInfoStrings">{targetInfo.politicalParty}</p>
-            <p className="targetInfoStrings">{targetInfo.state}</p>
+            <p className="targetInfoStrings">{targetInfo.party}</p>
+            <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
           </Col>
           <Col xs={2} className="center">
-            <Image src={ArrowRight} alt={`${targetInfo.name} profile.`} className="arrowRight" />
+            <Image
+              src={ArrowRight}
+              alt="acessar perfil"
+              className="arrowRight"
+            />
           </Col>
         </Row>
       </Link>
