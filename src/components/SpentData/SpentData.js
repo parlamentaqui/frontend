@@ -26,40 +26,42 @@ const spentArray = [spentRow, spentRow, spentRow];
 
 function DataVoting() {
   return (
-    <Row className="background-div-1">
-      <Col>
-        <Row>
-          <Col md="10">
-            <img src={IconGasto} alt="Gasto" className="icon-gasto" />
-            GASTOS
-          </Col>
-          <Col md="1">
-            <img src={IconShareBlack} alt="Share" className="icon-share-black" />
-          </Col>
-          <Col md="1">
-            <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
-          </Col>
-        </Row>
-        <Row className="col-line-top">
-          <Col md="3">Serviço</Col>
-          <Col md="2">Valor</Col>
-          <Col md="2">
-            Tipo de gasto
-            <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
-          </Col>
-          <Col md="2">Data</Col>
-          <Col md="2">
-            Razão Social
-            <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
-          </Col>
-          <Col md="1">NF</Col>
-        </Row>
-        {spentArray.map(spentRow)}
-        <Row className="col-line-top">
-          <Col md="12" className="alinhamento-end">VER MAIS</Col>
-        </Row>
-      </Col>
-    </Row>
+    <div className="d-flex justify-content-center">
+      <Row className="background-div-1">
+        <Col>
+          <Row>
+            <Col md="10">
+              <img src={IconGasto} alt="Gasto" className="icon-gasto" />
+              GASTOS
+            </Col>
+            <Col md="1">
+              <img src={IconShareBlack} alt="Share" className="icon-share-black" />
+            </Col>
+            <Col md="1">
+              <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
+            </Col>
+          </Row>
+          <Row className="col-line-top">
+            <Col md="3">Serviço</Col>
+            <Col md="2">Valor</Col>
+            <Col md="2">
+              Tipo de gasto
+              <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
+            </Col>
+            <Col md="2">Data</Col>
+            <Col md="2">
+              Razão Social
+              <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
+            </Col>
+            <Col md="1">NF</Col>
+          </Row>
+          {spentArray.map(spentRow)}
+          <Row className="col-line-top">
+            <Col md="12" className="alinhamento-end">VER MAIS</Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

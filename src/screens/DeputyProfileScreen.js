@@ -3,25 +3,31 @@ import {
   Container, Row, Col
 } from 'react-bootstrap';
 import DataVoting from '../components/DataVoting/DataVoting';
+import DataVotingMobile from '../components/DataVoting/DataVotingMobile';
 import SpentData from '../components/SpentData/SpentData';
+import SpentDataMobile from '../components/SpentData/SpentDataMobile';
 import Tweet from '../components/Tweet/Tweet';
 import Perfil from '../components/Profile/Profile';
+import PerfilMobile from '../components/Profile/ProfileMobile';
 import '../css/DeputyProfileScreen.css';
 
 function DeputyProfileScreen() {
   return (
     <main>
-      <Container>
-        <Perfil />
+      <Container className="d-block d-sm-none">
+        <PerfilMobile />
+        <Row className="space" />
+        <DataVotingMobile />
+        <Row className="space" />
+        <SpentDataMobile />
       </Container>
-
-      <Row className="space" />
-      <Container>
+      <Container className="d-none d-sm-block">
+        <Perfil />
+        <Row className="space" />
         <DataVoting />
         <Row className="space" />
         <SpentData />
       </Container>
-
       <Row className="space" />
       <Container>
         <Row>
