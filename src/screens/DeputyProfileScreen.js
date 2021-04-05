@@ -17,7 +17,8 @@ function DeputyProfileScreen() {
       setDeputado(response.data);
     });
   }, []);
-  function calculateAge(birthday) { // birthday is a date
+  function calculateAge(birthday) {
+    // birthday is a date
     const ageDifMs = Date.now() - new Date(birthday).getTime();
     const ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
@@ -36,7 +37,6 @@ function DeputyProfileScreen() {
                     <h4 className="nameDeputy">{deputado.full_name}</h4>
                     <p>
                       TITULAR EM EXERCÍCIO
-                      {' '}
                       {deputado.initial_legislature_year}
                       {' - '}
                       {deputado.final_legislature_year}
@@ -56,10 +56,14 @@ function DeputyProfileScreen() {
           {/* Coluna da direita / informações pontuais */}
           <Col lg="4" className="divInfoComplete">
             <Row>
-              <Col className="colImage"><Image src={deputado.photo_url} fluid /></Col>
+              <Col className="colImage">
+                <Image src={deputado.photo_url} fluid />
+              </Col>
             </Row>
             <Row>
-              <Col className="rowTitle d-flex justify-content-center">Informações pessoais</Col>
+              <Col className="rowTitle d-flex justify-content-center">
+                Informações pessoais
+              </Col>
             </Row>
             <Row>
               <Col lg="6">
@@ -101,37 +105,42 @@ function DeputyProfileScreen() {
                 <div className="colInfo1">
                   <p>
                     {deputado.birth_date && calculateAge(deputado.birth_date)}
-                    {' '}
                     (
-                    {(new Date(deputado.birth_date).toLocaleString().split(' ')[0])}
+                    {
+                      new Date(deputado.birth_date)
+                        .toLocaleString()
+                        .split(' ')[0]
+                    }
                     )
                   </p>
                 </div>
               </Col>
             </Row>
             <Row>
-              <Col className="rowTitle d-flex justify-content-center">Informações do Gabinete</Col>
+              <Col className="rowTitle d-flex justify-content-center">
+                Informações do Gabinete
+              </Col>
             </Row>
             <Row>
               <Col lg="6">
                 <div className="colInfo">
                   <p>Número da sala</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>NUMERO DA SALA NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
-                <div className="colInfo"> 
+                <div className="colInfo">
                   <p>Andar</p>
                 </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>ANDAR NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
@@ -141,45 +150,59 @@ function DeputyProfileScreen() {
               <Col lg="6">
                 <div className="colInfo1">
                   <p>PREDIO NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
-                    <p>Telefone</p>
-                  </div>
+                  <p>Telefone</p>
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>TELEFONE NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
-                    <p>Email</p>
-                  </div>
+                  <p>Email</p>
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
-                    <p>{deputado.email}</p>
-                  </div>
+                  <p>{deputado.email}</p>
+                </div>
               </Col>
             </Row>
             <Row>
-              <Col className="rowTitle d-flex justify-content-center">Informações do Gabinete</Col>
+              <Col className="rowTitle d-flex justify-content-center">
+                Informações do Gabinete
+              </Col>
             </Row>
             <Row className="rowSocial">
               <Col className="d-flex justify-content-center align-items-center">
-                <a target="_blank" rel="noreferrer" href={`https://www.facebook.com/${deputado.facebook_username}`}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://www.facebook.com/${deputado.facebook_username}`}
+                >
                   <Image className="icon" src={IconFace} />
                 </a>
               </Col>
               <Col className="d-flex justify-content-center align-items-center">
-                <a target="_blank" rel="noreferrer" href={`https://www.instagram.com/${deputado.instagram_username}`}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://www.instagram.com/${deputado.instagram_username}`}
+                >
                   <Image className="icon" src={IconInsta} />
-                </a> 
+                </a>
               </Col>
               <Col className="d-flex justify-content-center align-items-center">
-                <a target="_blank" rel="noreferrer" href={`https://www.twitter.com/${deputado.facebook_username}`}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://www.twitter.com/${deputado.facebook_username}`}
+                >
                   <Image className="icon" src={IconTT} />
                 </a>
               </Col>

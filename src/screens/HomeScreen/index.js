@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Row,
-  Container,
-  Col,
-  Card,
-  ListGroup
-} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Row, Container, Col } from 'react-bootstrap';
 import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
@@ -22,6 +15,7 @@ function HomeScreen() {
   useEffect(() => {
     axios.get(homeNewsRoute).then((response) => {
       setNews(response.data);
+    });
     axios.get(deputadosHomeRoute).then((response) => {
       setDeputados(response.data);
     });
