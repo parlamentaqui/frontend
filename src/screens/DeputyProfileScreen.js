@@ -116,22 +116,22 @@ function DeputyProfileScreen() {
               <Col lg="6">
                 <div className="colInfo">
                   <p>Número da sala</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>NUMERO DA SALA NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
-                <div className="colInfo"> 
+                <div className="colInfo">
                   <p>Andar</p>
                 </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>ANDAR NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
@@ -141,27 +141,27 @@ function DeputyProfileScreen() {
               <Col lg="6">
                 <div className="colInfo1">
                   <p>PREDIO NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
-                    <p>Telefone</p>
-                  </div>
+                  <p>Telefone</p>
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
                   <p>TELEFONE NAO TEM NO DB</p>
-                </div>  
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo">
-                    <p>Email</p>
-                  </div>
+                  <p>Email</p>
+                </div>
               </Col>
               <Col lg="6">
                 <div className="colInfo1">
-                    <p>{deputado.email}</p>
-                  </div>
+                  <p>{deputado.email}</p>
+                </div>
               </Col>
             </Row>
             <Row>
@@ -176,7 +176,7 @@ function DeputyProfileScreen() {
               <Col className="d-flex justify-content-center align-items-center">
                 <a target="_blank" rel="noreferrer" href={`https://www.instagram.com/${deputado.instagram_username}`}>
                   <Image className="icon" src={IconInsta} />
-                </a> 
+                </a>
               </Col>
               <Col className="d-flex justify-content-center align-items-center">
                 <a target="_blank" rel="noreferrer" href={`https://www.twitter.com/${deputado.facebook_username}`}>
