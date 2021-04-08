@@ -44,7 +44,7 @@ function SearchFilter(props) {
         </h1>
       </Container>
 
-      <div className="filter pb-4 pt-4">
+      <div className="filter pb-4 pt-4 corpo">
         <Container>
           <Form>
             <Row>
