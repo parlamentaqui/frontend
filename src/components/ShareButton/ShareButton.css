@@ -107,3 +107,11 @@
   border-style: solid;
   border-top-color: #3b1c32;
 }
+
+.btn-primary:not(:disabled):not(.disabled).active.btn,
+.btn-primary:not(:disabled):not(.disabled):active.btn,
+.show > .btn-primary.dropdown-toggle.btn {
+  color: #fff;
+  background-color: #3b1c32;
+  border-color: #3b1c32;
+}

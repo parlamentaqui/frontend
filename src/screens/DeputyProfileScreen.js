@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Container, Image } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import DataVoting from '../components/DataVoting/DataVoting';
 import DataVotingMobile from '../components/DataVoting/DataVotingMobile';
@@ -9,9 +9,9 @@ import SpentDataMobile from '../components/SpentData/SpentDataMobile';
 import Perfil from '../components/Profile/Profile';
 import PerfilMobile from '../components/Profile/ProfileMobile';
 import '../css/DeputyProfileScreen.css';
-import IconFace from '../images/face.png';
-import IconInsta from '../images/insta.png';
-import IconTT from '../images/twitter.png';
+// import IconFace from '../images/face.png';
+// import IconInsta from '../images/insta.png';
+// import IconTT from '../images/twitter.png';
 import { profileRoute } from '../Api';
 
 function DeputyProfileScreen() {
@@ -32,7 +32,7 @@ function DeputyProfileScreen() {
   return (
     <main>
       <Container className="d-block d-sm-none">
-        <PerfilMobile />
+        <PerfilMobile deputy={deputado} />
         <Row className="space" />
         <DataVotingMobile />
         <Row className="space" />
