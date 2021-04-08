@@ -7,6 +7,8 @@ function News(props) {
   const { news } = props;
   let { quantity } = props;
   quantity = !quantity ? news.length : quantity;
+  const shareMessage = (element) => `Confira a notícia sobre o deputado ${element.deputy_name}: ${element.title} Via parlamentaqui.com`;
+  const shareLink = (element) => element.link;
   return (
     <div className="root">
       <Row>
@@ -19,7 +21,10 @@ function News(props) {
                 <Card.Text className="text pt-2">
                   {element.deputy_name}
                 </Card.Text>
-                <ShareButton />
+                <ShareButton
+                  message={shareMessage(element)}
+                  link={shareLink(element)}
+                />
               </Card.Body>
             </Card>
           </Col>

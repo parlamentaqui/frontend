@@ -3,11 +3,7 @@ import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './ShareButton.css';
 
 function ShareButton(props) {
-<<<<<<< HEAD
   const { message, link } = props;
-=======
-  const { deputyName, newsTitle, link } = props;
->>>>>>> #29 Fixing share button
   const handleTweetShare = () => {
     const twitterString = `https://twitter.com/share?url=${link}&text=${message}`;
     const win = window.open(twitterString, '_blank');
@@ -35,10 +31,18 @@ function ShareButton(props) {
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Content className="cor">
                 <Button onClick={handleWppShare}>
-                  <img src="/images/WhatsappIcon.svg" className="d-inline-block imagem" alt="WhatsappButton" />
+                  <img
+                    src="/images/WhatsappIcon.svg"
+                    className="d-inline-block imagem"
+                    alt="WhatsappButton"
+                  />
                 </Button>
                 <Button onClick={handleFaceShare}>
-                  <img src="/images/FacebookIcon.svg" className="d-inline-block imagem" alt="FacebookButton" />
+                  <img
+                    src="/images/FacebookIcon.svg"
+                    className="d-inline-block imagem"
+                    alt="FacebookButton"
+                  />
                 </Button>
                 <Button onClick={handleTweetShare}>
                   <img
@@ -47,13 +51,16 @@ function ShareButton(props) {
                     alt="TwitterButton"
                   />
                 </Button>
-
               </Popover.Content>
             </Popover>
-      )}
+          )}
         >
           <Button variant="secondary">
-            <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" />
+            <img
+              src="/images/ShareButtonIcon.svg"
+              className="imagem"
+              alt="SearchButton"
+            />
           </Button>
         </OverlayTrigger>
       ))}
