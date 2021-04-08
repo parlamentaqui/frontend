@@ -7,7 +7,7 @@ function DeputiesList(props) {
   return (
     <div className="mt-3">
       <ListGroup>
-        {deputados.map((element) => (
+        {deputados.slice(0, 6).map((element) => (
           <ActivityListItem targetInfo={element} key={element.id} />
         ))}
       </ListGroup>
