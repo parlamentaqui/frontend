@@ -5,7 +5,6 @@ import {
   Col
 } from 'react-bootstrap';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
@@ -13,7 +12,6 @@ import News from '../../components/News/News';
 import Tweet from '../../components/Tweet/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList/DeputiesList';
-// import ShareButton from '../../components/ShareButton/ShareButton';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);

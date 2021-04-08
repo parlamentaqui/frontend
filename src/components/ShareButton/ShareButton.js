@@ -35,11 +35,9 @@ function ShareButton(props) {
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Content className="cor">
                 <Button onClick={handleWppShare}>
-                  {/* <a href={`whatsapp://send?text=${urlAtual}`} data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp" /> */}
                   <img src="/images/WhatsappIcon.svg" className="d-inline-block imagem" alt="WhatsappButton" />
                 </Button>
                 <Button onClick={handleFaceShare}>
-                  {/* <a href={`https://www.facebook.com/sharer/sharer.php?u=${urlAtual}&t=<Confira esta notícia sobre {sexo ? 'o' : 'a'} deputadx nome>`} onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook" /> */}
                   <img src="/images/FacebookIcon.svg" className="d-inline-block imagem" alt="FacebookButton" />
                 </Button>
                 <Button onClick={handleTweetShare}>
