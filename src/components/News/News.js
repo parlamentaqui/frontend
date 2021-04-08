@@ -1,6 +1,6 @@
-import { getElementError } from '@testing-library/react';
 import React from 'react';
-import { Card, CardGroup, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
+import ShareButton from '../ShareButton/ShareButton';
 import './News.css';
 
 function News(props) {
@@ -19,6 +19,7 @@ function News(props) {
                 <Card.Text className="text pt-2">
                   {element.deputy_name}
                 </Card.Text>
+                <ShareButton />
               </Card.Body>
             </Card>
           </Col>

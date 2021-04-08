@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Row,
   Container,
-  Col,
-  Card
+  Col
 } from 'react-bootstrap';
 import axios from 'axios';
 // import { Link } from 'react-router-dom';
