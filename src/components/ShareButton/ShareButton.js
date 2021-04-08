@@ -3,16 +3,14 @@ import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './ShareButton.css';
 
 function ShareButton(props) {
-  const { deputyName, newsTitle, link } = props;
+  const { link, message } = props;
   const handleTweetShare = () => {
-    const shareMessage = `Confira a notícia sobre o deputado ${deputyName}: ${newsTitle} Via parlamentaqui.com/#news`;
-    const twitterString = `https://twitter.com/share?url=${link}&text=${shareMessage}`;
+    const twitterString = `https://twitter.com/share?url=${link}&text=${message}`;
     const win = window.open(twitterString, '_blank');
     win.focus();
   };
   const handleWppShare = () => {
-    const shareMessage = `Confira a notícia sobre o deputado ${deputyName}: ${newsTitle} Via parlamentaqui.com/#news`;
-    const wppString = `https://api.whatsapp.com/send?text=${shareMessage}`;
+    const wppString = `https://api.whatsapp.com/send?text=${message}`;
     const win = window.open(wppString, '_blank');
     win.focus();
   };
