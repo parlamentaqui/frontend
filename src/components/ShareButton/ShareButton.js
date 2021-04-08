@@ -1,11 +1,9 @@
 import React from 'react';
 import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './ShareButton.css';
-// import { useHistory } from 'react-router-dom';
 
 function ShareButton(props) {
   const { deputyName, newsTitle, link } = props;
-  // const history = useHistory();
   const handleTweetShare = () => {
     const shareMessage = `Confira a notícia sobre o deputado ${deputyName}: ${newsTitle} Via parlamentaqui.com/#news`;
     const twitterString = `https://twitter.com/share?url=${link}&text=${shareMessage}`;
