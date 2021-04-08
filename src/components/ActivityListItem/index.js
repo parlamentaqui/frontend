@@ -16,7 +16,6 @@ function ActivityListItem({ targetInfo }) {
     <ListGroupItem as="div" className="activityContainer">
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
-      {console.log(targetInfo)}
       <Link to={`/deputado/${targetInfo.id}`} className="link d-block">
         <Row className="center">
           <Col xs={2}>
