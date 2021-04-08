@@ -3,7 +3,11 @@ import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './ShareButton.css';
 
 function ShareButton(props) {
+<<<<<<< HEAD
   const { message, link } = props;
+=======
+  const { deputyName, newsTitle, link } = props;
+>>>>>>> #29 Fixing share button
   const handleTweetShare = () => {
     const twitterString = `https://twitter.com/share?url=${link}&text=${message}`;
     const win = window.open(twitterString, '_blank');
