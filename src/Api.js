@@ -7,7 +7,7 @@ export const tweetURL = `${apiURL}/twitter`;
 export const homeTweetRoute = `${tweetURL}/tweets`;
 export const newsURL = `${apiURL}/news`;
 export const homeNewsRoute = `${newsURL}/deputies`;
-export const deputadosHomeRoute = `${camaraURL}/home`;
+export const deputadosHomeRoute = `${camaraURL}/deputies`;
 export const partiesSearchRoute = `${camaraURL}/parties`;
 export const ufSearchRoute = `${camaraURL}/federative_unities`;
 export const profileRoute = (id) => `${camaraURL}/profile/${id}`;
