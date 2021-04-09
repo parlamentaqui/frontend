@@ -31,18 +31,10 @@ function ShareButton(props) {
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Content className="cor">
                 <Button onClick={handleWppShare}>
-                  <img
-                    src="/images/WhatsappIcon.svg"
-                    className="d-inline-block imagem"
-                    alt="WhatsappButton"
-                  />
+                  <img src="/images/WhatsappIcon.svg" className="d-inline-block imagem" alt="WhatsappButton" />
                 </Button>
                 <Button onClick={handleFaceShare}>
-                  <img
-                    src="/images/FacebookIcon.svg"
-                    className="d-inline-block imagem"
-                    alt="FacebookButton"
-                  />
+                  <img src="/images/FacebookIcon.svg" className="d-inline-block imagem" alt="FacebookButton" />
                 </Button>
                 <Button onClick={handleTweetShare}>
                   <img
@@ -51,16 +43,13 @@ function ShareButton(props) {
                     alt="TwitterButton"
                   />
                 </Button>
+
               </Popover.Content>
             </Popover>
-          )}
+      )}
         >
           <Button variant="secondary">
-            <img
-              src="/images/ShareButtonIcon.svg"
-              className="imagem"
-              alt="SearchButton"
-            />
+            <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" />
           </Button>
         </OverlayTrigger>
       ))}

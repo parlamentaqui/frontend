@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Container, Col } from 'react-bootstrap';
+import {
+  Row,
+  Container,
+  Col
+} from 'react-bootstrap';
 import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
