@@ -8,8 +8,8 @@ import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
-import News from '../../components/News/News';
-import Tweet from '../../components/Tweet/Tweet';
+import News from '../../components/News';
+import Tweet from '../../components/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList/DeputiesList';
 

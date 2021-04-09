@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
-import './SearchFilter.css';
+import './index.css';
 
 function SearchFilter(props) {
   const location = useLocation();

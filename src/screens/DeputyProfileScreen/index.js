@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import '../css/DeputyProfileScreen.css';
+import './index.css';
 import Image from 'react-bootstrap/Image';
-import IconFace from '../img/icon-face.png';
-import IconInsta from '../img/icon-insta.png';
-import IconTT from '../img/icon-tt.png';
-import { profileRoute } from '../Api';
+import IconFace from '../../img/icon-face.png';
+import IconInsta from '../../img/icon-insta.png';
+import IconTT from '../../img/icon-tt.png';
+import { profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();

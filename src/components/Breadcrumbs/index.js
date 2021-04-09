@@ -1,5 +1,5 @@
 import React from 'react';
-import './breadcrumbs.css';
+import './index.css';
 import {
   Breadcrumb, Container
 } from 'react-bootstrap';
