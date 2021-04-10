@@ -63,3 +63,9 @@
   line-height: 24px;
   color: #6c757d;
 }
+
+img.card-img-top.img{
+  height: 144px;
+  object-fit: cover;
+  object-position: center;
+}

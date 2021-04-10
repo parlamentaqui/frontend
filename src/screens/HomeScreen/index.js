@@ -40,7 +40,7 @@ function HomeScreen() {
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
-          <DeputiesList deputados={deputados} />
+          <DeputiesList deputados={deputados} elements={6} />
         </Col>
 
         <Col md="12" lg="6">
