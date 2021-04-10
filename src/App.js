@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from './screens/HomeScreen';
 import DeputiesScreen from './screens/DeputiesScreen';
 import ErrorScreen from './screens/ErrorScreen';
 import TopBar from './components/TopBar';
@@ -10,6 +9,7 @@ import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumbs';
 import DeputyProfileScreen from './screens/DeputyProfileScreen';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <TopBar />
       <Breadcrumbs />
       <Switch>
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={HomeScreen} exact />
         <Route path="/deputados/:id" component={DeputyProfileScreen} />
         <Route path="/deputados" component={DeputiesScreen} />
         <Route path="/projetos" component={ProjectsScreen} />

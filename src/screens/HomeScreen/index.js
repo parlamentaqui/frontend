@@ -11,7 +11,7 @@ import MobileLogo from '../../images/LogoMobile.svg';
 import News from '../../components/News';
 import Tweet from '../../components/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
-import DeputiesList from '../../components/DeputiesList/DeputiesList';
+import DeputiesList from '../../components/DeputiesList';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);
@@ -40,21 +40,19 @@ function HomeScreen() {
           {/* Atividades Recentes */}
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
-          <DeputiesList deputados={deputados} elements={6} />
+          <DeputiesList deputados={deputados} elements={6} theme="dark" />
         </Col>
-
         <Col md="12" lg="6">
           {/* Tweets e noticias */}
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
-          <h3 className="recentActivity">Tweets recentes</h3>
+          <h3 className="recentActivity">Você pode se interessar</h3>
           <Tweet />
           {/* Linha dos cards */}
-
-          <h3 className="recentActivity">Noticias recentes</h3>
-          <Row className="mt-3">
+          <hr />
+          <div className="mt-3">
             <News news={news} quantity={2} />
-          </Row>
+          </div>
         </Col>
       </Row>
     </Container>

@@ -28,11 +28,12 @@ code {
   background: gray;
 }
 
-h1,h2,h3,h4,h5,p{
+body h1,body h2,body h3,body h4,body h5,body p{
+  margin-bottom: 1px;
   color: #212529;
 }
 
-h1{
+body h1{
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
@@ -40,39 +41,39 @@ h1{
   line-height: 40px;
 }
 
-h2,h3,h4,h5{
+body h2,body h3,body h4,body h5{
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: normal;
 }
 
-h2{
+body h2{
   font-size: 33.18px;
   line-height: 33px;
 }
 
-h3{
+body h3{
   font-size: 27.65px;
   line-height: 28px;
 }
 
-h4{
+body h4{
   font-size: 23.04px;
   line-height: 23px;
 }
 
-h5{
+body h5{
   font-size: 19.2px;
   line-height: 19px;
 }
 
-h5.title{
+body h5.title{
   font-weight: 500;
   font-size: 19.2px;
   line-height: 19px;
 }
 
-p{
+body p{
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: normal;

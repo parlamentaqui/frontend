@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import SearchFilter from '../components/SearchFilter';
-import DeputiesList from '../components/DeputiesList/DeputiesList';
+import DeputiesList from '../components/DeputiesList';
 import { camaraSearchRoute, partiesSearchRoute, ufSearchRoute } from '../Api';
 
 function SearchScreen() {
