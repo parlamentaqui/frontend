@@ -18,7 +18,7 @@ function News(props) {
               <Card.Img variant="top" src={element.photo} className="img" />
               <Card.Body>
                 <Card.Text className="title">{element.title}</Card.Text>
-                <Card.Text className="text pt-2">
+                <Card.Text className="text pt-2 d-flex justify-content-between">
                   {element.deputy_name}
                   <ShareButton
                     message={shareMessage(element)}
