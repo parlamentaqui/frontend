@@ -20,11 +20,11 @@ function News(props) {
                 <Card.Text className="title">{element.title}</Card.Text>
                 <Card.Text className="text pt-2">
                   {element.deputy_name}
+                  <ShareButton
+                    message={shareMessage(element)}
+                    link={shareLink(element)}
+                  />
                 </Card.Text>
-                <ShareButton
-                  message={shareMessage(element)}
-                  link={shareLink(element)}
-                />
               </Card.Body>
             </Card>
           </Col>
