@@ -32,7 +32,7 @@ function DeputyProfileScreen() {
   return (
     <main>
       <Container className="d-block d-sm-none">
-        <PerfilMobile />
+        <PerfilMobile deputy={deputado} />
         <Row className="space" />
         <DataVotingMobile />
         <Row className="space" />
