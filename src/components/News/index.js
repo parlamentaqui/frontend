@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import ShareButton from '../ShareButton/ShareButton';
-import './News.css';
+import ShareButton from '../ShareButton';
+import './index.css';
 
 function News(props) {
   const { news } = props;
@@ -10,7 +10,7 @@ function News(props) {
   const shareMessage = (element) => `Confira a notícia sobre o deputado ${element.deputy_name}: ${element.title} Via parlamentaqui.com`;
   const shareLink = (element) => element.link;
   return (
-    <div className="root">
+    <div className="root news-wrapper">
       <Row>
         {news.slice(0, quantity).map((element) => (
           <Col xs={6}>

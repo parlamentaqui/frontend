@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tweet.css';
+import './index.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 

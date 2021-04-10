@@ -1,6 +1,6 @@
 import React from 'react';
 import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
-import './ShareButton.css';
+import './index.css';
 
 function ShareButton(props) {
   const { link, message } = props;
