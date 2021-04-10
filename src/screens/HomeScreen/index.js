@@ -40,7 +40,7 @@ function HomeScreen() {
   const [tweets, setTweets] = useState([]);
   useEffect(() => {
     axios.get(homeTweetRoute).then((response) => {
-      const data = response.data.split(' ');
+      const { data } = response;
       setTweets(data);
     });
   }, []);
@@ -60,7 +60,9 @@ function HomeScreen() {
           {/* Tamanhos de viewport >>> md = tamanho medio , lg = tamanho grande */}
           <h3 className="recentActivity">Atividades recentes</h3>
           <ListGroup>
-            {testArray.map((element) => <ActivityListItem targetInfo={element} />)}
+            {testArray.map((element) => (
+              <ActivityListItem targetInfo={element} />
+            ))}
           </ListGroup>
         </Col>
 
