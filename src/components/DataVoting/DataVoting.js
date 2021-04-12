@@ -28,7 +28,7 @@ function defineVote(vote) {
   if (vote.localeCompare('Sim')) {
     return (
       <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
+        <img src={IconConfirma} alt="Confirma" className="icon-confirma underline" />
         <img src={IconCancela} alt="Cancela" className="icon-cancela" />
         <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
       </div>
@@ -37,7 +37,7 @@ function defineVote(vote) {
   return (
     <div>
       <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
+      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela underline" />
       <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
     </div>
   );
@@ -79,17 +79,16 @@ function DataVoting() {
             <Col md="2">Proposições</Col>
             <Col md="2">Voto</Col>
           </Row>
-          {votes.map((element) => (
+          {votes.slice(0, 2).map((element) => (
             <Row className="col-line-top">
               <Col md="6" className="p-table">
                 <p>{element.proposition_description}</p>
               </Col>
-              <Col md="2">{defineDate(element.date_time_vote)}</Col>
-              <Col md="2">{element.proposition_id}</Col>
-              <Col md="2">{defineVote(element.vote)}</Col>
+              <Col md="2" className="col-center">{defineDate(element.date_time_vote)}</Col>
+              <Col md="2" className="col-center">{element.proposition_id}</Col>
+              <Col md="2" className="col-center">{defineVote(element.vote)}</Col>
             </Row>
           ))}
-          ;
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">
               VER MAIS

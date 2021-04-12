@@ -28,7 +28,7 @@ function defineVote(voto) {
   if (voto.localeCompare('Sim')) {
     return (
       <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
+        <img src={IconConfirma} alt="Confirma" className="icon-confirma underline" />
         <img src={IconCancela} alt="Cancela" className="icon-cancela" />
         <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
       </div>
@@ -37,7 +37,7 @@ function defineVote(voto) {
   return (
     <div>
       <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
+      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela underline" />
       <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
     </div>
   );
@@ -57,8 +57,11 @@ function votingM(element) {
                 <p>{element.proposition_description}</p>
               </Col>
               <Col md="4" className="col-line-top">
-                <p>Proposições: </p>
-                {element.proposition_id}
+                <p>
+                  Proposições:
+                  {' '}
+                  {element.proposition_id}
+                </p>
               </Col>
               <Col md="2" className="d-flex justify-content-center col-line-top">
                 {defineVote(element.vote)}
@@ -71,61 +74,15 @@ function votingM(element) {
   );
 }
 
-function votingM2() {
-  return (
-    <div className="d-flex justify-content-center div-body">
-      <Row className="background-div-1">
-        <Col>
-          <Row>
-            <Col className="text-sm">Ementa:</Col>
-            <Col className="d-flex justify-content-end text-sm">18/03/2020</Col>
-          </Row>
-          <Row>
-            <Col md="6" className="p-table col-line-top">
-              <p>
-                Alteração do Regime de Tramitação desta proposição em virtude da
-                alteração do regime do PL 3292/2020, por ter sido aprovado o REQ
-                245/2021 que está apensado ao primeiro.
-              </p>
-            </Col>
-            <Col md="4" className="col-line-top">
-              Proposições:
-              <p>PL 4195/2012</p>
-            </Col>
-            <Col md="2" className="d-flex justify-content-center col-line-top">
-              <img
-                src={IconConfirma}
-                alt="Confirma"
-                className="icon-confirma"
-              />
-              <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-              <img
-                src={IconShareBlack}
-                alt="Share"
-                className="icon-share-table icon-share"
-              />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </div>
-  );
-}
-
-const votingMArray = [];
-
 function DataVotingMobile() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
 
-  console.log(voteRoute(id));
   useEffect(async () => {
     const result = await axios(voteRoute(id));
     setVotes(result.data);
   }, []);
-
-  console.log(votes);
 
   return (
     <div>
@@ -140,22 +97,7 @@ function DataVotingMobile() {
           />
         </Col>
       </Row>
-      {/* {votes.map((element) => (
-      ))}
-      ; */}
-      {/* {votes.map((element) => (
-        <Row className="col-line-top">
-          <Col md="6" className="p-table">
-            <p>{element.proposition_description}</p>
-          </Col>
-          <Col md="2">{element.date_time_vote}</Col>
-          <Col md="2">{element.proposition_id}</Col>
-          <Col md="2">{defineVote(element.vote)}</Col>
-        </Row>
-      ))}
-      ; */}
-      {votes.map((element) => votingM(element))}
-      ;
+      {votes.slice(0, 2).map((element) => votingM(element))}
       <Row>
         <Col md="12" className="alinhamento-end">
           VER MAIS
