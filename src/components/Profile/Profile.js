@@ -6,7 +6,7 @@ import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
-import ShareButton from '../ShareButton/ShareButton';
+import ShareDeputy from '../ShareDeputy';
 
 function ProfileD(props) {
   const { deputy } = props;
@@ -44,7 +44,7 @@ function ProfileD(props) {
               md="2"
               className="d-flex justify-content-end align-items-start"
             >
-              <ShareButton message={shareMessage} link={shareLink} />
+              <ShareDeputy message={shareMessage} link={shareLink} />
             </Col>
           </Row>
           <Row className="tam-row-info">
