@@ -1,0 +1,40 @@
+.icon-share-black-mb-spent {
+    width: 23px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    margin-left: 120px;
+}
+
+.icon-grafico-mb {
+    width: 23px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+
+}
+
+.icon-anexo-mb, .icon-share-mb-spent {
+    width: 27px;
+    height: 24px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+.icon-gasto {
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+.test {
+    background-color: aqua;
+}
+
+.col-line-top {
+    border-top: 1px solid #DADADA;
+    padding: 20px;
+}

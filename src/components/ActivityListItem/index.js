@@ -16,7 +16,7 @@ function ActivityListItem({ targetInfo }) {
     <ListGroupItem as="div" className="activityContainer">
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
-      <Link to={`/deputados/${targetInfo.id}`} className="link d-block">
+      <Link to={`/deputado/${targetInfo.id}`} className="link d-block">
         <Row className="center">
           <Col xs={2}>
             <Image
@@ -26,7 +26,7 @@ function ActivityListItem({ targetInfo }) {
             />
           </Col>
           <Col>
-            <h5 className="targetInfoStrings">{targetInfo.name}</h5>
+            <p className="targetInfoTitle">{targetInfo.name}</p>
             <p className="targetInfoStrings">{targetInfo.party}</p>
             <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
           </Col>

@@ -10,6 +10,7 @@ import ProjectsScreen from './screens/ProjectsScreen';
 import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
+import Teste from './components/DataVoting/DataVoting';
 
 function App() {
   return (
@@ -18,11 +19,12 @@ function App() {
       <Breadcrumbs />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/deputados/:id" component={DeputyProfileScreen} />
+        <Route path="/deputado/:id" component={DeputyProfileScreen} />
         <Route path="/deputados" component={DeputiesScreen} />
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
+        <Route path="/teste" component={Teste} />
         <Route component={ErrorScreen} />
       </Switch>
     </main>
