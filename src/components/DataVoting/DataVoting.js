@@ -10,51 +10,50 @@ import IconConfirmaBlack from '../../images/icon-confirma-black.png';
 import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
+import ShareButton from '../ShareButton/ShareButton';
 
 function defineDate(date) {
   const data = new Date(date);
   const dia = data.getDate().toString();
-  const diaF = (dia.length === 1) ? '0'.concat(dia) : dia;
+  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
   const mes = (data.getMonth() + 1).toString();
-  const mesF = (mes.length === 1) ? '0'.concat(mes) : mes;
+  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
   const anoF = data.getFullYear();
   const str = '';
 
   return str.concat(diaF, '/', mesF, '/', anoF);
 }
 
-function defineVote(vote) {
-  const str = String(vote);
-  if (vote.localeCompare('Sim')) {
-    return (
-      <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
-        <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-        <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-      </div>
-    );
-  }
-  return (
-    <div>
-      <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
-      <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-    </div>
-  );
-}
-
 function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
-
   console.log(voteRoute(id));
   useEffect(async () => {
-    const result = await axios(
-      voteRoute(id)
-    );
+    const result = await axios(voteRoute(id));
     setVotes(result.data);
   }, []);
+  const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
+  function defineVote(vote) {
+    console.log('chamou');
+    const str = String(vote);
+    if (vote.localeCompare('Sim')) {
+      return (
+        <div>
+          <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
+          <img src={IconCancela} alt="Cancela" className="icon-cancela" />
+          <ShareButton message={shareMessage} />
+        </div>
+      );
+    }
+    return (
+      <div>
+        <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
+        <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
+        <ShareButton message={shareMessage} />
+      </div>
+    );
+  }
 
   return (
     <div className="d-flex justify-content-center">
@@ -66,11 +65,7 @@ function DataVoting() {
               VOTAÇÕES
             </Col>
             <Col md="1">
-              <img
-                src={IconShareBlack}
-                alt="Share"
-                className="icon-share-black"
-              />
+              <ShareButton message={shareMessage} />
             </Col>
           </Row>
           <Row>

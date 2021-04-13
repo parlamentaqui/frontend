@@ -10,6 +10,7 @@ import IconConfirmaBlack from '../../images/icon-confirma-black.png';
 import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
+import ShareButton from '../ShareButton/ShareButton';
 
 function defineDate(date) {
   const data = new Date(date);
@@ -21,54 +22,6 @@ function defineDate(date) {
   const str = '';
 
   return str.concat(diaF, '/', mesF, '/', anoF);
-}
-
-function defineVote(voto) {
-  const str = String(voto);
-  if (voto.localeCompare('Sim')) {
-    return (
-      <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
-        <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-        <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-      </div>
-    );
-  }
-  return (
-    <div>
-      <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
-      <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-    </div>
-  );
-}
-function votingM(element) {
-  return (
-    <div className="d-flex justify-content-center div-body">
-      <Row className="background-div-1">
-        <Col>
-          <Row>
-            <Col className="text-sm">Ementa:</Col>
-            <Col className="d-flex justify-content-end text-sm">{defineDate(element.date_time_vote)}</Col>
-          </Row>
-          <Row>
-            <Row>
-              <Col md="6" className="p-table col-line-top">
-                <p>{element.proposition_description}</p>
-              </Col>
-              <Col md="4" className="col-line-top">
-                <p>Proposições: </p>
-                {element.proposition_id}
-              </Col>
-              <Col md="2" className="d-flex justify-content-center col-line-top">
-                {defineVote(element.vote)}
-              </Col>
-            </Row>
-          </Row>
-        </Col>
-      </Row>
-    </div>
-  );
 }
 
 function votingM2() {
@@ -126,18 +79,66 @@ function DataVotingMobile() {
   }, []);
 
   console.log(votes);
-
+  const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
+  function defineVote(voto) {
+    const str = String(voto);
+    if (voto.localeCompare('Sim')) {
+      return (
+        <div>
+          <img src={IconConfirma} alt="Confirma" className="icon-confirma" />
+          <img src={IconCancela} alt="Cancela" className="icon-cancela" />
+          <ShareButton message={shareMessage} />
+        </div>
+      );
+    }
+    return (
+      <div>
+        <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
+        <img src={IconCancelaRed} alt="Cancela" className="icon-cancela" />
+        <ShareButton message={shareMessage} />
+      </div>
+    );
+  }
+  function votingM(element) {
+    return (
+      <div className="d-flex justify-content-center div-body">
+        <Row className="background-div-1">
+          <Col>
+            <Row>
+              <Col className="text-sm">Ementa:</Col>
+              <Col className="d-flex justify-content-end text-sm">
+                {defineDate(element.date_time_vote)}
+              </Col>
+            </Row>
+            <Row>
+              <Row>
+                <Col md="6" className="p-table col-line-top">
+                  <p>{element.proposition_description}</p>
+                </Col>
+                <Col md="4" className="col-line-top">
+                  <p>Proposições: </p>
+                  {element.proposition_id}
+                </Col>
+                <Col
+                  md="2"
+                  className="d-flex justify-content-center col-line-top"
+                >
+                  {defineVote(element.vote)}
+                </Col>
+              </Row>
+            </Row>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
   return (
     <div>
       <Row>
         <Col md="12">
           <img src={IconVoto} alt="Voto" className="icon-votacao" />
           VOTAÇÕES
-          <img
-            src={IconShareBlack}
-            alt="Share"
-            className="icon-share-black-mb"
-          />
+          <ShareButton message={shareMessage} />
         </Col>
       </Row>
       {/* {votes.map((element) => (
