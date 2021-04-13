@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { Card, CardGroup, Col, Row } from 'react-bootstrap';
-import './News.css';
+import './NewsMobile.css';
 import { deputyNewsRoute } from '../../Api';
 
 function News() {
@@ -18,7 +18,7 @@ function News() {
 
   return (
     <div className="root">
-      <h2 className="title">Notícias</h2>
+      <h2>Notícias</h2>
       <Row>
         {news.slice(0, 3).map((element) => (
           <Col xs={6}>
