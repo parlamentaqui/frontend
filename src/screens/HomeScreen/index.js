@@ -12,6 +12,7 @@ import News from '../../components/News';
 import Tweet from '../../components/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList';
+import SearchHome from '../../components/SearchHome/SearchHome';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);
@@ -32,7 +33,7 @@ function HomeScreen() {
         <img src={Logo} alt="Logo" className="fullImage" />
         <img src={MobileLogo} alt="Logo" className="smallImage" />
       </Row>
-
+      <SearchHome />
       {/* Segunda linha > Atividades recentes / Tweets e noticias */}
       <Row className="justify-content-space-between my-5">
         <Col md="12" lg="6">
