@@ -35,10 +35,10 @@ function ProfileD(props) {
         <Col md="8">
           <Row className="tam-row-name">
             <Col md="10">
-              <h4>
-                <b>{deputy.name}</b>
-              </h4>
-              <h4>{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
+              <h1 className="mb-2">
+                {deputy.name}
+              </h1>
+              <h4 className="mb-3">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
             <Col
               md="2"
@@ -47,48 +47,48 @@ function ProfileD(props) {
               <ShareDeputy message={shareMessage} link={shareLink} />
             </Col>
           </Row>
-          <Row className="tam-row-info">
+          <Row className="tam-row-info pt-0">
             <Col md="6">
-              <h4>Informações pessoais</h4>
-              <h5>
+              <h5>Informações pessoais</h5>
+              <p>
                 <b>Nome:</b>
                 {` ${deputy.full_name}`}
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Partido:</b>
                 {` ${deputy.party}`}
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Estado:</b>
                 {` ${deputy.federative_unity}`}
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Sexo:</b>
                 {` ${deputy.sex === 'M' ? ' Masculino' : ' Feminino'}`}
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Idade:</b>
                 {` ${calculateAge(deputy.birth_date)}`}
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Email:</b>
                 {` ${deputy.email}`}
-              </h5>
+              </p>
             </Col>
             <Col md="6" className="col-info">
-              <h4>Informações do gabinete</h4>
-              <h5>
+              <h5>Informações do gabinete</h5>
+              <p>
                 <b>Número da sala:</b>
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Andar:</b>
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Prédio:</b>
-              </h5>
-              <h5>
+              </p>
+              <p>
                 <b>Telefone:</b>
-              </h5>
+              </p>
             </Col>
           </Row>
           <Row className="tam-row-social d-flex justify-content-center align-items-center">
