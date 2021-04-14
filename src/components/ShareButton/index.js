@@ -1,6 +1,6 @@
 import React from 'react';
 import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
-import './ShareButton.css';
+import './index.css';
 
 function ShareButton(props) {
   const { message, link } = props;
@@ -10,12 +10,12 @@ function ShareButton(props) {
     win.focus();
   };
   const handleWppShare = () => {
-    const wppString = `https://api.whatsapp.com/send?text=${message}`;
+    const wppString = `https://api.whatsapp.com/send?text=${link}%0a${message}`;
     const win = window.open(wppString, '_blank');
     win.focus();
   };
   const handleFaceShare = () => {
-    const faceString = 'https://www.facebook.com/sharer/sharer.php?href=#news';
+    const faceString = `https://www.facebook.com/sharer/sharer.php?u=${link}&quote=${message}`;
     const win = window.open(faceString, '_blank');
     win.focus();
   };

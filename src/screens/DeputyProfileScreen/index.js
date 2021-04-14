@@ -2,33 +2,26 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Row, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import DataVoting from '../components/DataVoting/DataVoting';
-import DataVotingMobile from '../components/DataVoting/DataVotingMobile';
-import SpentData from '../components/SpentData/SpentData';
-import SpentDataMobile from '../components/SpentData/SpentDataMobile';
-import Perfil from '../components/Profile/Profile';
-import PerfilMobile from '../components/Profile/ProfileMobile';
-import '../css/DeputyProfileScreen.css';
+import DataVotingMobile from '../../components/DataVoting/DataVotingMobile';
+import SpentData from '../../components/SpentData/SpentData';
+import SpentDataMobile from '../../components/SpentData/SpentDataMobile';
+import Perfil from '../../components/Profile/Profile';
+import PerfilMobile from '../../components/Profile/ProfileMobile';
+import './index.css';
 // import IconFace from '../images/face.png';
 // import IconInsta from '../images/insta.png';
 // import IconTT from '../images/twitter.png';
-import { profileRoute } from '../Api';
+import { profileRoute } from '../../Api';
+import DataVoting from '../../components/DataVoting/DataVoting';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
   const [deputado, setDeputado] = useState({});
   useEffect(() => {
     axios.get(profileRoute(id)).then((response) => {
-      console.log('string:: ', response.data);
       setDeputado(response.data);
     });
   }, []);
-  function calculateAge(birthday) {
-    // birthday is a date
-    const ageDifMs = Date.now() - new Date(birthday).getTime();
-    const ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
   return (
     <main>
       <Container className="d-block d-sm-none">

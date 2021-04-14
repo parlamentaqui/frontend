@@ -6,7 +6,7 @@ import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
-import ShareButton from '../ShareButton/ShareButton';
+import ShareButton from '../ShareButton';
 // import IconShare from '../../images/share.png';
 
 function ProfileMobile(props) {
