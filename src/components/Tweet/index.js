@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tweet.css';
+import './index.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
@@ -18,7 +18,7 @@ function Tweet() {
     tweetId: '933354946111705097'
   };
 
-  const tweetArray = [tweet, tweet];
+  const tweetArray = [tweet, tweet, tweet];
 
   return (
     <div className="tweet-wrapper">
