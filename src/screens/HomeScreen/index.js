@@ -27,7 +27,6 @@ function HomeScreen() {
 
   return (
     <Container as="main" className="layout">
-      {/* Primeira linha > Logo */}
       <Row className="justify-content-center">
         {/* Imagem principal - Logo */}
         <img src={Logo} alt="Logo" className="fullImage" />

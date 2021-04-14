@@ -2,7 +2,7 @@ import React from 'react';
 import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './index.css';
 
-function ShareButton(props) {
+function ShareDeputy(props) {
   const { message, link } = props;
   const handleTweetShare = () => {
     const twitterString = `https://twitter.com/share?url=${link}&text=${message}`;
@@ -10,17 +10,17 @@ function ShareButton(props) {
     win.focus();
   };
   const handleWppShare = () => {
-    const wppString = `https://api.whatsapp.com/send?text=${link}%0a${message}`;
+    const wppString = `https://api.whatsapp.com/send?text=${message}`;
     const win = window.open(wppString, '_blank');
     win.focus();
   };
   const handleFaceShare = () => {
-    const faceString = `https://www.facebook.com/sharer/sharer.php?u=${link}&quote=${message}`;
+    const faceString = 'https://www.facebook.com/sharer/sharer.php?href=#news';
     const win = window.open(faceString, '_blank');
     win.focus();
   };
   return (
-    <div className="align">
+    <div className="align2">
       {['top'].map((placement) => (
         <OverlayTrigger
           className="cor"
@@ -48,12 +48,12 @@ function ShareButton(props) {
             </Popover>
       )}
         >
-          <Button variant="secondary">
-            <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" />
+          <Button variant="danger">
+            <img src="/images/ShareDeputyIcon.svg" className="image" alt="SearchDeputy" />
           </Button>
         </OverlayTrigger>
       ))}
     </div>
   );
 }
-export default ShareButton;
+export default ShareDeputy;

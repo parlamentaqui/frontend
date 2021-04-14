@@ -18,7 +18,7 @@ function Tweet() {
     tweetId: '933354946111705097'
   };
 
-  const tweetArray = [tweet, tweet];
+  const tweetArray = [tweet, tweet, tweet];
 
   return (
     <div className="tweet-wrapper">
