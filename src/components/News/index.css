@@ -69,3 +69,10 @@ img.card-img-top.img{
   object-fit: cover;
   object-position: center;
 }
+
+.card .hover-only button{
+  display: none;
+}
+.card:hover .hover-only button, .hover-only button:focus{
+  display: initial;
+}

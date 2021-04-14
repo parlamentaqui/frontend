@@ -7,8 +7,8 @@ function News(props) {
   const { news } = props;
   let { quantity } = props;
   quantity = !quantity ? news.length : quantity;
-  const shareMessage = (element) => `Confira a notícia sobre o deputado ${element.deputy_name}: ${element.title} Via parlamentaqui.com`;
   const shareLink = (element) => element.link;
+  const shareMessage = (element) => `Confira a notícia sobre o deputado ${element.deputy_name}: ${element.title}%0aVia parlamentaqui.com`;
   return (
     <div className="root news-wrapper">
       <Row>
@@ -17,13 +17,17 @@ function News(props) {
             <Card>
               <Card.Img variant="top" src={element.photo} className="img" />
               <Card.Body>
-                <Card.Text className="title">{element.title}</Card.Text>
+                <a target="blank" href={element.link}>
+                  <Card.Text className="title">{element.title}</Card.Text>
+                </a>
                 <Card.Text className="text pt-2 d-flex justify-content-between">
                   {element.deputy_name}
-                  <ShareButton
-                    message={shareMessage(element)}
-                    link={shareLink(element)}
-                  />
+                  <span className="hover-only">
+                    <ShareButton
+                      message={shareMessage(element)}
+                      link={shareLink(element)}
+                    />
+                  </span>
                 </Card.Text>
               </Card.Body>
             </Card>
