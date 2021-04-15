@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  container_name:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Build frontend
@@ -17,12 +17,10 @@ jobs:
             cd CI
             rm -rf frontend
             git clone https://github.com/parlamentaqui/frontend/
-            cp envs/.env_tse frontend/.env
+            cp envs/.env_frontend frontend/.env
             cd frontend
             git checkout ${{ github.event.pull_request.head.ref }}
             npm install
-            nohup npm run dev &
-            sleep 15
-            kill -9 $(lsof -t -i:3000)
+            npm run build
           host: ${{ secrets.DO_HOST }}
           pass: ${{ secrets.DO_PASSWORD }}
