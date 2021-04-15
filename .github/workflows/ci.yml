@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  container_name:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Build frontend
