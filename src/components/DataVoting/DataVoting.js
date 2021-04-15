@@ -1,7 +1,7 @@
 import React from 'react';
 import './DataVoting.css';
 import {
-  Row
+  Row, Col
 } from 'react-bootstrap';
 import IconShareBlack from '../../images/share-black.png';
 import IconVoto from '../../images/votacao.png';
