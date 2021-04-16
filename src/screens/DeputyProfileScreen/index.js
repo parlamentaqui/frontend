@@ -11,7 +11,7 @@ import './index.css';
 import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 
-// Componentes de DataVoting não estão conseguindo recuperar 
+// Componentes de DataVoting não estão conseguindo recuperar
 // as votações dos deputados
 
 function DeputyProfileScreen() {
