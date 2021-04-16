@@ -45,18 +45,7 @@ Comentário do commit:
 #5 Fazendo guia de contribuição
 
 Signed-off-by: John Winston Ono Lennon <jwolennon@gmail.com>
-Signed-off-by: James Paul McCartney <jpaulm@gmail.com>
-```
 
-Para que ambos envolvidos no commit sejam incluidos como contribuintes no gráfico de commits do GitHub, basta incluir a instrução `Co-authored-by:` na mensagem:
-
-```
-#5 Fazendo guia de contribuição
-
-Signed-off-by: John Winston Ono Lennon <jwolennon@gmail.com>
-Signed-off-by: James Paul McCartney <jpaulm@gmail.com>
-
-Co-authored-by: John Winston Ono Lennon <jwolennon@gmail.com>
 Co-authored-by: James Paul McCartney <jpaulm@gmail.com>
 
 ```

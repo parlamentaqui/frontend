@@ -17,6 +17,7 @@ jobs:
             pm2 stop 0
             rm -rf frontend
             git clone https://github.com/parlamentaqui/frontend
+            cp envs/.env_frontend frontend/.env
             cd frontend
             npm install
             npm run build
