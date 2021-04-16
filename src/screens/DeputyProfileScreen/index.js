@@ -8,11 +8,11 @@ import SpentDataMobile from '../../components/SpentData/SpentDataMobile';
 import Perfil from '../../components/Profile/Profile';
 import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
-// import IconFace from '../images/face.png';
-// import IconInsta from '../images/insta.png';
-// import IconTT from '../images/twitter.png';
 import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
+
+// Componentes de DataVoting não estão conseguindo recuperar 
+// as votações dos deputados
 
 function DeputyProfileScreen() {
   const { id } = useParams();

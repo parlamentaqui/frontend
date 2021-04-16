@@ -11,7 +11,7 @@ import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
 
-function defineDate(date) {
+export function defineDate(date) {
   const data = new Date(date);
   const dia = data.getDate().toString();
   const diaF = (dia.length === 1) ? '0'.concat(dia) : dia;
@@ -23,7 +23,7 @@ function defineDate(date) {
   return str.concat(diaF, '/', mesF, '/', anoF);
 }
 
-function defineVote(vote) {
+export function defineVote(vote) {
   const str = String(vote);
   if (vote.localeCompare('Sim')) {
     return (
