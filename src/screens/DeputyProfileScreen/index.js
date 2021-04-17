@@ -11,6 +11,7 @@ import './index.css';
 import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
+import NewsMobile from '../../components/News/NewsMobile';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -28,6 +29,7 @@ function DeputyProfileScreen() {
         <DataVotingMobile />
         <Row className="space" />
         <SpentDataMobile />
+        <NewsMobile />
       </Container>
       <Container className="d-none d-sm-block">
         <Perfil deputy={deputado} />
@@ -35,15 +37,14 @@ function DeputyProfileScreen() {
         <DataVoting />
         <Row className="space" />
         <SpentData />
-      </Container>
-      <Row className="space" />
-      <Container>
+        <Row className="space" />
         <Row>
           <Col md="6">
             <News />
           </Col>
         </Row>
       </Container>
+      <Row className="space" />
     </main>
   );
 }

@@ -11,8 +11,6 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(async () => {
-    // const result = await axios(deputyNewsRoute(3));
-    // setNews(result.data);
     axios.get(deputyNewsRoute(id)).then((response) => {
       setNews(response.data);
       console.log(response.data);
