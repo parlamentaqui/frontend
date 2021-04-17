@@ -25,7 +25,7 @@ function ProfileMobile(props) {
           className="d-flex justify-content-center align-items-center tam-row-name-mb"
         >
           <h4>
-            <b>{deputy.name}</b>
+            <b className="font-color">{deputy.name}</b>
           </h4>
         </Col>
         <Col
@@ -41,11 +41,11 @@ function ProfileMobile(props) {
         <Col md="7">
           <Row className="tam-row-name-mb">
             <Col md="12">
-              <h4>{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
+              <h4 className="font-color">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
           </Row>
           <Row className="tam-row-info-mb">
-            <Col md="6" className="col-info-mb">
+            <Col md="6" className="col-info-mb font-color">
               {showPersonalDeputyInfo(deputy)}
             </Col>
             <Col md="6" className="col-info-mb">

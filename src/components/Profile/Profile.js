@@ -17,28 +17,28 @@ export function calculateAge(birth) {
 export function showPersonalDeputyInfo(deputy) {
   return (
     <div>
-      <h5>Informações pessoais</h5>
-      <p>
+      <h5 className="font-color">Informações pessoais</h5>
+      <p className="font-color">
         <b>Nome:</b>
         {` ${deputy.full_name}`}
       </p>
-      <p>
+      <p className="font-color">
         <b>Partido:</b>
         {` ${deputy.party}`}
       </p>
-      <p>
+      <p className="font-color">
         <b>Estado:</b>
         {` ${deputy.federative_unity}`}
       </p>
-      <p>
+      <p className="font-color">
         <b>Sexo:</b>
         {` ${deputy.sex === 'M' ? ' Masculino' : ' Feminino'}`}
       </p>
-      <p>
+      <p className="font-color">
         <b>Idade:</b>
         {` ${calculateAge(deputy.birth_date)}`}
       </p>
-      <p>
+      <p className="font-color">
         <b>Email:</b>
         {` ${deputy.email}`}
       </p>
@@ -49,17 +49,17 @@ export function showPersonalDeputyInfo(deputy) {
 export function showDeputyCabinetInfo(deputy) {
   return (
     <div>
-      <h5>Informações do gabinete</h5>
-      <p>
+      <h5 className="font-color">Informações do gabinete</h5>
+      <p className="font-color">
         <b>Número da sala:</b>
       </p>
-      <p>
+      <p className="font-color">
         <b>Andar:</b>
       </p>
-      <p>
+      <p className="font-color">
         <b>Prédio:</b>
       </p>
-      <p>
+      <p className="font-color">
         <b>Telefone:</b>
       </p>
     </div>
@@ -88,9 +88,7 @@ function ProfileD(props) {
         <Col md="8">
           <Row className="tam-row-name">
             <Col md="10">
-              <h1 className="mb-2">
-                {deputy.name}
-              </h1>
+              <h1 className="mb-2">{deputy.name}</h1>
               <h4 className="mb-3">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
             <Col
@@ -101,9 +99,7 @@ function ProfileD(props) {
             </Col>
           </Row>
           <Row className="tam-row-info pt-0">
-            <Col md="6">
-              {showPersonalDeputyInfo(deputy)}
-            </Col>
+            <Col md="6">{showPersonalDeputyInfo(deputy)}</Col>
             <Col md="6" className="col-info">
               {showDeputyCabinetInfo(deputy)}
             </Col>
