@@ -8,17 +8,19 @@ import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
 import ShareButton from '../ShareButton';
 
+export const calculateAge = (birth) => {
+  const birthday = new Date(birth);
+  const ageDifMs = Date.now() - birthday.getTime();
+  const ageDate = new Date(ageDifMs);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+};
+
+export const deputyShareMessage = (deputy) => `Confira as ultimas votações, gastos e mais informações do deputado ${deputy.name}`;
+export const deputyShareLink = (deputy) => `parlamentaqui.com/deputado/${deputy.id}`;
+
 function ProfileD(props) {
   const { deputy } = props;
 
-  const calculateAge = (birth) => {
-    const birthday = new Date(birth);
-    const ageDifMs = Date.now() - birthday.getTime();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  };
-  const shareMessage = `Confira as ultimas votações, gastos e mais informações do deputado ${deputy.name}`;
-  const shareLink = `localhost:3000/deputado/${deputy.id}`;
   return (
     <div className="d-flex justify-content-center">
       <Row className="background-div">
@@ -44,7 +46,7 @@ function ProfileD(props) {
               md="2"
               className="d-flex justify-content-end align-items-start"
             >
-              <ShareButton message={shareMessage} link={shareLink} />
+              <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} />
             </Col>
           </Row>
           <Row className="tam-row-info pt-0">
