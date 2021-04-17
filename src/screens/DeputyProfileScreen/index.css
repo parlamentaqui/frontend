@@ -49,7 +49,7 @@
   height: 40px;
   background: #a4d4b4;
 
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -83,7 +83,7 @@
 /*****************************/
 /*Fonts*/
 .nameDeputy {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -91,7 +91,7 @@
 }
 
 .subDataDeputy {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;

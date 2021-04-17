@@ -33,7 +33,7 @@ body h1,body h2,body h3,body h4,body h5,body p{
 }
 
 body h1{
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 33.18px;
@@ -42,7 +42,7 @@ body h1{
 }
 
 body h2,body h3,body h4,body h5{
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
   margin-bottom: 4px;
