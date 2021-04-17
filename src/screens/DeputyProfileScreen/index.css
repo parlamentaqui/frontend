@@ -30,7 +30,9 @@
 
 .colInfo {
   height: 100%;
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -39,7 +41,9 @@
 
 .colInfo1 {
   height: 100%;
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
@@ -49,7 +53,7 @@
   height: 40px;
   background: #a4d4b4;
 
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -83,7 +87,7 @@
 /*****************************/
 /*Fonts*/
 .nameDeputy {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -91,7 +95,7 @@
 }
 
 .subDataDeputy {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -103,7 +107,9 @@
 }
 
 .othersInfo {
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
