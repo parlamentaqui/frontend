@@ -25,13 +25,10 @@
   "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage --collectCoverage=true --testResultsProcessor=jest-sonar-reporter",
     "eject": "react-scripts eject"
   },
   "jest": {
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "testResultsProcessor": "jest-sonar-reporter",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test/"
