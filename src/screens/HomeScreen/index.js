@@ -8,7 +8,7 @@ import News from '../../components/HomeNews';
 import Tweet from '../../components/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList';
-import SearchHome from '../../components/SearchHome/SearchHome';
+import SearchHome from '../../components/SearchHome/index';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);

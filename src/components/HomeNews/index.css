@@ -35,26 +35,6 @@
   margin: 6px 0px;
 }
 
-/* .title h2 {
-  position: absolute;
-  width: 134px;
-  height: 34px;
-  left: 156px;
-  top: 1451px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 33.18px;
-  line-height: 33.18px;
-  display: flex;
-  align-items: center;
-  color: #000000;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 6px 0px;
-} */
-
 .text {
   position: static;
   width: 215px;

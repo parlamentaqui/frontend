@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { CardGroup, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import './News.css';
 import { deputyNewsRoute } from '../../Api';
 
@@ -11,8 +11,6 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(async () => {
-    // const result = await axios(deputyNewsRoute(3));
-    // setNews(result.data);
     axios.get(deputyNewsRoute(id)).then((response) => {
       setNews(response.data);
       console.log(response.data);
