@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Row, Container } from 'react-bootstrap';
+import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import DataVotingMobile from '../../components/DataVoting/DataVotingMobile';
 import SpentData from '../../components/SpentData/SpentData';
@@ -10,9 +10,7 @@ import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
 import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
-
-// Componentes de DataVoting não estão conseguindo recuperar
-// as votações dos deputados
+import News from '../../components/News/News';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -39,6 +37,13 @@ function DeputyProfileScreen() {
         <SpentData />
       </Container>
       <Row className="space" />
+      <Container>
+        <Row>
+          <Col md="6">
+            <News />
+          </Col>
+        </Row>
+      </Container>
     </main>
   );
 }

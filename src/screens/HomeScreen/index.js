@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Row,
-  Container,
-  Col
-} from 'react-bootstrap';
+import { Row, Container, Col } from 'react-bootstrap';
 import axios from 'axios';
 import Logo from '../../images/Logo.svg';
 import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
-import News from '../../components/News';
+import News from '../../components/HomeNews';
 import Tweet from '../../components/Tweet';
 import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList';
