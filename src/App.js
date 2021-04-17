@@ -9,8 +9,8 @@ import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumbs';
 import Teste from './components/DataVoting/DataVoting';
-import DeputyProfileScreen from './screens/DeputyProfileScreen';
-import HomeScreen from './screens/HomeScreen';
+import DeputyProfileScreen from './screens/DeputyProfileScreen/index';
+import HomeScreen from './screens/HomeScreen/index';
 
 function App() {
   return (
