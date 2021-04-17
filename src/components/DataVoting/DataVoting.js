@@ -11,34 +11,50 @@ import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
 
-function defineDate(date) {
+export function defineDate(date) {
   const data = new Date(date);
   const dia = data.getDate().toString();
-  const diaF = (dia.length === 1) ? '0'.concat(dia) : dia;
+  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
   const mes = (data.getMonth() + 1).toString();
-  const mesF = (mes.length === 1) ? '0'.concat(mes) : mes;
+  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
   const anoF = data.getFullYear();
   const str = '';
 
   return str.concat(diaF, '/', mesF, '/', anoF);
 }
 
-function defineVote(vote) {
+export function defineVote(vote) {
   const str = String(vote);
   if (vote.localeCompare('Sim')) {
     return (
       <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma underline" />
+        <img
+          src={IconConfirma}
+          alt="Confirma"
+          className="icon-confirma underline"
+        />
         <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-        <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
+        <img
+          src={IconShareBlack}
+          alt="Share"
+          className="icon-share-table icon-share"
+        />
       </div>
     );
   }
   return (
     <div>
       <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela underline" />
-      <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
+      <img
+        src={IconCancelaRed}
+        alt="Cancela"
+        className="icon-cancela underline"
+      />
+      <img
+        src={IconShareBlack}
+        alt="Share"
+        className="icon-share-table icon-share"
+      />
     </div>
   );
 }
@@ -48,11 +64,11 @@ function DataVoting() {
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
 
-  useEffect(async () => {
-    const result = await axios(
-      voteRoute(id)
-    );
-    setVotes(result.data);
+  useEffect(() => {
+    axios.get(voteRoute(id)).then((response) => {
+      setVotes(response.data);
+      console.log(response.data);
+    });
   }, []);
 
   return (
@@ -83,9 +99,15 @@ function DataVoting() {
               <Col md="6" className="p-table">
                 <p>{element.proposition_description}</p>
               </Col>
-              <Col md="2" className="col-center">{defineDate(element.date_time_vote)}</Col>
-              <Col md="2" className="col-center">{element.proposition_id}</Col>
-              <Col md="2" className="col-center">{defineVote(element.vote)}</Col>
+              <Col md="2" className="col-center">
+                {defineDate(element.date_time_vote)}
+              </Col>
+              <Col md="2" className="col-center">
+                {element.proposition_id}
+              </Col>
+              <Col md="2" className="col-center">
+                {defineVote(element.vote)}
+              </Col>
             </Row>
           ))}
           <Row className="col-line-top">

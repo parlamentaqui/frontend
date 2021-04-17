@@ -1,0 +1,46 @@
+.text-news-font {
+  padding-bottom: 10px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13.33px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.text-news-title {
+  padding-bottom: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19.2px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #000000;
+}
+
+.text-news-body {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #000000;
+}
+
+.img-news {
+  width: 166px;
+  height: 166px;
+}
+
+.card-news {
+  padding: 20px;
+  padding-left: 0%;
+}

@@ -51,7 +51,6 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <SpentData />
         <Row className="space" />
-        <News />
       </Container>
       <Row className="space" />
     </main>

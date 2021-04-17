@@ -1,8 +1,7 @@
-import { getElementError } from '@testing-library/react';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { Card, CardGroup, Col, Row } from 'react-bootstrap';
+import { CardGroup, Col, Row } from 'react-bootstrap';
 import './News.css';
 import { deputyNewsRoute } from '../../Api';
 
@@ -12,28 +11,35 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(async () => {
-    const result = await axios(deputyNewsRoute(id));
-    setNews(result.data);
+    // const result = await axios(deputyNewsRoute(3));
+    // setNews(result.data);
+    axios.get(deputyNewsRoute(id)).then((response) => {
+      setNews(response.data);
+      console.log(response.data);
+    });
   }, []);
 
   return (
-    <div className="root">
-      <h2 className="title">Notícias</h2>
+    <div>
       <Row>
-        {news.slice(0, 3).map((element) => (
-          <Col xs={6}>
-            <Card>
-              <Card.Img variant="top" src={element.photo} className="img" />
-              <Card.Body>
-                <Card.Text className="title">{element.title}</Card.Text>
-                <Card.Text className="text pt-2">
-                  {element.deputy_name}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+        <h2 className="title">Notícias</h2>
       </Row>
+      <div className="root">
+        <Row>
+          {news.slice(0, 3).map((element) => (
+            <Row className="card-news">
+              <Col md="4">
+                <img src={element.photo} alt="Profile" className="img-news" />
+              </Col>
+              <Col md="6">
+                <h12 className="text-news-font">{element.source}</h12>
+                <h5 className="text-news-title">{element.title}</h5>
+                <p className="text-news-body">{element.abstract}</p>
+              </Col>
+            </Row>
+          ))}
+        </Row>
+      </div>
     </div>
   );
 }

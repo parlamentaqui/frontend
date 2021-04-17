@@ -5,43 +5,9 @@ import './DataVotingMobile.css';
 import { Row, Col } from 'react-bootstrap';
 import IconShareBlack from '../../images/share-black.png';
 import IconVoto from '../../images/votacao.png';
-import IconConfirma from '../../images/icon-confirma.png';
-import IconConfirmaBlack from '../../images/icon-confirma-black.png';
-import IconCancela from '../../images/icon-cancela.png';
-import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
+import { defineVote, defineDate } from './DataVoting';
 
-function defineDate(date) {
-  const data = new Date(date);
-  const dia = data.getDate().toString();
-  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
-  const mes = (data.getMonth() + 1).toString();
-  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
-  const anoF = data.getFullYear();
-  const str = '';
-
-  return str.concat(diaF, '/', mesF, '/', anoF);
-}
-
-function defineVote(voto) {
-  const str = String(voto);
-  if (voto.localeCompare('Sim')) {
-    return (
-      <div>
-        <img src={IconConfirma} alt="Confirma" className="icon-confirma underline" />
-        <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-        <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-      </div>
-    );
-  }
-  return (
-    <div>
-      <img src={IconConfirmaBlack} alt="Confirma" className="icon-confirma" />
-      <img src={IconCancelaRed} alt="Cancela" className="icon-cancela underline" />
-      <img src={IconShareBlack} alt="Share" className="icon-share-table icon-share" />
-    </div>
-  );
-}
 function votingM(element) {
   return (
     <div className="d-flex justify-content-center div-body">
