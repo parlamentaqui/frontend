@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './SpentData.css';
+import axios from 'axios';
 import {
   Row, Col
 } from 'react-bootstrap';
@@ -8,23 +9,58 @@ import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
 import IconAnexo from '../../images/anexo.png';
 import IconGrafico from '../../images/grafico.png';
+import { expenseRoute } from '../../Api';
 
-function spentRow() {
+export function defineDate(date) {
+  const data = new Date(date);
+  const dia = data.getDate().toString();
+  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
+  const mes = (data.getMonth() + 1).toString();
+  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
+  const anoF = data.getFullYear();
+  const str = '';
+
+  return str.concat(diaF, '/', mesF, '/', anoF);
+}
+
+function spentRow(expense) {
   return (
     <Row className="col-line-top">
-      <Col md="3">Divulgação da Atividade Parlamentar.</Col>
-      <Col md="2">R$6.325,00</Col>
+      <Col md="3">
+        { expense.expenses_type }
+      </Col>
+      <Col md="2">
+        R$
+        { expense.document_value }
+      </Col>
       <Col md="2">Cota Parlamentar</Col>
-      <Col md="2">18/03/2020</Col>
-      <Col md="2">TAMIRYS MACHADO...</Col>
-      <Col md="1"><img src={IconAnexo} alt="Anexo" className="icon-anexo" /></Col>
+      <Col md="2">
+        { defineDate(expense.document_date) }
+      </Col>
+      <Col md="2">
+        { expense.supplier_name }
+      </Col>
+      <Col md="1">
+        <a href={expense.document_url}>
+          <img src={IconAnexo} alt="Anexo" className="icon-anexo" />
+        </a>
+      </Col>
     </Row>
   );
 }
 
 const spentArray = [spentRow, spentRow, spentRow];
 
-function DataVoting() {
+function DataVoting(props) {
+  const { deputy } = props;
+  const [expenses, setExpenses] = useState([]);
+  useEffect(() => {
+    axios.get(expenseRoute(204549)).then((response) => {
+      setExpenses(response.data);
+      console.log(response.data);
+    });
+  }, []);
+
   return (
     <div className="d-flex justify-content-center">
       <Row className="background-div-1">
@@ -55,7 +91,9 @@ function DataVoting() {
             </Col>
             <Col md="1">NF</Col>
           </Row>
-          {spentArray.map(spentRow)}
+          {expenses.slice(0, 5).map((element) => (
+            spentRow(element)
+          ))}
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">VER MAIS</Col>
           </Row>

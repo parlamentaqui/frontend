@@ -36,7 +36,7 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <DataVoting />
         <Row className="space" />
-        <SpentData />
+        <SpentData deputy={deputado} />
       </Container>
       <Row className="space" />
     </main>

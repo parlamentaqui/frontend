@@ -11,3 +11,4 @@ export const deputadosHomeRoute = `${camaraURL}/home`;
 export const partiesSearchRoute = `${camaraURL}/parties`;
 export const ufSearchRoute = `${camaraURL}/federative_unities`;
 export const profileRoute = (id) => `${camaraURL}/profile/${id}`;
+export const expenseRoute = (id) => `${camaraURL}/expenses/${id}`;
