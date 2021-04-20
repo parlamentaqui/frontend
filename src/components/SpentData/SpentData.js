@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './SpentData.css';
 import axios from 'axios';
-import {
-  Row, Col
-} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
 import IconAnexo from '../../images/anexo.png';
 import IconGrafico from '../../images/grafico.png';
 import { expenseRoute } from '../../Api';
+import sirene from '../../images/sirene.svg';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -23,41 +23,43 @@ export function defineDate(date) {
   return str.concat(diaF, '/', mesF, '/', anoF);
 }
 
+const spentUrl = (expense) => {
+  if (expense.document_url === null) {
+    return <img src={sirene} alt="Sirene" className="icon-sirene" />;
+  }
+  return (
+    <a href={expense.document_url} rel="noreferrer" target="_blank">
+      <img src={IconAnexo} alt="Anexo" className="icon-anexo" />
+    </a>
+  );
+};
+
 function spentRow(expense) {
   return (
     <Row className="col-line-top">
-      <Col md="3">
-        { expense.expenses_type }
-      </Col>
+      <Col md="3">{expense.expenses_type}</Col>
       <Col md="2">
         R$
-        { expense.document_value }
+        {expense.document_value}
       </Col>
       <Col md="2">Cota Parlamentar</Col>
-      <Col md="2">
-        { defineDate(expense.document_date) }
-      </Col>
-      <Col md="2">
-        { expense.supplier_name }
-      </Col>
-      <Col md="1">
-        <a href={expense.document_url}>
-          <img src={IconAnexo} alt="Anexo" className="icon-anexo" />
-        </a>
-      </Col>
+      <Col md="2">{defineDate(expense.document_date)}</Col>
+      <Col md="2">{expense.supplier_name}</Col>
+      <Col md="1">{spentUrl(expense)}</Col>
     </Row>
   );
 }
 
 const spentArray = [spentRow, spentRow, spentRow];
 
-function DataVoting(props) {
+function SpentData(props) {
+  const history = useHistory();
+  const id = history.location.pathname.split('/')[2];
   const { deputy } = props;
   const [expenses, setExpenses] = useState([]);
   useEffect(() => {
-    axios.get(expenseRoute(204549)).then((response) => {
+    axios.get(expenseRoute(id)).then((response) => {
       setExpenses(response.data);
-      console.log(response.data);
     });
   }, []);
 
@@ -71,7 +73,11 @@ function DataVoting(props) {
               GASTOS
             </Col>
             <Col md="1">
-              <img src={IconShareBlack} alt="Share" className="icon-share-black" />
+              <img
+                src={IconShareBlack}
+                alt="Share"
+                className="icon-share-black"
+              />
             </Col>
             <Col md="1">
               <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
@@ -91,11 +97,11 @@ function DataVoting(props) {
             </Col>
             <Col md="1">NF</Col>
           </Row>
-          {expenses.slice(0, 5).map((element) => (
-            spentRow(element)
-          ))}
+          {expenses.slice(0, 5).map((element) => spentRow(element))}
           <Row className="col-line-top">
-            <Col md="12" className="alinhamento-end">VER MAIS</Col>
+            <Col md="12" className="alinhamento-end">
+              VER MAIS
+            </Col>
           </Row>
         </Col>
       </Row>
@@ -103,4 +109,4 @@ function DataVoting(props) {
   );
 }
 
-export default DataVoting;
+export default SpentData;
