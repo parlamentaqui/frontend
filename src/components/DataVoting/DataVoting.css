@@ -29,6 +29,11 @@
 .icon-confirma, .icon-cancela, .icon-share-table {
     margin: 10px;
 }
+
+.underline{
+    padding: 5px;
+    box-shadow: #2e2e2e 0 1.5px 0px 0px;
+}
   
 .h4-table {
     font-family: Montserrat, sans-serif;
@@ -55,4 +60,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: end;
+}
+
+.col-center{
+    align-self: center;
+    justify-content: center;
 }
