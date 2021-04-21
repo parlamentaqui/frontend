@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
-import './News.css';
+import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
+import './NewsMobile.css';
 import { deputyNewsRoute } from '../../Api';
 
 function News() {
@@ -11,34 +11,36 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(async () => {
-    axios.get(deputyNewsRoute(id)).then((response) => {
-      setNews(response.data);
-      console.log(response.data);
-    });
+    const result = await axios(deputyNewsRoute(id));
+    setNews(result.data);
   }, []);
 
   return (
-    <div>
+    <Container>
       <Row>
         <h2 className="title">Notícias</h2>
       </Row>
       <div className="root">
         <Row>
           {news.slice(0, 3).map((element) => (
-            <Row className="card-news">
+            <Row className="card-news-mb">
               <Col md="4">
-                <img src={element.photo} alt="Profile" className="img-news" />
+                <h12 className="text-news-font-mb">{element.source}</h12>
+                <img
+                  src={element.photo}
+                  alt="Profile"
+                  className="img-news-mb"
+                />
               </Col>
-              <Col md="6">
-                <h12 className="text-news-font">{element.source}</h12>
-                <h5 className="text-news-title">{element.title}</h5>
-                <p className="text-news-body">{element.abstract}</p>
+              <Col md="8">
+                <h5 className="text-news-title-mb">{element.title}</h5>
+                <p className="text-news-body-mb">{element.abstract}</p>
               </Col>
             </Row>
           ))}
         </Row>
       </div>
-    </div>
+    </Container>
   );
 }
 

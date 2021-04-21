@@ -1,4 +1,4 @@
-.text-news-font {
+.text-news-font-mb {
   padding-bottom: 10px;
   font-family: Open Sans;
   font-style: normal;
@@ -10,7 +10,7 @@
   color: #000000;
 }
 
-.text-news-title {
+.text-news-title-mb {
   padding-bottom: 10px;
   font-family: Montserrat;
   font-style: normal;
@@ -23,7 +23,7 @@
   color: #000000;
 }
 
-.text-news-body {
+.text-news-body-mb {
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
@@ -35,12 +35,28 @@
   color: #000000;
 }
 
-.img-news {
-  width: 166px;
-  height: 166px;
+.img-news-mb {
+  width: 330px;
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-.card-news {
+.card-news-mb {
   padding: 20px;
   padding-left: 0%;
+}
+
+.title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 33.18px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.teste {
+  background-color: aqua;
 }

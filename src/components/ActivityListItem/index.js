@@ -10,34 +10,33 @@ import './index.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 
 // Esse componente é um item da lista de deputados da página HOME
-function ActivityListItem({ targetInfo }) {
+function ActivityListItem({ targetInfo, isLast }) {
   return (
     // fazer o cast do LisGroupItem pra div pra retornar corretamente
     <ListGroupItem as="div" className="activityContainer">
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
-      <Link to={`/deputado/${targetInfo.id}`} className="link d-block">
-        <Row className="center">
-          <Col xs={2}>
+      <Link to={`/deputados/${targetInfo.id}`} className="link d-block">
+        <div className="d-flex justify-content-between">
+          <div className="d-flex">
             <Image
-              className="w-100 img-deputados"
+              className="img-deputados"
               src={targetInfo.photo_url}
               alt={`${targetInfo.name} profile.`}
             />
-          </Col>
-          <Col>
-            <p className="targetInfoTitle">{targetInfo.name}</p>
-            <p className="targetInfoStrings">{targetInfo.party}</p>
-            <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
-          </Col>
-          <Col xs={2} className="center">
-            <Image
-              src={ArrowRight}
-              alt="acessar perfil"
-              className="arrowRight"
-            />
-          </Col>
-        </Row>
+            <div>
+              <h5 className="targetInfoStrings title">{targetInfo.name}</h5>
+              <p className="targetInfoStrings">{targetInfo.party}</p>
+              <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
+            </div>
+          </div>
+          <Image
+            src={ArrowRight}
+            alt="acessar perfil"
+            className="arrowRight"
+          />
+        </div>
+        {!isLast && <hr />}
       </Link>
     </ListGroupItem>
   );
