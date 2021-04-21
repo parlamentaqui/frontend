@@ -42,7 +42,7 @@ function spentRow(expense) {
         <Col>
           <Row>
             <Col className="text-sm">Serviço:</Col>
-            <Col className="d-flex justify-content-end text-sm">18/03/2020</Col>
+            <Col className="d-flex justify-content-end text-sm">{defineDate(expense.document_date)}</Col>
           </Row>
           <Row>
             <Col md="12" className="p-table col-line-top">
