@@ -6,16 +6,15 @@ import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
 import ShareButton from '../ShareButton';
-import { showDeputyCabinetInfo, showPersonalDeputyInfo } from './Profile';
-
-// As informações do perfil do deputado estão em cor escura.
-// não sendo possível ve-las. Precisa arrumar o CSS
+import {
+  showDeputyCabinetInfo,
+  showPersonalDeputyInfo,
+  deputyShareMessage,
+  deputyShareLink
+} from './Profile';
 
 function ProfileMobile(props) {
   const { deputy } = props;
-
-  const shareMessage = `Confira as ultimas votações, gastos e mais informações do deputado ${deputy.name}`;
-  const shareLink = `localhost:3000/deputado/${deputy.id}`;
 
   return (
     <div className="d-flex justify-content-center">
@@ -57,7 +56,7 @@ function ProfileMobile(props) {
             <img src={IconInsta} alt="Insta" className="icon-insta" />
             <img src={IconFace} alt="Face" className="icon-face" />
             <img src={IconTwitter} alt="Twitter" className="icon-tt" />
-            <ShareButton message={shareMessage} link={shareLink} />
+            <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} />
           </Row>
         </Col>
       </Row>

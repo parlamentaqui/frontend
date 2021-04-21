@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { CardGroup, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import './News.css';
 import ShareButton from '../ShareButton/index';
 import { deputyNewsRoute } from '../../Api';
