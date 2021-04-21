@@ -13,3 +13,4 @@ export const ufSearchRoute = `${camaraURL}/federative_unities`;
 export const profileRoute = (id) => `${camaraURL}/profile/${id}`;
 export const voteRoute = (id) => `${camaraURL}/get_votes_by_deputy_id/${id}`;
 export const deputyNewsRoute = (id) => `${newsURL}/latestNews/${id}`;
+export const propositionRoute = (id) => `${camaraURL}/get_proposition_by_id/${id}`;
