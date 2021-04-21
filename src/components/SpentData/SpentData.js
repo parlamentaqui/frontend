@@ -52,13 +52,18 @@ function spentRow(expense) {
 
 const spentArray = [spentRow, spentRow, spentRow];
 
-function SpentData(props) {
+function SpentData() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
-  const { deputy } = props;
   const [expenses, setExpenses] = useState([]);
   useEffect(() => {
-    axios.get(expenseRoute(id)).then((response) => {
+    const requestBody = {
+      razao_social: `${''}`,
+      tipo_gasto: `${''}`
+    };
+
+    axios.post(expenseRoute(id), requestBody).then((response) => {
+      console.log(response.data);
       setExpenses(response.data);
     });
   }, []);
