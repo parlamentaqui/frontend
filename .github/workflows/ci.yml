@@ -3,6 +3,7 @@ name: Run CI Pipeline
 on:
   pull_request:
     branches:
+      - devel
       - main
 
 jobs:
