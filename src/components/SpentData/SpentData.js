@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SpentData.css';
 import axios from 'axios';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
@@ -54,19 +54,20 @@ const spentArray = [spentRow, spentRow, spentRow];
 
 function SpentData() {
   const history = useHistory();
+  const [open, setOpen] = useState(false);
+  const [searchSupplier, setSearchSupplier] = useState('');
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
   useEffect(() => {
     const requestBody = {
-      razao_social: `${''}`,
-      tipo_gasto: `${''}`
+      razao_social: `${searchSupplier}`,
+      tipo_gasto: `${''}`,
     };
 
     axios.post(expenseRoute(id), requestBody).then((response) => {
-      console.log(response.data);
       setExpenses(response.data);
     });
-  }, []);
+  }, [searchSupplier]);
 
   return (
     <div className="d-flex justify-content-center">
@@ -98,7 +99,29 @@ function SpentData() {
             <Col md="2">Data</Col>
             <Col md="2">
               Razão Social
-              <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
+              <Button
+                onClick={() => {
+                  setOpen(true);
+                }}
+              >
+                <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
+                {open ? (
+                  <Form className="mobile-search">
+                    <FormControl
+                      name="q"
+                      type="text"
+                      placeholder="Busca"
+                      className="mr-sm-2"
+                      value={searchSupplier}
+                      onChange={(e) => {
+                        setSearchSupplier(e.target.value);
+                      }}
+                    />
+                  </Form>
+                ) : (
+                  []
+                )}
+              </Button>
             </Col>
             <Col md="1">NF</Col>
           </Row>
