@@ -67,11 +67,11 @@ function SpentData() {
   const [expenses, setExpenses] = useState([]);
   const [deputy, setDeputy] = useState([]);
   const [rs, setRs] = useState('');
-  // const [tg, setTg] = useState('');
+  const [tg, setTg] = useState('');
   useEffect(() => {
     const requestBody = {
       razao_social: rs ? `${rs}` : '',
-      // tipo_gasto: tg ? `${tg}` : '',
+      tipo_gasto: tg ? `${tg}` : '',
     };
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
