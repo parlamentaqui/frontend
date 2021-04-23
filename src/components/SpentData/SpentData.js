@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './SpentData.css';
 import axios from 'axios';
-// import queryString from 'query-string';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-// import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
 import IconAnexo from '../../images/anexo.png';
-import IconGrafico from '../../images/grafico.png';
+// import IconGrafico from '../../images/grafico.png';
 import { expenseRoute, profileRoute } from '../../Api';
 import sirene from '../../images/sirene.svg';
 import ShareButton from '../ShareButton';
@@ -41,15 +39,15 @@ const spentUrl = (expense) => {
 function spentRow(expense) {
   return (
     <Row className="col-line-top">
-      <Col md="3">{expense.expenses_type}</Col>
-      <Col md="2">
+      <Col md="2" className="truncate" title={expense.expenses_type}>{expense.expenses_type}</Col>
+      <Col md="2" className="truncate center" title={expense.document_value}>
         R$
         {expense.document_value}
       </Col>
-      <Col md="2">Cota Parlamentar</Col>
-      <Col md="2">{defineDate(expense.document_date)}</Col>
-      <Col md="2">{expense.supplier_name}</Col>
-      <Col md="1">{spentUrl(expense)}</Col>
+      <Col md="2" className="truncate" title="Cota Parlamentar">Cota Parlamentar</Col>
+      <Col md="2" className="truncate center" title={defineDate(expense.document_date)}>{defineDate(expense.document_date)}</Col>
+      <Col md="2" className="truncate" title={expense.supplier_name}>{expense.supplier_name}</Col>
+      <Col md="2" className="truncate center" title={spentUrl(expense)}>{spentUrl(expense)}</Col>
     </Row>
   );
 }
@@ -62,7 +60,6 @@ function SpentData() {
   const history = useHistory();
   const location = useLocation();
   const [openR, setOpenR] = useState(false);
-  // const [openG, setOpenG] = useState(false);
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
   const [deputy, setDeputy] = useState([]);
@@ -73,10 +70,8 @@ function SpentData() {
       razao_social: rs ? `${rs}` : '',
       tipo_gasto: tg ? `${tg}` : '',
     };
-    console.log('aqui porraaaaaa');
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
-      console.log(response.data);
     });
     axios.get(profileRoute(id)).then((response) => {
       setDeputy(response.data);
@@ -104,12 +99,28 @@ function SpentData() {
             </Col> */}
           </Row>
           <Row className="col-line-top">
-            <Col md="3">Serviço</Col>
-            <Col md="2">Valor</Col>
-            <Col md="2">Tipo de gasto</Col>
-            <Col md="2">Data</Col>
-            <Col id="razao" md="2">
-              Razão Social
+            <Col md="2" className="center">Serviço</Col>
+            <Col md="2" className="center">Valor</Col>
+            <Col md="2" className="center">Tipo de gasto</Col>
+            <Col md="2" className="center">Data</Col>
+            <Col md="2" className="center">
+              {openR ? (
+                <Form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                  }}
+                >
+                  <FormControl
+                    name="rs"
+                    type="text"
+                    placeholder="Razão Social"
+                    className="mr-sm-2"
+                    onChange={(e) => {
+                      setRs(e.target.value);
+                    }}
+                  />
+                </Form>
+              ) : 'Razão Social'}
               {!openR ? (
                 <Button
                   variant="outline-light"
@@ -149,32 +160,9 @@ function SpentData() {
                 </Button>
               )}
             </Col>
-            <Col md="1">NF</Col>
+            <Col md="2" className="center">Documento</Col>
           </Row>
-          <Row className="pb-2">
-            <Col md={{ span: 2, offset: 5 }} />
-            <Col md={{ span: 2, offset: 2 }}>
-              {openR ? (
-                <Form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                  }}
-                >
-                  <FormControl
-                    name="rs"
-                    type="text"
-                    placeholder="Busca"
-                    className="mr-sm-2"
-                    onChange={(e) => {
-                      setRs(e.target.value);
-                    }}
-                  />
-                </Form>
-              ) : (
-                []
-              )}
-            </Col>
-          </Row>
+          <Row className="pb-2" />
           {expenses.slice(0, 5).map((element) => spentRow(element))}
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">
