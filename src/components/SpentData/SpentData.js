@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './SpentData.css';
 import axios from 'axios';
+import queryString from 'query-string';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
@@ -54,20 +55,24 @@ const spentArray = [spentRow, spentRow, spentRow];
 
 function SpentData() {
   const history = useHistory();
-  const [open, setOpen] = useState(false);
-  const [searchSupplier, setSearchSupplier] = useState('');
+  const location = useLocation();
+  const [openR, setOpenR] = useState(false);
+  const [openG, setOpenG] = useState(false);
   const id = history.location.pathname.split('/')[2];
+  const search = queryString.parse(location.search);
   const [expenses, setExpenses] = useState([]);
+  const [rs, setRs] = useState('');
+  const [tg, setTg] = useState('');
   useEffect(() => {
     const requestBody = {
-      razao_social: `${searchSupplier}`,
-      tipo_gasto: `${''}`,
+      razao_social: rs ? `${rs}` : '',
+      tipo_gasto: tg ? `${tg}` : '',
     };
-
+    console.log(requestBody);
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
     });
-  }, [searchSupplier]);
+  }, [rs, tg]);
 
   return (
     <div className="d-flex justify-content-center">
@@ -94,27 +99,57 @@ function SpentData() {
             <Col md="2">Valor</Col>
             <Col md="2">
               Tipo de gasto
-              <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
-            </Col>
-            <Col md="2">Data</Col>
-            <Col md="2">
-              Razão Social
               <Button
                 onClick={() => {
-                  setOpen(true);
+                  setOpenG(true);
                 }}
               >
-                <img src={IconFiltro} alt="Filtro" className="icon-filtro" />
-                {open ? (
+                <img
+                  src={IconFiltro}
+                  alt="Filtro"
+                  className={!openG ? 'icon-filtro' : 'd-none'}
+                />
+                {openG ? (
                   <Form className="mobile-search">
                     <FormControl
-                      name="q"
+                      name="tg"
                       type="text"
                       placeholder="Busca"
                       className="mr-sm-2"
-                      value={searchSupplier}
                       onChange={(e) => {
-                        setSearchSupplier(e.target.value);
+                        setTg(e.target.value);
+                        console.log(e.target.value);
+                      }}
+                    />
+                  </Form>
+                ) : (
+                  []
+                )}
+              </Button>
+            </Col>
+            <Col md="2">Data</Col>
+            <Col id="razao" md="2">
+              Razão Social
+              <Button
+                theme="light"
+                onClick={() => {
+                  setOpenR(true);
+                }}
+              >
+                <img
+                  src={IconFiltro}
+                  alt="Filtro"
+                  className={!openR ? 'icon-filtro' : 'd-none'}
+                />
+                {openR ? (
+                  <Form>
+                    <FormControl
+                      name="rs"
+                      type="text"
+                      placeholder="Busca"
+                      className="mr-sm-2"
+                      onChange={(e) => {
+                        setRs(e.target.value);
                       }}
                     />
                   </Form>
