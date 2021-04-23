@@ -25,7 +25,7 @@ export function defineDate(date) {
 
 export function defineVote(vote) {
   const str = String(vote);
-  if (vote.localeCompare('Sim')) {
+  if (!vote.localeCompare('Sim')) {
     return (
       <div>
         <img
@@ -67,7 +67,6 @@ function DataVoting() {
   useEffect(() => {
     axios.get(voteRoute(id)).then((response) => {
       setVotes(response.data);
-      console.log(response.data);
     });
   }, []);
 
