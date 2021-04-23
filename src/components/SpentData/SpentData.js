@@ -61,7 +61,6 @@ function SpentData() {
   const [openR, setOpenR] = useState(false);
   const [openG, setOpenG] = useState(false);
   const id = history.location.pathname.split('/')[2];
-  const search = queryString.parse(location.search);
   const [expenses, setExpenses] = useState([]);
   const [rs, setRs] = useState('');
   const [tg, setTg] = useState('');
@@ -70,7 +69,6 @@ function SpentData() {
       razao_social: rs ? `${rs}` : '',
       tipo_gasto: tg ? `${tg}` : '',
     };
-    console.log(requestBody);
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
     });
@@ -101,87 +99,61 @@ function SpentData() {
             <Col md="2">Valor</Col>
             <Col md="2">
               Tipo de gasto
-              <Button
-                onClick={() => {
-                  if (!openG) {
-                    setOpenG(true);
-                  } else {
-                    setOpenG(false);
-                  }
-                }}
-              >
-                <img
-                  src={IconFiltro}
-                  alt="Filtro"
-                  className={!openG ? 'icon-filtro' : 'd-none'}
-                />
-                {/* <FontAwesomeIcon
-                  icon={faTimes}
-                  size="lg"
-                  color="#000000"
-                  className={!openG ? 'd-none' : 'ml-2'}
-                /> */}
-              </Button>
             </Col>
             <Col md="2">Data</Col>
             <Col id="razao" md="2">
               Razão Social
-              <Button
-                theme="light"
-                className="light"
-                onClick={() => {
-                  if (!openR) {
-                    setOpenR(true);
-                  } else {
-                    setOpenR(false);
-                  }
-                }}
-              >
-                <img
-                  src={IconFiltro}
-                  alt="Filtro"
-                  className={!openR ? 'icon-filtro' : 'd-none'}
-                />
-                {/* <FontAwesomeIcon
-                  icon={faTimes}
-                  size="lg"
-                  color="#000000"
-                  className={!openR ? 'd-none' : 'ml-2'}
-                /> */}
-              </Button>
-            </Col>
-            <Col md="1">NF</Col>
-          </Row>
-          <Row className="pb-2">
-            <Col md={{ span: 2, offset: 5 }}>
-              {openG ? (
-                <Form className="mobile-search">
-                  <FormControl
-                    name="tg"
-                    type="text"
-                    placeholder="Busca"
-                    className="mr-sm-2"
-                    onChange={(e) => {
-                      setTg(e.target.value);
-                    }}
+              {!openR ? (
+                <Button
+                  theme="light"
+                  className="light"
+                  onClick={() => {
+                    if (!openR) {
+                      setOpenR(true);
+                    } else {
+                      setOpenR(false);
+                      setRs('');
+                    }
+                  }}
+                >
+                  <img
+                    src={IconFiltro}
+                    alt="Filtro"
+                    className={!openR ? 'icon-filtro' : 'd-none'}
                   />
+                </Button>
+              ) : (
+                <Button
+                  theme="light"
+                  className="light"
+                  onClick={() => {
+                    if (!openR) {
+                      setOpenR(true);
+                    } else {
+                      setOpenR(false);
+                      setRs('');
+                    }
+                  }}
+                >
                   <FontAwesomeIcon
                     icon={faTimes}
                     size="lg"
                     color="#000000"
-                    className={!openG ? 'd-none' : 'ml-2'}
-                    onClick={() => {
-                      setOpenG(false);
-                    }}
+                    className={!openR ? 'd-none' : 'ml-2'}
+                    // onClick={() => {
+                    //   setOpenR(false);
+                    // }}
                   />
-                </Form>
-              ) : (
-                []
+                </Button>
               )}
             </Col>
+            <Col md="1">NF</Col>
+          </Row>
+          <Row className="pb-2">
+            <Col md={{ span: 2, offset: 5 }} />
             <Col md={{ span: 2, offset: 2 }}>
               {openR ? (
-                <Form>
+                <Form onSubmit={(e) => { e.preventDefault(); }}>
                   <FormControl
                     name="rs"
                     type="text"
@@ -191,7 +163,7 @@ function SpentData() {
                       setRs(e.target.value);
                     }}
                   />
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon={faTimes}
                     size="lg"
                     color="#000000"
@@ -199,7 +171,7 @@ function SpentData() {
                     onClick={() => {
                       setOpenR(false);
                     }}
-                  />
+                  /> */}
                 </Form>
               ) : (
                 []
