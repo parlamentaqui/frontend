@@ -20,13 +20,13 @@ function App() {
       <Breadcrumbs />
       <Switch>
         <Route path="/" component={HomeScreen} exact />
+        <Route path="/deputados/:id/gastos" component={ExpensesScreen} />
         <Route path="/deputados/:id" component={DeputyProfileScreen} />
         <Route path="/deputados" component={DeputiesScreen} />
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
         <Route path="/teste" component={Teste} />
-        <Route path="/gastos" component={ExpensesScreen} />
         <Route component={ErrorScreen} />
       </Switch>
     </main>

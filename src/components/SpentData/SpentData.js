@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './SpentData.css';
 import axios from 'axios';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import IconShareBlack from '../../images/share-black.png';
+// import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
 import IconAnexo from '../../images/anexo.png';
 import IconGrafico from '../../images/grafico.png';
-import { expenseRoute } from '../../Api';
+import { expenseRoute, profileRoute } from '../../Api';
 import sirene from '../../images/sirene.svg';
+import ShareButton from '../ShareButton';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -54,25 +55,31 @@ function spentRow(expense) {
 }
 
 const spentArray = [spentRow, spentRow, spentRow];
+export const deputyShareMessage = (dep) => `Veja os gastos do deputado ${dep}`;
+export const deputyShareLink = (id) => `parlamentaqui.com/deputado/${id}`;
 
 function SpentData() {
   const history = useHistory();
   const location = useLocation();
   const [openR, setOpenR] = useState(false);
-  const [openG, setOpenG] = useState(false);
+  // const [openG, setOpenG] = useState(false);
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
+  const [deputy, setDeputy] = useState([]);
   const [rs, setRs] = useState('');
-  const [tg, setTg] = useState('');
+  // const [tg, setTg] = useState('');
   useEffect(() => {
     const requestBody = {
       razao_social: rs ? `${rs}` : '',
-      tipo_gasto: tg ? `${tg}` : '',
+      // tipo_gasto: tg ? `${tg}` : '',
     };
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
     });
-  }, [rs, tg]);
+    axios.get(profileRoute(id)).then((response) => {
+      setDeputy(response.data);
+    });
+  }, [rs]);
 
   return (
     <div className="d-flex justify-content-center">
@@ -84,29 +91,26 @@ function SpentData() {
               GASTOS
             </Col>
             <Col md="1">
-              <img
-                src={IconShareBlack}
-                alt="Share"
-                className="icon-share-black"
+              <ShareButton
+                message={deputyShareMessage(deputy.name)}
+                link={deputyShareLink(id)}
               />
             </Col>
-            <Col md="1">
+            {/* TODO: Retirada img de gráfico */}
+            {/* <Col md="1">
               <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
-            </Col>
+            </Col> */}
           </Row>
           <Row className="col-line-top">
             <Col md="3">Serviço</Col>
             <Col md="2">Valor</Col>
-            <Col md="2">
-              Tipo de gasto
-            </Col>
+            <Col md="2">Tipo de gasto</Col>
             <Col md="2">Data</Col>
             <Col id="razao" md="2">
               Razão Social
               {!openR ? (
                 <Button
-                  theme="light"
-                  className="light"
+                  variant="outline-light"
                   onClick={() => {
                     if (!openR) {
                       setOpenR(true);
@@ -124,8 +128,7 @@ function SpentData() {
                 </Button>
               ) : (
                 <Button
-                  theme="light"
-                  className="light"
+                  variant="outline-light"
                   onClick={() => {
                     if (!openR) {
                       setOpenR(true);
@@ -140,9 +143,6 @@ function SpentData() {
                     size="lg"
                     color="#000000"
                     className={!openR ? 'd-none' : 'ml-2'}
-                    // onClick={() => {
-                    //   setOpenR(false);
-                    // }}
                   />
                 </Button>
               )}
@@ -153,7 +153,11 @@ function SpentData() {
             <Col md={{ span: 2, offset: 5 }} />
             <Col md={{ span: 2, offset: 2 }}>
               {openR ? (
-                <Form onSubmit={(e) => { e.preventDefault(); }}>
+                <Form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                  }}
+                >
                   <FormControl
                     name="rs"
                     type="text"
@@ -163,15 +167,6 @@ function SpentData() {
                       setRs(e.target.value);
                     }}
                   />
-                  {/* <FontAwesomeIcon
-                    icon={faTimes}
-                    size="lg"
-                    color="#000000"
-                    className={!openR ? 'd-none' : 'ml-2'}
-                    onClick={() => {
-                      setOpenR(false);
-                    }}
-                  /> */}
                 </Form>
               ) : (
                 []
@@ -181,7 +176,7 @@ function SpentData() {
           {expenses.slice(0, 5).map((element) => spentRow(element))}
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">
-              <a href="/gastos">VER MAIS</a>
+              <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
             </Col>
           </Row>
         </Col>
