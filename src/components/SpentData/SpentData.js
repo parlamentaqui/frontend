@@ -73,8 +73,10 @@ function SpentData() {
       razao_social: rs ? `${rs}` : '',
       tipo_gasto: tg ? `${tg}` : '',
     };
+    console.log('aqui porraaaaaa');
     axios.post(expenseRoute(id), requestBody).then((response) => {
       setExpenses(response.data);
+      console.log(response.data);
     });
     axios.get(profileRoute(id)).then((response) => {
       setDeputy(response.data);
