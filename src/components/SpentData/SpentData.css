@@ -28,3 +28,18 @@
 .light {
   background-color: #ffffff;
 }
+
+a {
+  color: #212529;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+:focus {
+  outline: none;
+}

@@ -11,6 +11,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import Teste from './components/DataVoting/DataVoting';
 import DeputyProfileScreen from './screens/DeputyProfileScreen';
 import HomeScreen from './screens/HomeScreen';
+import ExpensesScreen from './screens/ExpensesScreen';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
         <Route path="/teste" component={Teste} />
+        <Route path="/gastos" component={ExpensesScreen} />
         <Route component={ErrorScreen} />
       </Switch>
     </main>

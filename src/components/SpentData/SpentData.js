@@ -4,6 +4,8 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconFiltro from '../../images/filtro.png';
@@ -101,7 +103,11 @@ function SpentData() {
               Tipo de gasto
               <Button
                 onClick={() => {
-                  setOpenG(true);
+                  if (!openG) {
+                    setOpenG(true);
+                  } else {
+                    setOpenG(false);
+                  }
                 }}
               >
                 <img
@@ -109,22 +115,12 @@ function SpentData() {
                   alt="Filtro"
                   className={!openG ? 'icon-filtro' : 'd-none'}
                 />
-                {openG ? (
-                  <Form className="mobile-search">
-                    <FormControl
-                      name="tg"
-                      type="text"
-                      placeholder="Busca"
-                      className="mr-sm-2"
-                      onChange={(e) => {
-                        setTg(e.target.value);
-                        console.log(e.target.value);
-                      }}
-                    />
-                  </Form>
-                ) : (
-                  []
-                )}
+                {/* <FontAwesomeIcon
+                  icon={faTimes}
+                  size="lg"
+                  color="#000000"
+                  className={!openG ? 'd-none' : 'ml-2'}
+                /> */}
               </Button>
             </Col>
             <Col md="2">Data</Col>
@@ -132,8 +128,13 @@ function SpentData() {
               Razão Social
               <Button
                 theme="light"
+                className="light"
                 onClick={() => {
-                  setOpenR(true);
+                  if (!openR) {
+                    setOpenR(true);
+                  } else {
+                    setOpenR(false);
+                  }
                 }}
               >
                 <img
@@ -141,29 +142,74 @@ function SpentData() {
                   alt="Filtro"
                   className={!openR ? 'icon-filtro' : 'd-none'}
                 />
-                {openR ? (
-                  <Form>
-                    <FormControl
-                      name="rs"
-                      type="text"
-                      placeholder="Busca"
-                      className="mr-sm-2"
-                      onChange={(e) => {
-                        setRs(e.target.value);
-                      }}
-                    />
-                  </Form>
-                ) : (
-                  []
-                )}
+                {/* <FontAwesomeIcon
+                  icon={faTimes}
+                  size="lg"
+                  color="#000000"
+                  className={!openR ? 'd-none' : 'ml-2'}
+                /> */}
               </Button>
             </Col>
             <Col md="1">NF</Col>
           </Row>
+          <Row className="pb-2">
+            <Col md={{ span: 2, offset: 5 }}>
+              {openG ? (
+                <Form className="mobile-search">
+                  <FormControl
+                    name="tg"
+                    type="text"
+                    placeholder="Busca"
+                    className="mr-sm-2"
+                    onChange={(e) => {
+                      setTg(e.target.value);
+                    }}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    size="lg"
+                    color="#000000"
+                    className={!openG ? 'd-none' : 'ml-2'}
+                    onClick={() => {
+                      setOpenG(false);
+                    }}
+                  />
+                </Form>
+              ) : (
+                []
+              )}
+            </Col>
+            <Col md={{ span: 2, offset: 2 }}>
+              {openR ? (
+                <Form>
+                  <FormControl
+                    name="rs"
+                    type="text"
+                    placeholder="Busca"
+                    className="mr-sm-2"
+                    onChange={(e) => {
+                      setRs(e.target.value);
+                    }}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    size="lg"
+                    color="#000000"
+                    className={!openR ? 'd-none' : 'ml-2'}
+                    onClick={() => {
+                      setOpenR(false);
+                    }}
+                  />
+                </Form>
+              ) : (
+                []
+              )}
+            </Col>
+          </Row>
           {expenses.slice(0, 5).map((element) => spentRow(element))}
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">
-              VER MAIS
+              <a href="/gastos">VER MAIS</a>
             </Col>
           </Row>
         </Col>
