@@ -67,7 +67,6 @@ function DataVoting() {
   useEffect(() => {
     axios.get(voteRoute(id)).then((response) => {
       setVotes(response.data);
-      console.log(response.data);
     });
   }, []);
 
