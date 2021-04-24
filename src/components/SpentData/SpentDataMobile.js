@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './SpentDataMobile.css';
-import {
-  Row, Col
-} from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import IconShareBlack from '../../images/share-black.png';
 import IconGasto from '../../images/gasto.png';
 import IconAnexo from '../../images/anexo.png';
-import IconGrafico from '../../images/grafico.png';
+// import IconGrafico from '../../images/grafico.png';
 import sirene from '../../images/sirene.svg';
-import { expenseRoute } from '../../Api';
+import { expenseMobileRoute, profileRoute } from '../../Api';
+import ShareButton from '../ShareButton';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -34,37 +32,59 @@ const spentUrl = (expense) => {
     </a>
   );
 };
+export const deputyShareExpenseMessage = (dep, exp) => `O ${dep} gastou R$ ${exp.document_value} com ${exp.expenses_type}.`;
+export const deputyShareMessage = (dep) => `Veja os gastos do deputado ${dep}`;
+export const deputyShareLink = (id) => `parlamentaqui.com/deputado/${id}`;
 
-function spentRow(expense) {
+function spentRow(expense, deputy, id) {
   return (
     <div className="d-flex justify-content-center div-body">
       <Row className="background-div-1">
         <Col>
           <Row>
             <Col className="text-sm">Serviço:</Col>
-            <Col className="d-flex justify-content-end text-sm">{defineDate(expense.document_date)}</Col>
+            <Col
+              className="d-flex justify-content-end text-sm"
+              title={defineDate(expense.document_date)}
+            >
+              {defineDate(expense.document_date)}
+            </Col>
           </Row>
           <Row>
-            <Col md="12" className="p-table col-line-top">
-              <p>
-                {expense.expenses_type}
-              </p>
+            <Col
+              md="12"
+              className="p-table col-line-top"
+              title={expense.expenses_type}
+            >
+              <p>{expense.expenses_type}</p>
             </Col>
-            <Col md="12" className="col-line-top">
+            <Col
+              md="12"
+              className="col-line-top"
+              title={expense.document_value}
+            >
               Valor:
-              <p>{expense.document_value}</p>
+              {' '}
+              {expense.document_value}
             </Col>
             <Col md="12" className="col-line-top">
-              Tipo de gasto:
-              <p>Cota parlamentar</p>
+              Tipo de gasto: Cota parlamentar
             </Col>
-            <Col md="12" className="col-line-top">
+            <Col md="12" className="col-line-top" title={expense.supplier_name}>
               Razão Social:
-              <p>{expense.supplier_name}</p>
+              {' '}
+              {expense.supplier_name}
             </Col>
-            <Col md="12" className="d-flex justify-content-center col-line-top">
+            <Col
+              md="12"
+              className="d-flex justify-content-center col-line-top"
+              title={spentUrl(expense)}
+            >
               {spentUrl(expense)}
-              <img src={IconShareBlack} alt="Share" className="icon-share-table-mb icon-share-mb-spent" />
+              <ShareButton
+                message={deputyShareExpenseMessage(deputy.name, expense)}
+                link={deputyShareLink(id)}
+              />
             </Col>
           </Row>
         </Col>
@@ -75,33 +95,45 @@ function spentRow(expense) {
 
 const spentArray = [spentRow, spentRow, spentRow];
 
-function DataVotingMobile() {
+function SpentDataMobile() {
   const history = useHistory();
+  const location = useLocation();
   const id = history.location.pathname.split('/')[2];
-  const [expenses, setExpenses] = useState([]);
+  const [deputy, setDeputy] = useState([]);
+  const [expenses, setExpensesMobile] = useState([]);
   useEffect(() => {
-    axios.get(expenseRoute(id)).then((response) => {
-      setExpenses(response.data);
+    axios.get(expenseMobileRoute(id)).then((response) => {
+      setExpensesMobile(response.data);
+    });
+    axios.get(profileRoute(id)).then((response) => {
+      setDeputy(response.data);
     });
   }, []);
 
   return (
     <div>
-      <Row>
-        <Col md="12">
+      <Row className="ali">
+        <Col>
           <img src={IconGasto} alt="Gasto" className="icon-gasto" />
           GASTOS
-          <img src={IconShareBlack} alt="Share" className="icon-share-black-mb-spent" />
-          <img src={IconGrafico} alt="Grafico" className="icon-grafico-mb" />
+        </Col>
+        <Col>
+          <ShareButton
+            message={deputyShareMessage(deputy.name)}
+            link={deputyShareLink(id)}
+          />
+          {/* <img src={IconGrafico} alt="Grafico" className="icon-grafico-mb" /> */}
         </Col>
       </Row>
-      {expenses.slice(0, 2).map((element) => spentRow(element))}
+      {expenses.slice(0, 2).map((element) => spentRow(element, deputy, id))}
 
       <Row>
-        <Col md="12" className="alinhamento-end">VER MAIS</Col>
+        <Col md="12" className="alinhamento-end">
+          <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
+        </Col>
       </Row>
     </div>
   );
 }
 
-export default DataVotingMobile;
+export default SpentDataMobile;

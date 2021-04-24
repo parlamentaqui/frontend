@@ -76,6 +76,7 @@ a:hover {
 }
 
 .truncate {
+  width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,7 +84,13 @@ a:hover {
 
 .center {
   justify-content: center;
-  align-items: center;
+  padding-left: 0;
+}
+
+.left {
+  text-align: left;
+  justify-content: left;
+  padding-left: 35px;
 }
 
 .ali {

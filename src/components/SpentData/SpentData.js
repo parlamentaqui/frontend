@@ -39,10 +39,10 @@ const spentUrl = (expense) => {
 function spentRow(expense) {
   return (
     <Row className="col-line-top">
-      <Col md="2" className="truncate" title={expense.expenses_type}>
+      <Col md="3" className="truncate" title={expense.expenses_type}>
         {expense.expenses_type}
       </Col>
-      <Col md="2" className="truncate" title={expense.document_value}>
+      <Col md="1" className="truncate" title={expense.document_value}>
         R$
         {expense.document_value}
       </Col>
@@ -56,10 +56,10 @@ function spentRow(expense) {
       >
         {defineDate(expense.document_date)}
       </Col>
-      <Col md="2" className="truncate" title={expense.supplier_name}>
+      <Col md="3" className="truncate" title={expense.supplier_name}>
         {expense.supplier_name}
       </Col>
-      <Col md="2" className="truncate" title={spentUrl(expense)}>
+      <Col md="1" className="truncate" title={spentUrl(expense)}>
         {spentUrl(expense)}
       </Col>
     </Row>
@@ -113,19 +113,19 @@ function SpentData() {
             </Col> */}
           </Row>
           <Row className="col-line-top">
-            <Col md="2" className="center">
+            <Col md="3" className="center">
               Serviço
             </Col>
-            <Col md="2" className="center">
+            <Col md="1" className="center">
               Valor
             </Col>
             <Col md="2" className="center">
               Tipo de gasto
             </Col>
-            <Col md="2" className="center">
+            <Col md="2" className="center left">
               Data
             </Col>
-            <Col md="2" className="center">
+            <Col md="3" className="center">
               {openR ? (
                 <Form
                   onSubmit={(e) => {
@@ -184,7 +184,7 @@ function SpentData() {
                 </Button>
               )}
             </Col>
-            <Col md="2" className="center">
+            <Col md="1" className="center">
               Documento
             </Col>
           </Row>
