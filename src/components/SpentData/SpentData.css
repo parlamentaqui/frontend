@@ -21,8 +21,9 @@
 
 .col-line-top {
   border-top: 1px solid #dadada;
-  padding: 20px; 
+  padding: 20px;
   justify-content: center;
+  align-items: center;
 }
 
 .light {
@@ -80,7 +81,12 @@ a:hover {
   text-overflow: ellipsis;
 }
 
-.center{
-  justify-content:center;
-  text-align: start;
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.ali {
+  justify-content: center;
+  align-items: center;
 }

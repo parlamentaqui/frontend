@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './SpentData.css';
 import axios from 'axios';
+import './SpentData.css';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -39,15 +39,29 @@ const spentUrl = (expense) => {
 function spentRow(expense) {
   return (
     <Row className="col-line-top">
-      <Col md="2" className="truncate" title={expense.expenses_type}>{expense.expenses_type}</Col>
-      <Col md="2" className="truncate center" title={expense.document_value}>
+      <Col md="2" className="truncate" title={expense.expenses_type}>
+        {expense.expenses_type}
+      </Col>
+      <Col md="2" className="truncate" title={expense.document_value}>
         R$
         {expense.document_value}
       </Col>
-      <Col md="2" className="truncate" title="Cota Parlamentar">Cota Parlamentar</Col>
-      <Col md="2" className="truncate center" title={defineDate(expense.document_date)}>{defineDate(expense.document_date)}</Col>
-      <Col md="2" className="truncate" title={expense.supplier_name}>{expense.supplier_name}</Col>
-      <Col md="2" className="truncate center" title={spentUrl(expense)}>{spentUrl(expense)}</Col>
+      <Col md="2" className="truncate" title="Cota Parlamentar">
+        Cota Parlamentar
+      </Col>
+      <Col
+        md="2"
+        className="truncate"
+        title={defineDate(expense.document_date)}
+      >
+        {defineDate(expense.document_date)}
+      </Col>
+      <Col md="2" className="truncate" title={expense.supplier_name}>
+        {expense.supplier_name}
+      </Col>
+      <Col md="2" className="truncate" title={spentUrl(expense)}>
+        {spentUrl(expense)}
+      </Col>
     </Row>
   );
 }
@@ -87,7 +101,7 @@ function SpentData() {
               <img src={IconGasto} alt="Gasto" className="icon-gasto" />
               GASTOS
             </Col>
-            <Col md="1">
+            <Col md="2" className="ali">
               <ShareButton
                 message={deputyShareMessage(deputy.name)}
                 link={deputyShareLink(id)}
@@ -99,10 +113,18 @@ function SpentData() {
             </Col> */}
           </Row>
           <Row className="col-line-top">
-            <Col md="2" className="center">Serviço</Col>
-            <Col md="2" className="center">Valor</Col>
-            <Col md="2" className="center">Tipo de gasto</Col>
-            <Col md="2" className="center">Data</Col>
+            <Col md="2" className="center">
+              Serviço
+            </Col>
+            <Col md="2" className="center">
+              Valor
+            </Col>
+            <Col md="2" className="center">
+              Tipo de gasto
+            </Col>
+            <Col md="2" className="center">
+              Data
+            </Col>
             <Col md="2" className="center">
               {openR ? (
                 <Form
@@ -120,7 +142,9 @@ function SpentData() {
                     }}
                   />
                 </Form>
-              ) : 'Razão Social'}
+              ) : (
+                'Razão Social'
+              )}
               {!openR ? (
                 <Button
                   variant="outline-light"
@@ -160,7 +184,9 @@ function SpentData() {
                 </Button>
               )}
             </Col>
-            <Col md="2" className="center">Documento</Col>
+            <Col md="2" className="center">
+              Documento
+            </Col>
           </Row>
           <Row className="pb-2" />
           {expenses.slice(0, 5).map((element) => spentRow(element))}
