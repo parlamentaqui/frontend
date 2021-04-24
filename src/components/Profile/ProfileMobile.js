@@ -1,14 +1,17 @@
 import React from 'react';
 import './ProfileMobile.css';
 import { Row, Col } from 'react-bootstrap';
-// import Profile from '../../images/perfil.png';
 import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
 import ShareButton from '../ShareButton';
-import { calculateAge, deputyShareMessage, deputyShareLink } from './Profile';
-// import IconShare from '../../images/share.png';
+import {
+  showDeputyCabinetInfo,
+  showPersonalDeputyInfo,
+  deputyShareMessage,
+  deputyShareLink
+} from './Profile';
 
 function ProfileMobile(props) {
   const { deputy } = props;
@@ -42,38 +45,10 @@ function ProfileMobile(props) {
           </Row>
           <Row className="tam-row-info-mb">
             <Col md="6" className="col-info-mb">
-              <h4>Informações pessoais</h4>
-              <h5>
-                <b>Nome:</b>
-                {` ${deputy.full_name}`}
-              </h5>
-              <h5>
-                <b>Partido: </b>
-                {` ${deputy.party}`}
-              </h5>
-              <h5>
-                <b>Estado:</b>
-                {` ${deputy.federative_unity}`}
-              </h5>
-              <h5>
-                <b>Idade:</b>
-                {` ${calculateAge(deputy.birth_date)}`}
-              </h5>
+              {showPersonalDeputyInfo(deputy)}
             </Col>
             <Col md="6" className="col-info-mb">
-              <h5>Informações do gabinete</h5>
-              <h6>
-                <b>Número da sala:</b>
-              </h6>
-              <h6>
-                <b>Andar:</b>
-              </h6>
-              <h6>
-                <b>Prédio:</b>
-              </h6>
-              <h6>
-                <b>Telefone:</b>
-              </h6>
+              {showDeputyCabinetInfo(deputy)}
             </Col>
           </Row>
           <Row className="tam-row-social-mb d-flex justify-content-center align-items-center">

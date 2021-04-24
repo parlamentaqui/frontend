@@ -43,7 +43,6 @@ function ShareButton(props) {
                     alt="TwitterButton"
                   />
                 </Button>
-
               </Popover.Content>
             </Popover>
       )}
