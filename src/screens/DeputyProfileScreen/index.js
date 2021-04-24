@@ -12,6 +12,7 @@ import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import NewsMobile from '../../components/News/NewsMobile';
+import DeputyTweet from '../../components/Tweet/Tweet';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -41,6 +42,9 @@ function DeputyProfileScreen() {
         <Row>
           <Col md="6">
             <News />
+          </Col>
+          <Col md="6">
+            <DeputyTweet />
           </Col>
         </Row>
       </Container>
