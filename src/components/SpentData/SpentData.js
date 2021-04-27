@@ -25,7 +25,7 @@ export function defineDate(date) {
   return str.concat(diaF, '/', mesF, '/', anoF);
 }
 
-const spentUrl = (expense) => {
+export function spentUrl(expense) {
   if (expense.document_url === null) {
     return <img src={sirene} alt="Sirene" className="icon-sirene" />;
   }
@@ -34,7 +34,7 @@ const spentUrl = (expense) => {
       <img src={IconAnexo} alt="Anexo" className="icon-anexo" />
     </a>
   );
-};
+}
 
 function spentRow(expense) {
   return (

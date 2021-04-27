@@ -9,32 +9,9 @@ import IconAnexo from '../../images/anexo.png';
 import sirene from '../../images/sirene.svg';
 import { expenseMobileRoute, profileRoute } from '../../Api';
 import ShareButton from '../ShareButton';
+import { defineDate, spentUrl, deputyShareMessage, deputyShareLink } from './SpentData';
 
-export function defineDate(date) {
-  const data = new Date(date);
-  const dia = data.getDate().toString();
-  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
-  const mes = (data.getMonth() + 1).toString();
-  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
-  const anoF = data.getFullYear();
-  const str = '';
-
-  return str.concat(diaF, '/', mesF, '/', anoF);
-}
-
-const spentUrl = (expense) => {
-  if (expense.document_url === null) {
-    return <img src={sirene} alt="Sirene" className="icon-sirene-mb" />;
-  }
-  return (
-    <a href={expense.document_url} rel="noreferrer" target="_blank">
-      <img src={IconAnexo} alt="Anexo" className="icon-anexo-mb" />
-    </a>
-  );
-};
 export const deputyShareExpenseMessage = (dep, exp) => `O ${dep} gastou R$ ${exp.document_value} com ${exp.expenses_type}.`;
-export const deputyShareMessage = (dep) => `Veja os gastos do deputado ${dep}`;
-export const deputyShareLink = (id) => `parlamentaqui.com/deputado/${id}`;
 
 function spentRow(expense, deputy, id) {
   return (
