@@ -27,7 +27,7 @@ export function defineDate(date) {
 export function defineVote(vote) {
   const str = String(vote);
   const shareMessage = `Confira esse voto sobre ${vote.deputy_name} Via parlamentaqui.com`;
-  if (vote.localeCompare('Sim')) {
+  if (!vote.localeCompare('Sim')) {
     return (
       <div>
         <img
@@ -67,6 +67,7 @@ function DataVoting() {
     //     setVotes(response.data);
     //     console.log(response.data);
     //   });
+
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
