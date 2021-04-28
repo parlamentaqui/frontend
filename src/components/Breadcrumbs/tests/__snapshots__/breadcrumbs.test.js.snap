@@ -20,14 +20,14 @@ exports[`breadcrumb is rendered as it should 1`] = `
           onKeyDown={[Function]}
           role="button"
         >
-          Home
+          Página Inicial
         </a>
       </li>
       <li
         aria-current="page"
         className="breadcrumb-item active"
       >
-        deputados
+        Deputados
       </li>
     </ol>
   </nav>
