@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './DataVoting.css';
 import { Row, Col } from 'react-bootstrap';
-import IconShareBlack from '../../images/share-black.png';
 import IconVoto from '../../images/votacao.png';
 import IconConfirma from '../../images/icon-confirma.png';
 import IconConfirmaBlack from '../../images/icon-confirma-black.png';
@@ -61,13 +60,11 @@ function DataVoting() {
   useEffect(async () => {
     const result = await axios(voteRoute(id));
     setVotes(result.data);
-
     // useEffect(() => {
     //   axios.get(voteRoute(id)).then((response) => {
     //     setVotes(response.data);
     //     console.log(response.data);
     //   });
-
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
