@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .breadcrumb-item a {
     font-weight: lighter;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     color: #0059B8;
 }
 
@@ -12,7 +11,6 @@
 
 .breadcrumb>.active {
     font-weight: normal;
-    color: #343A40
 }
 
 .breadcrumb { 

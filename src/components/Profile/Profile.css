@@ -1,0 +1,104 @@
+.img-arredondada {
+    border-radius: 50%;
+    background-position: -15px -15px;
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    
+.background-div {
+    width: 100%;
+    background: #2C2229;
+    border-radius: 24px;
+}
+    
+.background-div * {
+    color: white;
+}
+.background-div h1 {
+    text-transform: uppercase;
+}
+.tam-row-name {
+    padding-top: 20px;
+    height: auto;
+}
+.tam-row-info {
+    padding-top: 20px;
+    height: auto;
+}
+.tam-row-social {
+    height: auto;
+    margin-top: 20px;
+}
+.col-info {
+    border-left: 2px solid #FFFFFF;
+}
+
+/*ICONS*/
+
+.icon-email {
+    width: 32px;
+    height: 24px;
+    margin: 10px;
+}
+.icon-insta {
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+}
+.icon-face {
+    width: 31px;
+    height: 30.81px;
+    margin: 10px;
+}
+.icon-tt {
+    width: 32px;
+    height: 25.99px;
+    margin: 10px;
+}
+
+.icon-share-lg {
+    display: none;
+    justify-content: left;
+}
+
+  
+.h4-table {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23.04px;
+    line-height: 23px;
+    color: #212529;
+}
+
+.space {
+    height: 50px;
+}
+  
+@media (max-width: 991.98px) {
+    .img-arredondada {
+        border-radius: 50%;
+        background-position: -15px -15px;
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .col-info {
+        border-left: none;
+    }
+
+    .icon-share-mb {
+        display: none;
+        justify-content: left;
+    }
+
+    .icon-share-lg {
+        display: flex;
+        justify-content: left;
+    }
+
+}

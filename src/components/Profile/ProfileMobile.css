@@ -1,0 +1,105 @@
+.img-arredondada-mb {
+    border-radius: 50%;
+    background-position: -15px -15px;
+    width: 325px;
+    height: 320px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    
+.background-div-mb {
+    width: 100%;
+    background: #2C2229;
+    border-radius: 24px;
+}
+    
+.tam-row-name-mb {
+    padding-top: 20px;
+    height: auto;
+    text-align: center;
+    
+}
+.tam-row-info-mb {
+    padding-top: 10px;
+    height: auto;
+}
+.tam-row-social-mb {
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.col-info-mb {
+    border-top: 2px solid #FFFFFF;
+    border-left: none;
+    margin: 10px;
+}
+
+/*ICONS*/
+
+.icon-email {
+    width: 32px;
+    height: 24px;
+    margin: 10px;
+}
+.icon-insta {
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+}
+.icon-face {
+    width: 31px;
+    height: 30.81px;
+    margin: 10px;
+}
+.icon-tt {
+    width: 32px;
+    height: 25.99px;
+    margin: 10px;
+}
+
+h3 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 33.18px;
+    line-height: 40px;
+    color: #FFFFFF;
+    opacity: 0.87;
+}
+    
+h4 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23.04px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+    
+h5 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19.2px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+    
+h6 {
+    font-family: 'Open Sans', sans-serif;;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+  
+.h4-table {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23.04px;
+    line-height: 23px;
+    color: #212529;
+}
+  

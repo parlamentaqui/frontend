@@ -9,11 +9,30 @@ import {
 } from 'react-bootstrap';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
-import './SearchFilter.css';
+import './index.css';
 
-function SearchFilter() {
+function SearchFilter(props) {
   const location = useLocation();
   const parameters = queryString.parse(location.search);
+  const { estados, partidos } = props;
+  function partiesElement(element) {
+    return element === parameters.partido ? (
+      <option selected value={element}>
+        {element}
+      </option>
+    ) : (
+      <option value={element}>{element}</option>
+    );
+  }
+  function ufElement(element) {
+    return element.uf === parameters.estado ? (
+      <option selected value={element.uf}>
+        {element.name}
+      </option>
+    ) : (
+      <option value={element.uf}>{element.name}</option>
+    );
+  }
 
   return (
     <>
@@ -25,7 +44,7 @@ function SearchFilter() {
         </h1>
       </Container>
 
-      <div className="filter pb-4 pt-4">
+      <div className="filter pb-4 pt-4 corpo">
         <Container>
           <Form>
             <Row>
@@ -41,32 +60,16 @@ function SearchFilter() {
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
                 <h6>Partido</h6>
-                <Form.Control
-                  as="select"
-                  name="partido"
-                  defaultValue={parameters.partido}
-                >
-                  <option>Todos</option>
-                  <option>Partido 1</option>
-                  <option>Partido 2</option>
-                  <option>Partido 3</option>
-                  <option>Partido 4</option>
-                  <option>Partido 5</option>
+                <Form.Control as="select" name="partido">
+                  <option value="">Todos</option>
+                  {partidos.map(partiesElement)}
                 </Form.Control>
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
                 <h6>Estado</h6>
-                <Form.Control
-                  as="select"
-                  name="estado"
-                  defaultValue={parameters.estado}
-                >
-                  <option>Todos</option>
-                  <option>Estado 1</option>
-                  <option>Estado 2</option>
-                  <option>Estado 3</option>
-                  <option>Estado 4</option>
-                  <option>Estado 5</option>
+                <Form.Control as="select" name="estado">
+                  <option value="">Todos</option>
+                  {estados.map(ufElement)}
                 </Form.Control>
               </Col>
               <Col md={2} className="mb-3 mb-md-0">

@@ -1,0 +1,67 @@
+.background-div-1 {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 24px;
+    border: 1px solid #343A40;
+}
+
+.col-info {
+    border-left: 2px solid #FFFFFF;
+}
+
+.col-line-top {
+    border-top: 1px solid #DADADA;
+}
+  
+  /*ICONS*/
+
+.icon-share-black-mb {
+    width: 23px;
+    height: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+.icon-votacao-mb {
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+.icon-confirma, .icon-cancela, .icon-share-table {
+    margin: 10px;
+}
+  
+.h4-table {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23.04px;
+    line-height: 23px;
+    color: #212529;
+}
+  
+.p-table {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    color: #212529;
+}
+  
+.alinhamento-end {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: end;
+}
+
+.text-sm {
+    margin: 15px;
+}
+
+.div-body {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`breadcrumb is rendered as it should 1`] = `
+<div
+  className="mb-3 mt-3 container"
+>
+  <nav
+    aria-label="breadcrumb"
+  >
+    <ol
+      className="breadcrumb"
+    >
+      <li
+        className="breadcrumb-item"
+        onClick={[Function]}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        aria-current="page"
+        className="breadcrumb-item active"
+      >
+        deputados
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

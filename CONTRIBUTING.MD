@@ -1,3 +1,18 @@
+### Política de Branches  
+
+#### *main*
+
+A branch *main* é a branch de produção, onde ficará a versão estável do projeto. Ela estará bloqueada para commits e para pushs.
+
+#### *devel*
+
+A branch *devel* é a branch de desenvolvimento, onde o trabalho das outras branchs será unificado e onde será criada uma versão estável para mesclar com a *main*.
+Assim como a *main* ela está bloqueada para commits e pushs.
+
+#### Nome das Branches  
+
+As branchs de desenvolvimento de features serão criadas a partir da branch *devel* com a nomenclatura padrão `x_nome_da_issue`, onde o `x` representa o código de rastreio da issue.
+
 ### Política de Commits
 
 Os commits devem ser feitos usando o parâmetro `-s` para indicar sua assinatura no commit.
@@ -30,18 +45,7 @@ Comentário do commit:
 #5 Fazendo guia de contribuição
 
 Signed-off-by: John Winston Ono Lennon <jwolennon@gmail.com>
-Signed-off-by: James Paul McCartney <jpaulm@gmail.com>
-```
 
-Para que ambos envolvidos no commit sejam incluidos como contribuintes no gráfico de commits do GitHub, basta incluir a instrução `Co-authored-by:` na mensagem:
-
-```
-#5 Fazendo guia de contribuição
-
-Signed-off-by: John Winston Ono Lennon <jwolennon@gmail.com>
-Signed-off-by: James Paul McCartney <jpaulm@gmail.com>
-
-Co-authored-by: John Winston Ono Lennon <jwolennon@gmail.com>
 Co-authored-by: James Paul McCartney <jpaulm@gmail.com>
 
 ```

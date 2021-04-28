@@ -1,0 +1,27 @@
+name: Run CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - devel
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build frontend
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd 
+            cd CI
+            rm -rf frontend
+            git clone https://github.com/parlamentaqui/frontend/
+            cp envs/.env_frontend frontend/.env
+            cd frontend
+            git checkout ${{ github.event.pull_request.head.ref }}
+            npm install
+            npm run build
+          host: ${{ secrets.DO_HOST }}
+          pass: ${{ secrets.DO_PASSWORD }}

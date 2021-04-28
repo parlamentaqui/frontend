@@ -1,23 +1,14 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import ProfileImage from '../../images/Kokay.jpg';
 import ActivityListItem from '../ActivityListItem/index';
 
-const deputy = {
-  name: 'Érika Kokay Almeida',
-  politicalParty: 'PT',
-  state: 'Distrito Federal',
-  image: ProfileImage,
-  id: 0
-};
-const testArray = [deputy, deputy, deputy, deputy, deputy, deputy];
-
-function DeputiesList() {
+function DeputiesList(props) {
+  const { deputados } = props;
   return (
-    <div>
+    <div className="mt-3">
       <ListGroup>
-        {testArray.map((element) => (
-          <ActivityListItem targetInfo={element} />
+        {deputados.slice(0, 6).map((element) => (
+          <ActivityListItem targetInfo={element} key={element.id} />
         ))}
       </ListGroup>
     </div>

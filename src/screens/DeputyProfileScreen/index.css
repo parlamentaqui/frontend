@@ -1,0 +1,120 @@
+.breadcrumbs {
+  background-color: #ffffff;
+}
+
+.icon {
+  width: 40%;
+  height: 60%;
+}
+.divInfoComplete {
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.colImage {
+  height: 295px;
+  width: 100%;
+}
+
+.colInfo p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.colInfo1 p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  word-wrap: break-word; 
+}
+
+.colInfo {
+  height: 100%;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.colInfo1 {
+  height: 100%;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.rowTitle {
+  height: 40px;
+  background: #a4d4b4;
+
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+  display: flex;
+  align-items: center;
+
+  /* Text/01. Body */
+
+  color: #212529;
+}
+
+.rowSocial {
+  height: 65px;
+}
+
+.divInfos {
+  width: 744px;
+  height: 703px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*****************************/
+/*Fonts*/
+.nameDeputy {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.subDataDeputy {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 38px;
+  /* identical to box height, or 274% */
+
+  /* Global/08. Dark */
+
+}
+
+.othersInfo {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 125% */
+
+  color: #000000;
+}

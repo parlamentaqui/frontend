@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +13,78 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: gray;
+}
+
+body h1,body h2,body h3,body h4,body h5,body p{
+  margin-bottom: 1px;
+  color: #212529;
+}
+
+body h1{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 33.18px;
+  line-height: 40px;
+  margin-bottom: 8px;
+}
+
+body h2,body h3,body h4,body h5{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+
+body h2{
+  font-size: 33.18px;
+  line-height: 33px;
+}
+
+body h3{
+  font-size: 27.65px;
+  line-height: 28px;
+}
+
+body h4{
+  font-size: 23.04px;
+  line-height: 23px;
+}
+
+body h5{
+  font-size: 19.2px;
+  line-height: 19px;
+}
+
+body h5.title{
+  font-weight: 500;
+  font-size: 19.2px;
+  line-height: 19px;
+}
+
+body p{
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p.small {
+  font-size: 13.33px;
+  line-height: 13px;
 }
