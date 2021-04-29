@@ -10,7 +10,7 @@ import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumbs';
 import Teste from './components/DataVoting/DataVoting';
 import DeputyProfileScreen from './screens/DeputyProfileScreen/index';
-import HomeScreen from './screens/HomeScreen/index';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (

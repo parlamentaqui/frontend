@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import DataVotingMobile from '../../components/DataVoting/DataVotingMobile';

@@ -67,7 +67,6 @@ function DataVoting() {
     //     setVotes(response.data);
     //     console.log(response.data);
     //   });
-
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
