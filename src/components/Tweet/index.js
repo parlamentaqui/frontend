@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './index.css';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-import { deputyTweetRoute } from '../../Api';
+import { homeTweetRoute } from '../../Api';
 
-function Tweets() {
-  const history = useHistory();
-  const id = history.location.pathname.split('/')[2];
+function tweetCol(tweets) {
+  return (
+    <Col lg="12">
+      <TwitterTweetEmbed key={tweets.tweet_id} tweetId={`${tweets.tweet_id}`} />
+    </Col>
+  );
+}
+
+function Tweet() {
   const [tweets, setTweets] = useState([]);
-
-  useEffect(async () => {
-    const result = await axios(deputyTweetRoute(id));
-    setTweets(result.data);
-    console.log(setTweets);
+  useEffect(() => {
+    axios.get(homeTweetRoute).then((response) => {
+      setTweets(response.data);
+    });
   }, []);
-
   return (
     <div className="tweet-wrapper">
       <Container>
-        <Row>
-          {tweets.slice(0, 3).map((element) => (
-            <Col lg="12">
-              <TwitterTweetEmbed>{element.tweet_id}</TwitterTweetEmbed>
-            </Col>
-          ))}
-        </Row>
+        <Row>{tweets.map(tweetCol(tweets))}</Row>
       </Container>
     </div>
   );
 }
-export default Tweets;
+
+export default Tweet;
