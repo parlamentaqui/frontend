@@ -11,6 +11,7 @@ import './index.css';
 import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
+import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
 
 function DeputyProfileScreen() {
@@ -41,6 +42,9 @@ function DeputyProfileScreen() {
         <Row>
           <Col md="6">
             <News />
+          </Col>
+          <Col md="6">
+            <Tweets />
           </Col>
         </Row>
       </Container>
