@@ -1,99 +1,37 @@
-.root {
-  display: inline-flex;
+.btn-info.btn {
+  color: #a4d4b4;
+  border-color: #a4d4b4;
+  background-color: #2c2229;
 }
 
-.card {
-  display: inline-flex;
-  width: 100%;
-  height: unset;
-  object-fit: contain;
+.btn-info.disabled.btn,
+.btn-info:disabled.btn {
+  color: #fff;
+  background-color: #2c2229;
+  border-color: #2c2229;
 }
 
-.card:hover {
-  pointer-events: fill;
-  cursor: pointer;
-  box-shadow: #2e2e2e 0 2px 10px -5px;
+.btn.disabled.btn,
+.btn:disabled.btn {
+  opacity: 100%;
 }
 
-.news-wrapper title {
-  position: static;
-  width: 215px;
-  height: 77px;
-  left: 0px;
-  top: 0px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19.2px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  color: #212529;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 6px 0px;
+.btn-info:not(:disabled):not(.disabled).active.btn,
+.btn-info:not(:disabled):not(.disabled):active.btn,
+.show > .btn-info.dropdown-toggle.btn {
+  color: #fff;
+  background-color: #2c2229;
+  border-color: #2c2229;
 }
 
-/* .title h2 {
-  position: absolute;
-  width: 134px;
-  height: 34px;
-  left: 156px;
-  top: 1451px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 33.18px;
-  line-height: 33.18px;
-  display: flex;
-  align-items: center;
-  color: #000000;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 6px 0px;
-} */
-
-.text {
-  position: static;
-  width: 215px;
-  height: 24px;
-  left: 0px;
-  top: 83px;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
-  color: #6c757d;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  margin: 6px 0px;
+.btn-info:not(:disabled):not(.disabled).active:focus.btn,
+.btn-info:not(:disabled):not(.disabled):active:focus.btn,
+.show > .btn-info.dropdown-toggle:focus.btn {
+  box-shadow: none;
 }
 
-.img {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  color: #6c757d;
-}
-
-img.card-img-top.img {
-  height: 144px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.card .hover-only button {
-  display: none;
-}
-.card:hover .hover-only button,
-.hover-only button:focus {
-  display: initial;
+.btn-info:hover.btn {
+  color: #fff;
+  background-color: #2c2229;
+  border-color: #2c2229;
 }

@@ -10,6 +10,7 @@ import IconConfirmaBlack from '../../images/icon-confirma-black.png';
 import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
 import { voteRoute } from '../../Api';
+import ShareButton from '../ShareButton';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -25,6 +26,7 @@ export function defineDate(date) {
 
 export function defineVote(vote) {
   const str = String(vote);
+  const shareMessage = `Confira esse voto sobre ${vote.deputy_name} Via parlamentaqui.com`;
   if (vote.localeCompare('Sim')) {
     return (
       <div>
@@ -34,11 +36,7 @@ export function defineVote(vote) {
           className="icon-confirma underline"
         />
         <img src={IconCancela} alt="Cancela" className="icon-cancela" />
-        <img
-          src={IconShareBlack}
-          alt="Share"
-          className="icon-share-table icon-share"
-        />
+        <ShareButton message={shareMessage} />
       </div>
     );
   }
@@ -50,11 +48,7 @@ export function defineVote(vote) {
         alt="Cancela"
         className="icon-cancela underline"
       />
-      <img
-        src={IconShareBlack}
-        alt="Share"
-        className="icon-share-table icon-share"
-      />
+      <ShareButton message={shareMessage} />
     </div>
   );
 }
@@ -63,13 +57,18 @@ function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
+  console.log(voteRoute(id));
+  useEffect(async () => {
+    const result = await axios(voteRoute(id));
+    setVotes(result.data);
 
-  useEffect(() => {
-    axios.get(voteRoute(id)).then((response) => {
-      setVotes(response.data);
-      console.log(response.data);
-    });
+    // useEffect(() => {
+    //   axios.get(voteRoute(id)).then((response) => {
+    //     setVotes(response.data);
+    //     console.log(response.data);
+    //   });
   }, []);
+  const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
   return (
     <div className="d-flex justify-content-center">
@@ -81,11 +80,7 @@ function DataVoting() {
               VOTAÇÕES
             </Col>
             <Col md="1">
-              <img
-                src={IconShareBlack}
-                alt="Share"
-                className="icon-share-black"
-              />
+              <ShareButton message={shareMessage} />
             </Col>
           </Row>
           <Row>

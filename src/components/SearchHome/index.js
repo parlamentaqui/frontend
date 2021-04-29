@@ -1,41 +1,48 @@
-import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
-import ShareButton from '../ShareButton';
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
+import { Col, Row } from 'react-bootstrap';
 
-function News(props) {
-  const { news } = props;
-  let { quantity } = props;
-  quantity = !quantity ? news.length : quantity;
-  const shareLink = (element) => element.link;
-  const shareMessage = (element) => `Confira a notícia sobre o deputado ${element.deputy_name}: ${element.title}%0aVia parlamentaqui.com`;
+function SearchHome() {
+  const [searchString, setSearchString] = useState('');
+
   return (
-    <div className="root news-wrapper">
-      <Row>
-        {news.slice(0, quantity).map((element) => (
-          <Col xs={6}>
-            <Card>
-              <Card.Img variant="top" src={element.photo} className="img" />
-              <Card.Body>
-                <a target="blank" href={element.link}>
-                  <Card.Text className="title">{element.title}</Card.Text>
-                </a>
-                <Card.Text className="text pt-2 d-flex justify-content-between">
-                  {element.deputy_name}
-                  <span className="hover-only">
-                    <ShareButton
-                      message={shareMessage(element)}
-                      link={shareLink(element)}
-                    />
-                  </span>
-                </Card.Text>
-              </Card.Body>
-            </Card>
+    <div className="d-lg-none mt-4">
+      <Form inline action="/busca">
+        <Row className="mr-3 ml-3">
+          <Col xs={10} md={10} className="pr-0 pl-0">
+            <FormControl
+              name="q"
+              type="text"
+              placeholder="Busca por deputados"
+              value={searchString}
+              onChange={(e) => {
+                setSearchString(e.target.value);
+              }}
+            />
           </Col>
-        ))}
-      </Row>
+          <Col xs={2} md={2} className="pr-0 pl-0">
+            <Button
+              variant="info"
+              type="submit"
+              disabled={searchString.length === 0}
+            >
+              <FontAwesomeIcon
+                icon={faSearch}
+                color="#a4d4b4"
+                size="lg"
+                className="d-lg-none"
+              />
+            </Button>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 }
 
-export default News;
+export default SearchHome;
