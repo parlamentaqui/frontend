@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 import './News.css';
 import ShareButton from '../ShareButton/index';
 import { deputyNewsRoute } from '../../Api';
+/* eslint-disable eol-last */
 
 function News() {
   const history = useHistory();
