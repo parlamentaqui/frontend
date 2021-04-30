@@ -15,4 +15,4 @@ export const expenseMobileRoute = (id) => `${camaraURL}/expenses/${id}`;
 export const expenseRoute = (id) => `${camaraURL}/filtered_expenses/${id}`;
 export const voteRoute = (id) => `${camaraURL}/get_votes_by_deputy_id/${id}`;
 export const deputyNewsRoute = (id) => `${newsURL}/latestNews/${id}`;
-export const deputyTweetRoute = (id) => `${tweetURL}/tweets_by_id/${id}`;
+
