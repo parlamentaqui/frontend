@@ -13,7 +13,6 @@ import DeputyProfileScreen from './screens/DeputyProfileScreen';
 import HomeScreen from './screens/HomeScreen';
 import ExpensesScreen from './screens/ExpensesScreen';
 
-
 function App() {
   return (
     <main>
