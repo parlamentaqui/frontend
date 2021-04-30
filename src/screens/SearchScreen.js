@@ -17,7 +17,7 @@ function SearchScreen() {
     const requestBody = {
       nome: `${parameters.q || ''}`,
       uf: `${parameters.estado || ''}`,
-      partido: `${parameters.partido || ''}`
+      partido: `${parameters.partido || ''}`,
     };
     axios.post(camaraSearchRoute, requestBody).then((response) => {
       setDeputados(response.data);

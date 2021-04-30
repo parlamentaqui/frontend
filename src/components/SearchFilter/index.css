@@ -81,6 +81,24 @@
   height: 30px;
 }
 
+.custom-control-input:checked~.custom-control-label::before {
+  color: #fff;
+  background-color: green;
+}
+
+.custom-switch .custom-control-input:checked~.custom-control-label::after {
+  background-color: #fff;
+  transform: translateX(.75rem);
+}
+
+.text-style {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 @media screen and (max-width: 778px) {
   div.filter {
     background-color: transparent;

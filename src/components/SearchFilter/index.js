@@ -5,7 +5,7 @@ import {
   Col,
   Button,
   FormControl,
-  Form
+  Form,
 } from 'react-bootstrap';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
@@ -37,13 +37,26 @@ function SearchFilter(props) {
   return (
     <>
       <Container>
-        <h1>
-          RESULTADO DA BUSCA: &quot;
-          {parameters.q}
-          &quot;
-        </h1>
+        <Row>
+          <Col md="6">
+            <h1>
+              RESULTADO DA BUSCA: &quot;
+              {parameters.q}
+              &quot;
+            </h1>
+          </Col>
+          <Col md="6">
+            <Row>
+              <Col md="6" className="d-flex justify-content-end align-items-center text-style">
+                Deputados
+              </Col>
+              <Col md="6" className="d-flex align-items-center">
+                <Form.Check type="switch" id="custom-switch" label="Proposições" className="text-style" />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Container>
-
       <div className="filter pb-4 pt-4 corpo">
         <Container>
           <Form>
