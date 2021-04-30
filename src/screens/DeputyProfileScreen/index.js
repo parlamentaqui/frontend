@@ -8,10 +8,10 @@ import SpentDataMobile from '../../components/SpentData/SpentDataMobile';
 import Perfil from '../../components/Profile/Profile';
 import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
-import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import NewsMobile from '../../components/News/NewsMobile';
+import { profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
