@@ -1,29 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './index.css';
 import axios from 'axios';
+import TweetEmbed from 'react-tweet-embed';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { homeTweetRoute } from '../../Api';
 
-function tweetCol(tweets) {
-  return (
-    <Col lg="12">
-      <TwitterTweetEmbed key={tweets.tweet_id} tweetId={`${tweets.tweet_id}`} />
-    </Col>
-  );
-}
-
-function Tweet() {
-  const [tweets, setTweets] = useState([]);
-  useEffect(() => {
-    axios.get(homeTweetRoute).then((response) => {
-      setTweets(response.data);
-    });
-  }, []);
+function Tweet(props) {
+  const { tweets } = props;
   return (
     <div className="tweet-wrapper">
       <Container>
-        <Row>{tweets.map(tweetCol(tweets))}</Row>
+      <Row>
+          {tweets.map((tweet) => (
+            <Col lg="12">
+              <TweetEmbed key={tweet.tweet_id} id={`${tweet.tweet_id}`} />
+              {console.log(tweet.tweet_id)}
+            </Col>
+          ))}
+        </Row>
       </Container>
     </div>
   );
