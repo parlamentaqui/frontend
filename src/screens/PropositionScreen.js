@@ -27,7 +27,7 @@ function PropositionScreen() {
       {/* <Container> */}
       <Container className="d-none d-sm-block">
         {/* <h1>Página de uma proposicao yay</h1> */}
-        <Proposition propo={proposition} />
+        <Proposition proposition={proposition} />
       </Container>
     </main>
   );
