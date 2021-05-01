@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Switch from 'react-switch';
 import {
   Row,
@@ -12,11 +12,12 @@ import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import './index.css';
 
-function SearchFilter(props) {
+function SearchFilterP(props) {
   const location = useLocation();
   const parameters = queryString.parse(location.search);
-  const { estados, partidos, setMode } = props;
+  const { partidos, deputados, setMode } = props;
   function partiesElement(element) {
+    console.log(element);
     return element === parameters.partido ? (
       <option selected value={element}>
         {element}
@@ -25,13 +26,14 @@ function SearchFilter(props) {
       <option value={element}>{element}</option>
     );
   }
-  function ufElement(element) {
-    return element.uf === parameters.estado ? (
-      <option selected value={element.uf}>
+  function deputyElement(element) {
+    console.log(element.name);
+    return element === parameters.deputado ? (
+      <option selected value={element.name}>
         {element.name}
       </option>
     ) : (
-      <option value={element.uf}>{element.name}</option>
+      <option value={element.name}>{element.name}</option>
     );
   }
 
@@ -42,7 +44,7 @@ function SearchFilter(props) {
           <Col md="6">
             <h1>
               RESULTADO DA BUSCA: &quot;
-              {parameters.q}
+              {parameters.p}
               &quot;
             </h1>
           </Col>
@@ -55,10 +57,7 @@ function SearchFilter(props) {
                 Deputados
               </Col>
               <Col md="6" className="d-flex align-items-center">
-                <Switch
-                  onChange={() => setMode('Proposições')}
-                  checked={false}
-                />
+                <Switch onChange={() => setMode('Deputados')} checked />
               </Col>
             </Row>
           </Col>
@@ -69,27 +68,27 @@ function SearchFilter(props) {
           <Form>
             <Row>
               <Col md={4} className="mb-3 mb-md-0">
-                <h6>Nome do deputado</h6>
+                <h6>Busca</h6>
                 <FormControl
-                  defaultValue={parameters.q}
-                  name="q"
+                  defaultValue={parameters.p}
+                  name="p"
                   type="text"
                   placeholder=""
                   className="mr-sm-2"
                 />
               </Col>
               <Col md={3} className="mb-3 mb-md-0">
+                <h6>Deputado</h6>
+                <Form.Control as="select" name="deputados">
+                  <option value="">Todos</option>
+                  {deputados.map(deputyElement)}
+                </Form.Control>
+              </Col>
+              <Col md={3} className="mb-3 mb-md-0">
                 <h6>Partido</h6>
                 <Form.Control as="select" name="partido">
                   <option value="">Todos</option>
                   {partidos.map(partiesElement)}
-                </Form.Control>
-              </Col>
-              <Col md={3} className="mb-3 mb-md-0">
-                <h6>Estado</h6>
-                <Form.Control as="select" name="estado">
-                  <option value="">Todos</option>
-                  {estados.map(ufElement)}
                 </Form.Control>
               </Col>
               <Col md={2} className="mb-3 mb-md-0">
@@ -105,4 +104,4 @@ function SearchFilter(props) {
   );
 }
 
-export default SearchFilter;
+export default SearchFilterP;

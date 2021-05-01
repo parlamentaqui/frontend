@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ListGroupItem,
-  Row,
-  Col,
-  Image
-} from 'react-bootstrap';
+import { ListGroupItem, Row, Col, Image } from 'react-bootstrap';
 import './index.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 
@@ -25,16 +20,16 @@ function ActivityListItem({ targetInfo, isLast }) {
               alt={`${targetInfo.name} profile.`}
             />
             <div>
-              <h5 className="targetInfoStrings title">{targetInfo.name}</h5>
-              <p className="targetInfoStrings">{targetInfo.party}</p>
-              <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
+              <h5 className="targetInfoStrings title font-color">
+                {targetInfo.name}
+              </h5>
+              <p className="targetInfoStrings font-color">{targetInfo.party}</p>
+              <p className="targetInfoStrings font-color">
+                {targetInfo.federative_unity}
+              </p>
             </div>
           </div>
-          <Image
-            src={ArrowRight}
-            alt="acessar perfil"
-            className="arrowRight"
-          />
+          <Image src={ArrowRight} alt="acessar perfil" className="arrowRight" />
         </div>
         {!isLast && <hr />}
       </Link>
