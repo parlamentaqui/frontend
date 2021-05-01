@@ -6,6 +6,8 @@ import axios from 'axios';
 import SearchFilter from '../components/SearchFilter';
 import SearchFilterP from '../components/SearchFilterProposition';
 import DeputiesList from '../components/DeputiesList';
+import PropositionsList from '../components/PropositionsList';
+
 import {
   camaraSearchRoute,
   partiesSearchRoute,
@@ -35,7 +37,6 @@ function SearchScreen() {
     };
     console.log(requestBody2);
     axios.post(camaraSearchRoute, requestBody).then((response) => {
-      console.log('print', response.data);
       setDeputados(response.data);
     });
     axios.get(ufSearchRoute).then((response) => {
@@ -70,6 +71,9 @@ function SearchScreen() {
             mode={mode}
             setMode={(value) => setMode(value)}
           />,
+          <Container>
+            <PropositionsList proposicao={proposicao} deputados={deputados} />
+          </Container>,
         ]
       )}
     </main>
