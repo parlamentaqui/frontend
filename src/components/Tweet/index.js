@@ -27,7 +27,7 @@ function Tweet() {
         ))}
         {tweets.length === 0 && (
           <Col lg="12">
-            <h5>Nao existem Tweets</h5>
+            <h5>Não existem Tweets</h5>
           </Col>
         )}
       </Row>
