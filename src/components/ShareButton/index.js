@@ -3,7 +3,7 @@ import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
 import './index.css';
 
 function ShareButton(props) {
-  const { message, link, theme } = props;
+  const { message, link } = props;
   const handleTweetShare = () => {
     const twitterString = `https://twitter.com/share?url=${link}&text=${message}`;
     const win = window.open(twitterString, '_blank');
@@ -20,7 +20,7 @@ function ShareButton(props) {
     win.focus();
   };
   return (
-    <div className={`align ${theme}`}>
+    <div className="align">
       {['top'].map((placement) => (
         <OverlayTrigger
           className="cor"
@@ -48,7 +48,7 @@ function ShareButton(props) {
       )}
         >
           <Button variant="secondary">
-            {theme === 'dark' ? <img src="/images/ShareDeputyIcon.svg" className="imagem" alt="SearchButton" /> : <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" /> }
+            <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" />
           </Button>
         </OverlayTrigger>
       ))}
