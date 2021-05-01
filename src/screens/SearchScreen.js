@@ -72,7 +72,11 @@ function SearchScreen() {
             setMode={(value) => setMode(value)}
           />,
           <Container>
-            <PropositionsList proposicao={proposicao} deputados={deputados} />
+            <PropositionsList
+              proposicao={proposicao}
+              deputados={deputados}
+              theme="dark"
+            />
           </Container>,
         ]
       )}

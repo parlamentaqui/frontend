@@ -48,17 +48,13 @@ function SearchFilter(props) {
           </Col>
           <Col md="6">
             <Row>
-              <Col
-                md="6"
-                className="d-flex justify-content-end align-items-center text-style"
-              >
-                Deputados
-              </Col>
-              <Col md="6" className="d-flex align-items-center">
+              <Col md="12" className="d-flex align-items-center">
+                Deputados &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Switch
                   onChange={() => setMode('Proposições')}
                   checked={false}
                 />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proposições
               </Col>
             </Row>
           </Col>
