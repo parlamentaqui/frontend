@@ -16,3 +16,4 @@ export const expenseRoute = (id) => `${camaraURL}/filtered_expenses/${id}`;
 export const voteRoute = (id) => `${camaraURL}/get_votes_by_deputy_id/${id}`;
 export const deputyNewsRoute = (id) => `${newsURL}/latestNews/${id}`;
 export const propositionSearchRoute = `${camaraURL}/filtered_propositions`;
+export const propositionRoute = (id) => `${camaraURL}/get_proposition_by_id/${id}`;

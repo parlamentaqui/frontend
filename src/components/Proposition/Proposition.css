@@ -1,0 +1,47 @@
+.propAuthorBox {
+    /* 
+    left: 732px;
+    top: 126px; */
+    width: 560px;
+    height: 104px;
+    background: #2C2229;
+    border-radius: 24px;
+}
+
+.authorNameInfo {
+    margin-top: 28px;
+    margin-left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.authorPartyAndRegionInfo{
+    margin-top: 8px;
+    margin-left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.propThemeBox {
+    width: 151px;
+    height: 30px;
+    left: 526px;
+    top: 116px;
+
+    background: #D2FFE1;
+    border-radius: 12px;
+}
+
+.icon-author {
+    margin-top: 18.42px;  
+    margin-left: 16px;
+
+    border-radius: 500px; 
+}

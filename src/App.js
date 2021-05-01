@@ -12,6 +12,7 @@ import Teste from './components/DataVoting/DataVoting';
 import DeputyProfileScreen from './screens/DeputyProfileScreen';
 import HomeScreen from './screens/HomeScreen';
 import ExpensesScreen from './screens/ExpensesScreen';
+import PropositionScreen from './screens/PropositionScreen';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
+        <Route path="/proposicao/:id" component={PropositionScreen} />
         <Route path="/teste" component={Teste} />
         <Route component={ErrorScreen} />
       </Switch>
