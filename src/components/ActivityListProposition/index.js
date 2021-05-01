@@ -19,10 +19,10 @@ function ActivityListProposition({ targetInfo, isLast, deputados }) {
           <div className="d-flex">
             <div>
               <h5 className="targetInfoStrings title font-color">
-                {targetInfo.tema_proposicao}
-                <p> - </p>
+                <b>{targetInfo.tema_proposicao}</b>
+                <p>&nbsp;-&nbsp;</p>
                 {targetInfo.nome_autor}
-                <p> - </p>
+                <p>&nbsp;-&nbsp;</p>
               </h5>
               <p className="targetInfoStrings font-color">
                 {targetInfo.despacho}

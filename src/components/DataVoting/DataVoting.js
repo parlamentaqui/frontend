@@ -56,23 +56,11 @@ function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
-<<<<<<< HEAD
-  console.log(voteRoute(id));
-  useEffect(async () => {
-    const result = await axios(voteRoute(id));
-    setVotes(result.data);
-    // useEffect(() => {
-    //   axios.get(voteRoute(id)).then((response) => {
-    //     setVotes(response.data);
-    //     console.log(response.data);
-    //   });
-=======
 
   useEffect(() => {
     axios.get(voteRoute(id)).then((response) => {
       setVotes(response.data);
     });
->>>>>>> 3fc261d16be245b9f44251ae6d64605d418fa045
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
