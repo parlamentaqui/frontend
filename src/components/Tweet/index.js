@@ -8,8 +8,8 @@ import { deputyTweetsRoute } from '../../Api';
 
 function Tweet() {
   const history = useHistory();
-  const id = history.location.pathname.split('/')[3];
-  const [tweets, setTweets] = useState({});
+  const id = history.location.pathname.split('/')[2];
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     axios.get(deputyTweetsRoute(id)).then((response) => {
       setTweets(response.data);
@@ -17,17 +17,20 @@ function Tweet() {
   }, []);
   return (
     <div className="tweet-wrapper">
-      <Container>
-        <Row>
-          {console.log(tweets)}
-          {tweets.map((item) => (
-            <Col lg="12">
-              {/* <TweetEmbed key={item.tweet_id} id={`${item.tweet_id}`} /> */}
-            </Col>
-          ))}
-          {console.log(tweets)}
-        </Row>
-      </Container>
+      <h2 className="title mb-3">Tweets</h2>
+      <Row>
+        {console.log('tweets', tweets)}
+        {tweets.map((item) => (
+          <Col lg="12">
+            <TweetEmbed key={item.tweet_id} id={`${item.tweet_id}`} />
+          </Col>
+        ))}
+        {tweets.length === 0 && (
+          <Col lg="12">
+            <h5>Nao existem Tweets</h5>
+          </Col>
+        )}
+      </Row>
     </div>
   );
 }
