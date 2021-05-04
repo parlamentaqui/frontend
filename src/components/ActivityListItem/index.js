@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ListGroupItem, Row, Col, Image } from 'react-bootstrap';
+import { ListGroupItem, Image } from 'react-bootstrap';
 import './index.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 
