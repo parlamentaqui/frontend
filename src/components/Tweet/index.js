@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './index.css';
-import { Container, Row, Col } from 'react-bootstrap';
 import TweetEmbed from 'react-tweet-embed';
 import { deputyTweetsRoute } from '../../Api';
 
