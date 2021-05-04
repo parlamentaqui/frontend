@@ -16,6 +16,7 @@ function News() {
   useEffect(async () => {
     axios.get(deputyNewsRoute(id)).then((response) => {
       setNews(response.data);
+      console.log(response.data);
     });
   }, []);
 
