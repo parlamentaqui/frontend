@@ -8,6 +8,20 @@
     border-radius: 24px;
 }
 
+.propStatusBox {
+    /* 
+    left: 732px;
+    top: 126px; */
+    width: 560px;
+    height: 104px;
+    background: #D2FFE1;
+    border-radius: 24px;
+}
+
+.propStatusBox p{
+    font-weight: bold;
+}
+
 .authorNameInfo {
     margin-top: 28px;
     margin-left: 16px;

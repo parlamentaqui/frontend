@@ -82,16 +82,42 @@ function Proposition(props) {
           {getAuthorInfo(proposition)}
         </Col>
       </Row>
-
-      <Container classname="propThemeBox">
-        <p>{proposition.tema_proposicao}</p>
-        <br />
-        <p>{proposition.ementa}</p>
-        <p>
-          <br />
-          {proposition.ementa_detalhada}
-        </p>
-      </Container>
+      <Row>
+        <Col>
+          <Container classname="propThemeBox">
+            <p>{proposition.tema_proposicao}</p>
+            <br />
+            <p>{proposition.ementa}</p>
+            <p>
+              <br />
+              {proposition.ementa_detalhada}
+            </p>
+          </Container>
+        </Col>
+        <Col className="propStatusBox" md="12" lg="6">
+          <h5>Status da proposição</h5>
+          <p>
+            Data:
+            {proposition.data_proposicao}
+          </p>
+          <p>
+            Despacho:
+            {proposition.despacho}
+          </p>
+          <p>
+            Situação:
+            {proposition.descricao_situacao}
+          </p>
+          <p>
+            Orgao:
+            {proposition.sigla_orgao}
+          </p>
+        </Col>
+      </Row>
+      <p>
+        Keywords:
+        {proposition.keywords}
+      </p>
     </Container>
   );
 }
