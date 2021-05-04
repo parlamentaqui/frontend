@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ListGroupItem,
-  Row,
-  Col,
-  Image
-} from 'react-bootstrap';
+import { ListGroupItem, Image } from 'react-bootstrap';
 import './index.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 
@@ -13,7 +8,7 @@ import ArrowRight from '../../images/ArrowRight.svg';
 function ActivityListItem({ targetInfo, isLast }) {
   return (
     // fazer o cast do LisGroupItem pra div pra retornar corretamente
-    <ListGroupItem as="div" className="activityContainer">
+    <ListGroupItem as="div" className="activityContainer" key={targetInfo.id}>
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
       <Link to={`/deputados/${targetInfo.id}`} className="link d-block">
@@ -30,11 +25,7 @@ function ActivityListItem({ targetInfo, isLast }) {
               <p className="targetInfoStrings">{targetInfo.federative_unity}</p>
             </div>
           </div>
-          <Image
-            src={ArrowRight}
-            alt="acessar perfil"
-            className="arrowRight"
-          />
+          <Image src={ArrowRight} alt="acessar perfil" className="arrowRight" />
         </div>
         {!isLast && <hr />}
       </Link>
