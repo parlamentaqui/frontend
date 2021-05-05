@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 .breadcrumbs {
   background-color: #ffffff;
@@ -27,7 +28,7 @@
 .colInfo1 p {
   margin-top: 15px;
   margin-bottom: 15px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
 }
 
 .colInfo {
@@ -81,7 +82,6 @@
   justify-content: center;
 }
 
-
 /*****************************/
 /*Fonts*/
 .nameDeputy {
@@ -101,7 +101,6 @@
   /* identical to box height, or 274% */
 
   /* Global/08. Dark */
-
 }
 
 .othersInfo {
