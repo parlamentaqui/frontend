@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import { Col, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import './index.css';
 import TweetEmbed from 'react-tweet-embed';
@@ -19,7 +20,6 @@ function Tweet() {
     <div className="tweet-wrapper">
       <h2 className="title mb-3">Tweets</h2>
       <Row>
-        {console.log('tweets', tweets)}
         {tweets.map((item) => (
           <Col lg="12">
             <TweetEmbed key={item.tweet_id} id={`${item.tweet_id}`} />
