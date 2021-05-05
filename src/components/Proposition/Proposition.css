@@ -1,7 +1,4 @@
 .propAuthorBox {
-    /* 
-    left: 732px;
-    top: 126px; */
     width: 560px;
     height: 104px;
     background: #2C2229;
@@ -9,11 +6,6 @@
 }
 
 .propStatusBox {
-    /* 
-    left: 732px;
-    top: 126px; */
-    width: 560px;
-    height: 104px;
     background: #D2FFE1;
     border-radius: 24px;
 }
@@ -44,11 +36,7 @@
 }
 
 .propThemeBox {
-    width: 151px;
-    height: 30px;
-    left: 526px;
-    top: 116px;
-
+    margin:auto;
     background: #D2FFE1;
     border-radius: 12px;
 }
@@ -56,6 +44,20 @@
 .icon-author {
     margin-top: 18.42px;  
     margin-left: 16px;
-
     border-radius: 500px; 
+}
+
+.propKeywords{
+    font-family: Open Sans;
+    font-size: 13.33px;
+}
+
+.propMenu{
+    font-family: Open Sans;
+    font-size: 16px;
+}
+
+.propDetailedMenu{
+    font-family: Open Sans;
+    font-size: 18px;
 }

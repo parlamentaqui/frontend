@@ -38,6 +38,7 @@ function getAuthorInfo(proposition) {
           <div>
             <p className="authorNameInfo">
               Autoria:
+              {' '}
               {proposition.nome_autor}
             </p>
             <p className="authorPartyAndRegionInfo">
@@ -56,6 +57,7 @@ function getAuthorInfo(proposition) {
         <div>
           <p className="authorNameInfo">
             Autoria:
+            {' '}
             {proposition.nome_autor}
           </p>
         </div>
@@ -69,53 +71,60 @@ function Proposition(props) {
 
   return (
     <Container>
+      <div>
+        <p className="propThemeBox">{proposition.tema_proposicao}</p>
+        <Row>
+          <Col md="12" lg="6">
+
+            <h1>
+              {proposition.descricao_tipo}
+              {' '}
+              {proposition.numero}
+              /
+              {proposition.ano}
+            </h1>
+            <p className="propMenu">{proposition.ementa}</p>
+          </Col>
+          <Col className="propAuthorBox" md="12" lg="6">
+            {getAuthorInfo(proposition)}
+          </Col>
+        </Row>
+      </div>
       <Row>
-        <Col md="12" lg="6">
-          <h1>
-            {proposition.descricao_tipo}
-            {proposition.numero}
-            /
-            {proposition.ano}
-          </h1>
-        </Col>
-        <Col className="propAuthorBox" md="12" lg="6">
-          {getAuthorInfo(proposition)}
-        </Col>
-      </Row>
-      <Row>
+
         <Col>
-          <Container classname="propThemeBox">
-            <p>{proposition.tema_proposicao}</p>
-            <br />
-            <p>{proposition.ementa}</p>
+          <p className="propDetailedMenu">{proposition.ementa_detalhada}</p>
+        </Col>
+        <Col md="12" lg="6">
+          <div className="propStatusBox">
+            <h5>Status da proposição</h5>
             <p>
-              <br />
-              {proposition.ementa_detalhada}
+              Data:
+              {' '}
+              {proposition.data_proposicao}
             </p>
-          </Container>
+            <p>
+              Despacho:
+              {' '}
+              {proposition.despacho}
+            </p>
+            <p>
+              Situação:
+              {' '}
+              {proposition.descricao_situacao}
+            </p>
+            <p>
+              Orgao:
+              {' '}
+              {proposition.sigla_orgao}
+            </p>
+          </div>
+
         </Col>
-        <Col className="propStatusBox" md="12" lg="6">
-          <h5>Status da proposição</h5>
-          <p>
-            Data:
-            {proposition.data_proposicao}
-          </p>
-          <p>
-            Despacho:
-            {proposition.despacho}
-          </p>
-          <p>
-            Situação:
-            {proposition.descricao_situacao}
-          </p>
-          <p>
-            Orgao:
-            {proposition.sigla_orgao}
-          </p>
-        </Col>
+
       </Row>
-      <p>
-        Keywords:
+      <p className="propKeywords">
+        Palavras-chave:
         {proposition.keywords}
       </p>
     </Container>
