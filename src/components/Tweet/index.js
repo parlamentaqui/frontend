@@ -1,25 +1,35 @@
-import React from 'react';
-import './index.css';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import './index.css';
 import TweetEmbed from 'react-tweet-embed';
-import { Container, Row, Col } from 'react-bootstrap';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
-import { homeTweetRoute } from '../../Api';
+import { deputyTweetsRoute } from '../../Api';
 
-function Tweet(props) {
-  const { tweets } = props;
+function Tweet() {
+  const history = useHistory();
+  const id = history.location.pathname.split('/')[2];
+  const [tweets, setTweets] = useState([]);
+  useEffect(() => {
+    axios.get(deputyTweetsRoute(id)).then((response) => {
+      setTweets(response.data);
+    });
+  }, []);
   return (
     <div className="tweet-wrapper">
-      <Container>
+      <h2 className="title mb-3">Tweets</h2>
       <Row>
-          {tweets.map((tweet) => (
-            <Col lg="12">
-              <TweetEmbed key={tweet.tweet_id} id={`${tweet.tweet_id}`} />
-              {console.log(tweet.tweet_id)}
-            </Col>
-          ))}
-        </Row>
-      </Container>
+        {console.log('tweets', tweets)}
+        {tweets.map((item) => (
+          <Col lg="12">
+            <TweetEmbed key={item.tweet_id} id={`${item.tweet_id}`} />
+          </Col>
+        ))}
+        {tweets.length === 0 && (
+          <Col lg="12">
+            <h5>Não existem Tweets</h5>
+          </Col>
+        )}
+      </Row>
     </div>
   );
 }

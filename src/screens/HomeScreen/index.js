@@ -25,7 +25,6 @@ function HomeScreen() {
       setDeputados(response.data);
     });
   }, []);
-
   return (
     <Container as="main" className="layout">
       <Row className="justify-content-center">
@@ -47,7 +46,7 @@ function HomeScreen() {
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
           <h3 className="recentActivity">Você pode se interessar</h3>
-          <Tweet />
+          <Tweet tweets={tweets} />
           {/* Linha dos cards */}
           <hr />
           <div className="mt-3">
@@ -58,5 +57,4 @@ function HomeScreen() {
     </Container>
   );
 }
-
 export default HomeScreen;

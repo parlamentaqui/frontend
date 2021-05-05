@@ -16,14 +16,13 @@ function News() {
   useEffect(async () => {
     axios.get(deputyNewsRoute(id)).then((response) => {
       setNews(response.data);
+      console.log(response.data);
     });
   }, []);
 
   return (
     <div>
-      <Row>
-        <h2 className="title">Notícias</h2>
-      </Row>
+      <h2 className="title">Notícias</h2>
       <div className="root">
         <Row>
           {news.slice(0, 3).map((element) => (
