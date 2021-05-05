@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-import { Col, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import './index.css';
 import TweetEmbed from 'react-tweet-embed';
