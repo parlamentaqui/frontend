@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { profileRoute, propositionRoute } from '../../Api';
 import './Proposition.css';
 import AuthorPhoto from '../../images/Kokay.jpg';
+import ArrowRight from '../../images/ArrowRight.svg';
+import { defineDate } from '../DataVoting/DataVoting';
 
 /* OBS:
 
@@ -43,10 +45,17 @@ function getAuthorInfo(proposition) {
             </p>
             <p className="authorPartyAndRegionInfo">
               {deputy.party}
+              {' '}
               -
+              {' '}
               {deputy.federative_unity}
             </p>
           </div>
+          <Image
+            src={ArrowRight}
+            alt="acessar perfil"
+            className="arrowRight"
+          />
         </Row>
       </div>
     );
@@ -75,7 +84,6 @@ function Proposition(props) {
         <p className="propThemeBox">{proposition.tema_proposicao}</p>
         <Row>
           <Col md="12" lg="6">
-
             <h1>
               {proposition.descricao_tipo}
               {' '}
@@ -91,30 +99,30 @@ function Proposition(props) {
         </Row>
       </div>
       <Row>
-
         <Col>
           <p className="propDetailedMenu">{proposition.ementa_detalhada}</p>
         </Col>
-        <Col md="12" lg="6">
+        <Col md="12" lg="4">
           <div className="propStatusBox">
-            <h5>Status da proposição</h5>
+            <h5><strong>Status da proposição</strong></h5>
+            {'\n'}
             <p>
-              Data:
+              <strong>Data:</strong>
               {' '}
-              {proposition.data_proposicao}
+              {defineDate(proposition.data_proposicao)}
             </p>
             <p>
-              Despacho:
+              <strong>Despacho:</strong>
               {' '}
               {proposition.despacho}
             </p>
             <p>
-              Situação:
+              <strong>Situação:</strong>
               {' '}
               {proposition.descricao_situacao}
             </p>
             <p>
-              Orgao:
+              <strong>Orgao:</strong>
               {' '}
               {proposition.sigla_orgao}
             </p>
@@ -125,6 +133,7 @@ function Proposition(props) {
       </Row>
       <p className="propKeywords">
         Palavras-chave:
+        {' '}
         {proposition.keywords}
       </p>
     </Container>
