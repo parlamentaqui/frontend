@@ -13,7 +13,6 @@ import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import NewsMobile from '../../components/News/NewsMobile';
 import DeputyTweet from '../../components/Tweet/Tweet';
-import { profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
