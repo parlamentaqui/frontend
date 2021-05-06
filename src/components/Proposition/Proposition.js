@@ -100,7 +100,12 @@ function Proposition(props) {
       </div>
       <Row>
         <Col>
-          <p className="propDetailedMenu">{proposition.ementa_detalhada}</p>
+          <p className="propDetailedMenuText">Detalhes da ementa:</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p className="propDetailedMenu">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
         </Col>
         <Col md="12" lg="4">
           <div className="propStatusBox">

@@ -9,8 +9,9 @@
     background: #D2FFE1;
     border-radius: 24px;
     padding: 10px;
-    padding-left: 20.px;
-    width: 360px;
+    padding-left: 17px;
+    padding-right: 5px;
+    width: 350px;
 }
 
 .propStatusBox h5 {
@@ -43,7 +44,7 @@
     border-radius: 12px;
     padding: 4px 6px;
     display: inline-block;
-    margin-left: 420px;
+    margin-left: 0px;
     font-family: Open Sans;
     font-size: 13px;
 }
@@ -61,12 +62,20 @@
 .propKeywords{
     font-family: Open Sans;
     font-size: 13.33px;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 
 .propMenu{
     font-family: Open Sans;
     font-size: 16px;
+    line-height: 24px;
+}
+
+.propDetailedMenuText {
+    font-family: Montserrat;
+    font-weight: bold;
+    margin-top: 31px;
+    margin-bottom: 16px;
 }
 
 .propDetailedMenu{
