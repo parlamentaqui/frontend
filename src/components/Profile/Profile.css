@@ -1,13 +1,23 @@
 .img-arredondada {
     border-radius: 50%;
     background-position: -15px -15px;
-    width: 300px;
-    height: 300px;
+    width: 148px;   
+    height: 148px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.w-100 h5{
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.tit-exercicio{
+    font-size: 20px;
+}
     
 .background-div {
+    padding: 32px 40px 24px 40px;
     width: 100%;
     background: #2C2229;
     border-radius: 24px;
@@ -38,24 +48,28 @@
 /*ICONS*/
 
 .icon-email {
-    width: 32px;
-    height: 24px;
-    margin: 10px;
+    width: auto;
+    height: 16px;
+    margin: 0 8px;
 }
 .icon-insta {
-    width: 28px;
-    height: 28px;
-    margin: 10px;
+    width: auto;
+    margin: 0 8px;
+    height: 16px;
 }
 .icon-face {
-    width: 31px;
-    height: 30.81px;
-    margin: 10px;
+    width: auto;
+    margin: 0 8px;
+    height: 16px;
 }
 .icon-tt {
-    width: 32px;
-    height: 25.99px;
-    margin: 10px;
+    width: auto;
+    margin: 0 8px;
+    height: 16px;   
+}
+
+.deputy-picture{
+    margin-right: 40px;
 }
 
 .icon-share-lg {

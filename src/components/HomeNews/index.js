@@ -14,13 +14,22 @@ function News(props) {
       <Row>
         {news.slice(0, quantity).map((element) => (
           <Col xs={6}>
-            <Card>
+            <Card className="h-100 position-relative">
               <Card.Img variant="top" src={element.photo} className="img" />
               <Card.Body>
                 <a target="blank" href={element.link}>
                   <Card.Text className="title">{element.title}</Card.Text>
                 </a>
-                <Card.Text className="text pt-2 d-flex justify-content-between">
+                <Card.Text className="text pt-2 d-flex justify-content-between position-absolute">
+                  {element.deputy_name}
+                  <span className="hover-only">
+                    <ShareButton
+                      message={shareMessage(element)}
+                      link={shareLink(element)}
+                    />
+                  </span>
+                </Card.Text>
+                <Card.Text className="text pt-2 d-flex justify-content-between op-0">
                   {element.deputy_name}
                   <span className="hover-only">
                     <ShareButton

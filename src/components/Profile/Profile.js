@@ -74,24 +74,31 @@ function ProfileD(props) {
 
   return (
     <div className="d-flex justify-content-center">
-      <Row className="background-div">
-        <Col
-          md="4"
-          className="d-flex justify-content-center align-items-center"
+      <div className="background-div d-flex">
+        <div
+          className="d-flex justify-content-center align-items-center flex-column deputy-picture"
         >
           <img
             src={deputy.photo_url}
             alt="Profile"
             className="img-arredondada"
           />
-        </Col>
-        <Col md="8">
-          <Row className="tam-row-name">
+          <div>
+            <Row className="tam-row-social d-flex justify-content-center align-items-center m-0">
+              <img src={IconEmail} alt="Email" className="icon-email" />
+              <img src={IconInsta} alt="Insta" className="icon-insta" />
+              <img src={IconFace} alt="Face" className="icon-face" />
+              <img src={IconTwitter} alt="Twitter" className="icon-tt" />
+            </Row>
+          </div>
+        </div>
+        <div className="w-100">
+          <Row className="tam-row-name p-0">
             <Col md="10">
               <h1 className="mb-2">
                 {deputy.name}
               </h1>
-              <h4 className="mb-3">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
+              <h4 className="mb-3 tit-exercicio">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
             <Col
               md="2"
@@ -108,14 +115,8 @@ function ProfileD(props) {
               {showDeputyCabinetInfo(deputy)}
             </Col>
           </Row>
-          <Row className="tam-row-social d-flex justify-content-center align-items-center">
-            <img src={IconEmail} alt="Email" className="icon-email" />
-            <img src={IconInsta} alt="Insta" className="icon-insta" />
-            <img src={IconFace} alt="Face" className="icon-face" />
-            <img src={IconTwitter} alt="Twitter" className="icon-tt" />
-          </Row>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }
