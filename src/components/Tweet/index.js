@@ -12,7 +12,6 @@ function Tweet(props) {
           {tweets.map((tweet) => (
             <Col lg="12">
               <TweetEmbed key={tweet.tweet_id} id={`${tweet.tweet_id}`} />
-              {console.log(tweet.tweet_id)}
             </Col>
           ))}
         </Row>

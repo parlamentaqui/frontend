@@ -1,0 +1,91 @@
+.propAuthorBoxMobile {
+    height: 104px;
+    background: #2C2229;
+    border-radius: 24px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.propStatusBoxMobile {
+    background: #D2FFE1;
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 5px;
+    width: 350px;
+    margin-top: 16px;
+}
+
+.propStatusBoxMobile h5 {
+    padding-bottom: 8px;
+}
+
+.authorNameInfo {
+    margin-top: 28px;
+    margin-left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.authorPartyAndRegionInfo{
+    margin-top: 8px;
+    margin-left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.propThemeBoxMobile {
+    background: #D2FFE1;
+    border-radius: 12px;
+    padding: 4px 6px;
+    display: inline-block;
+    margin-left: 150px;
+    font-family: Open Sans;
+    font-size: 13px;
+}
+
+.icon-author {
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    margin-left: 16px;
+    object-fit: cover;
+    object-position: top;
+    margin-top: 18.42px;
+}
+
+.propKeywordsMobile{
+    font-family: Open Sans;
+    font-size: 13.33px;
+    margin-top: 20px;
+}
+
+.propMenu{
+    font-family: Open Sans;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.propDetailedMenuText {
+    font-family: Montserrat;
+    font-weight: bold;
+    margin-top: 31px;
+    margin-bottom: 16px;
+}
+
+.propDetailedMenu{
+    font-family: Open Sans;
+    font-size: 18px;
+}
+
+.arrowRight {
+  display: inline;
+  margin-right: 0px;
+  text-align: right;
+}

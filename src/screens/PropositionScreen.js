@@ -22,7 +22,7 @@ function PropositionScreen() {
       {/* <Container> */}
       <Container className="d-block d-sm-none">
         {/* <h1>Página de uma proposição</h1> */}
-        <PropMobile props={id} />
+        <PropMobile proposition={proposition} />
       </Container>
       {/* <Container> */}
       <Container className="d-none d-sm-block">

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Col, Container, Row, Image } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
-import { profileRoute, propositionRoute } from '../../Api';
+import { profileRoute } from '../../Api';
 import './Proposition.css';
-import AuthorPhoto from '../../images/Kokay.jpg';
 import ArrowRight from '../../images/ArrowRight.svg';
 import { defineDate } from '../DataVoting/DataVoting';
 
@@ -17,7 +15,7 @@ logo, não é possível recuperar infirmações sobre esse deputado
 */
 
 // Formata o div da informação do autor da proposição
-function getAuthorInfo(proposition) {
+export function getAuthorInfo(proposition) {
   const str = String(proposition.tipoAutor);
 
   if (!str.localeCompare('Deputado')) {
@@ -52,6 +50,7 @@ function getAuthorInfo(proposition) {
             </p>
           </div>
           <Image
+            media="screen and (min-width: 480px)"
             src={ArrowRight}
             alt="acessar perfil"
             className="arrowRight"
@@ -71,6 +70,35 @@ function getAuthorInfo(proposition) {
           </p>
         </div>
       </Row>
+    </div>
+  );
+}
+
+export function getStatusInfo(proposition) {
+  return (
+    <div className="propStatusBox">
+      <h5><strong>Status da proposição</strong></h5>
+      {'\n'}
+      <p>
+        <strong>Data:</strong>
+        {' '}
+        {defineDate(proposition.data_proposicao)}
+      </p>
+      <p>
+        <strong>Despacho:</strong>
+        {' '}
+        {proposition.despacho}
+      </p>
+      <p>
+        <strong>Situação:</strong>
+        {' '}
+        {proposition.descricao_situacao}
+      </p>
+      <p>
+        <strong>Orgao:</strong>
+        {' '}
+        {proposition.sigla_orgao}
+      </p>
     </div>
   );
 }
@@ -108,31 +136,7 @@ function Proposition(props) {
           <p className="propDetailedMenu">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
         </Col>
         <Col md="12" lg="4">
-          <div className="propStatusBox">
-            <h5><strong>Status da proposição</strong></h5>
-            {'\n'}
-            <p>
-              <strong>Data:</strong>
-              {' '}
-              {defineDate(proposition.data_proposicao)}
-            </p>
-            <p>
-              <strong>Despacho:</strong>
-              {' '}
-              {proposition.despacho}
-            </p>
-            <p>
-              <strong>Situação:</strong>
-              {' '}
-              {proposition.descricao_situacao}
-            </p>
-            <p>
-              <strong>Orgao:</strong>
-              {' '}
-              {proposition.sigla_orgao}
-            </p>
-          </div>
-
+          {getStatusInfo(proposition)}
         </Col>
 
       </Row>

@@ -59,10 +59,11 @@
     margin-top: 18.42px;
 }
 
-.propKeywords{
+.propKeywordsMobile{
     font-family: Open Sans;
     font-size: 13.33px;
     margin-top: 20px;
+    line-height: 13px;
 }
 
 .propMenu{
@@ -71,20 +72,23 @@
     line-height: 24px;
 }
 
-.propDetailedMenuText {
+.propDetailedMenuTextMobile {
     font-family: Montserrat;
     font-weight: bold;
     margin-top: 31px;
     margin-bottom: 16px;
+    font-size: 19.2px;
 }
 
-.propDetailedMenu{
+.propDetailedMenuMobile{
     font-family: Open Sans;
     font-size: 18px;
 }
 
-.arrowRight {
-  display: inline;
-  margin-right: 50px;
-  text-align: right;
+@media screen and (max-device-width: 480px) {
+    .arrowRight {
+      display: none;
+      margin-right: 50px;
+      text-align: right;
+    }
 }
