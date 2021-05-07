@@ -12,6 +12,7 @@ import IconAnexo from '../../images/anexo.png';
 import { expenseRoute, profileRoute } from '../../Api';
 import sirene from '../../images/sirene.svg';
 import ShareButton from '../ShareButton';
+import ChartPie from '../Charts/index';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -73,6 +74,7 @@ function SpentData() {
   const history = useHistory();
   const location = useLocation();
   const [openR, setOpenR] = useState(false);
+  const [openG, setOpenG] = useState(false);
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
   const [deputy, setDeputy] = useState([]);
@@ -107,9 +109,20 @@ function SpentData() {
               />
             </Col>
             {/* TODO: Retirada img de gráfico */}
-            {/* <Col md="1">
-              <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
-            </Col> */}
+            <Col md="1">
+              <Button
+                variant="outline-light"
+                onClick={() => {
+                  if (!openG) {
+                    setOpenG(true);
+                  } else {
+                    setOpenG(false);
+                  }
+                }}
+              >
+                <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
+              </Button>
+            </Col>
           </Row>
           <Row className="col-line-top">
             <Col md="3" className="center">
@@ -188,7 +201,11 @@ function SpentData() {
             </Col>
           </Row>
           <Row className="pb-2" />
-          {expenses.slice(0, 5).map((element) => spentRow(element))}
+          {!openG ? (
+            expenses.slice(0, 5).map((element) => spentRow(element))
+          ) : (
+            <ChartPie />
+          )}
           <Row className="col-line-top">
             <Col md="12" className="alinhamento-end">
               <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
