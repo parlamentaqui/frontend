@@ -198,13 +198,15 @@ function SpentData() {
                 Documento
               </Col>
             </Row>
-          ) : ('') }
+          ) : (
+            ''
+          )}
           <Row className="pb-2" />
           {!openG ? (
             expenses.slice(0, 5).map((element) => spentRow(element))
           ) : (
             <div className="ali">
-              <ChartPie />
+              <ChartPie expense={expenses} />
             </div>
           )}
           <Row className="col-line-top">

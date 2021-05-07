@@ -73,11 +73,11 @@ function DataVoting() {
       <Row className="background-div-1">
         <Col>
           <Row>
-            <Col md="11">
+            <Col md="10">
               <img src={IconVoto} alt="Voto" className="icon-votacao" />
               VOTAÇÕES
             </Col>
-            <Col md="1">
+            <Col md="2" className="ali">
               <ShareButton message={shareMessage} />
             </Col>
           </Row>
