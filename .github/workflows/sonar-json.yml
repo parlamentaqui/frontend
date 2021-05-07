@@ -1,0 +1,87 @@
+name: SonarCloud JSON Extractor and Tag Generator
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  jsonExtractorTagsGenerator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate JSONS and Tags on deploy
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            sleep 5m
+            mkdir sonar
+            cd sonar
+            git clone https://github.com/parlamentaqui/frontend
+            cd frontend
+            last_release="$(git tag | tail -1 | tr -dc '0-9')"
+            current_release="$(($last_release + 1))"
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/frontend.git
+            git push origin release_"${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/etl_twitter
+            cd etl_twitter
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/etl_twitter.git
+            git push origin release_"${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/etl_camara
+            cd etl_camara
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/etl_camara.git
+            git push origin release_"${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/gateway
+            cd gateway
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/gateway.git
+            git push origin release_"${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/etl_news
+            cd etl_news
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/etl_news.git
+            git push origin release_"${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/etl_tse
+            cd etl_tse
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/etl_tse.git
+            git push origin release_"${current_release}"
+            cd ..
+            mkdir release_"${current_release}"
+            cd release_"${current_release}"
+            python3 ~/sonar-script/script.py "${current_release}"
+            cd ..
+            git clone https://github.com/parlamentaqui/documentation/
+            cp -r release_"${current_release}" documentation/sonar/
+            cd documentation
+            git config --local user.name "Gabriel Albino"
+            git config --local user.email "enggabrielalbino@gmail.com"
+            git add .
+            git commit -m "Adicionando arquivos jsons da release ${current_release}"
+            git remote set-url origin git@github.com:parlamentaqui/documentation.git
+            #git push origin master 
+            git tag -a release_"${current_release}" -m "Release ${current_release}"
+            git push origin release_"${current_release}"
+            cd ..
+            rm -rf documentation release_"${current_release}" etl_tse etl_news gateway etl_camara etl_twitter frontend
+          host: ${{ secrets.DO_HOST }}
+          pass: ${{ secrets.DO_PASSWORD }}
