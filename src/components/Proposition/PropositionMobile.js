@@ -1,11 +1,15 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import ShareButton from '../ShareButton';
 import { getAuthorInfo, getStatusInfo } from './Proposition';
 import './PropositionMobile.css';
 
 function PropositionsMobile(props) {
+  const history = useHistory();
   const { proposition } = props;
-
+  const shareLink = history.location.pathname.split('/')[0];
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/`;
   return (
     <div>
       <div className="propThemeBoxMobile">
@@ -45,11 +49,17 @@ function PropositionsMobile(props) {
         </Row>
         <p className="propDetailedMenuMobile">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
       </div>
-      <p className="propKeywordsMobile">
-        Palavras-chave:
-        {' '}
-        {proposition.keywords}
-      </p>
+      <Row>
+        <p className="propKeywordsMobile">
+          Palavras-chave:
+          {' '}
+          {proposition.keywords}
+        </p>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
+      </Row>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { profileRoute } from '../../Api';
 import './Proposition.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 import { defineDate } from '../DataVoting/DataVoting';
+import ShareButton from '../ShareButton';
 
 /* OBS:
 
@@ -104,8 +106,10 @@ export function getStatusInfo(proposition) {
 }
 
 function Proposition(props) {
+  const history = useHistory();
   const { proposition } = props;
-
+  const shareLink = history.location.pathname.split('/')[0];
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/`;
   return (
     <Container>
       <div>
@@ -140,11 +144,17 @@ function Proposition(props) {
         </Col>
 
       </Row>
-      <p className="propKeywords">
-        Palavras-chave:
-        {' '}
-        {proposition.keywords}
-      </p>
+      <Row>
+        <p className="propKeywords">
+          Palavras-chave:
+          {' '}
+          {proposition.keywords}
+        </p>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
+      </Row>
     </Container>
   );
 }
