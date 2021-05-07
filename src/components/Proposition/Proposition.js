@@ -76,7 +76,7 @@ export function getAuthorInfo(proposition) {
 
 export function getStatusInfo(proposition) {
   return (
-    <div className="propStatusBox">
+    <div className="propStatusBox" md="12" lg="6">
       <h5><strong>Status da proposição</strong></h5>
       {'\n'}
       <p>
@@ -135,7 +135,7 @@ function Proposition(props) {
         <Col>
           <p className="propDetailedMenu">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
         </Col>
-        <Col md="12" lg="4">
+        <Col>
           {getStatusInfo(proposition)}
         </Col>
 

@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { profileRoute } from '../../Api';
+import { profileRoute, propositionRoute } from '../../Api';
 
 // Método que conserta o Breadcrumb
 const defineNome = (pathnames) => {
@@ -21,16 +21,22 @@ const defineNome = (pathnames) => {
 
       return ['Deputados', deputado.name];
     }
+
+    if (!pathnames[0].localeCompare('proposicao')) {
+      const [proposicao, setProposicao] = useState([]);
+
+      useEffect(() => {
+        axios.get(propositionRoute(pathnames[1])).then((response) => {
+          setProposicao(response.data);
+        });
+      }, []);
+
+      const propName = proposicao.sigla_tipo.concat(' ', proposicao.numero, '/', proposicao.ano);
+
+      return ['Proposições', propName];
+    }
+
     // Implementar para as outras entidades que virão (proposições, partidos, etc)
-    // const [proposicao, setProposicao] = useState([]);
-
-    // useEffect(() => {
-    //   axios.get(PropositionRoute(pathnames[1])).then((response) => {
-    //     setDeputado(response.data);
-    //   });
-    // }, []);
-
-    return ['Teste', 'teste'];
   }
 
   // Retorna vazio caso esteja na Home
