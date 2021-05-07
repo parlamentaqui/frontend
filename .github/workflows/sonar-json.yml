@@ -81,7 +81,7 @@ jobs:
             #git push origin master 
             git tag -a release_"${current_release}" -m "Release ${current_release}"
             git push origin release_"${current_release}"
-            cd ..
-            rm -rf documentation release_"${current_release}" etl_tse etl_news gateway etl_camara etl_twitter frontend
+            cd ../..
+            rm -rf sonar
           host: ${{ secrets.DO_HOST }}
           pass: ${{ secrets.DO_PASSWORD }}
