@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './DataVoting.css';
 import { Row, Col } from 'react-bootstrap';
-import IconShareBlack from '../../images/share-black.png';
 import IconVoto from '../../images/votacao.png';
 import IconConfirma from '../../images/icon-confirma.png';
 import IconConfirmaBlack from '../../images/icon-confirma-black.png';
@@ -27,7 +26,7 @@ export function defineDate(date) {
 export function defineVote(vote) {
   const str = String(vote);
   const shareMessage = `Confira esse voto sobre ${vote.deputy_name} Via parlamentaqui.com`;
-  if (vote.localeCompare('Sim')) {
+  if (!vote.localeCompare('Sim')) {
     return (
       <div>
         <img
@@ -57,7 +56,6 @@ function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
-  console.log(voteRoute(id));
   useEffect(async () => {
     const result = await axios(voteRoute(id));
     setVotes(result.data);
