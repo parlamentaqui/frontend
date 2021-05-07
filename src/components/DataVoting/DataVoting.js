@@ -56,7 +56,6 @@ function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
-  console.log(voteRoute(id));
   useEffect(async () => {
     const result = await axios(voteRoute(id));
     setVotes(result.data);

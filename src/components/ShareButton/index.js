@@ -48,7 +48,7 @@ function ShareButton(props) {
       )}
         >
           <Button variant="secondary">
-          {theme === 'dark' ? <img src="/images/ShareDeputyIcon.svg" className="imagem" alt="SearchButton" /> : <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" /> }
+            {theme === 'dark' ? <img src="/images/ShareDeputyIcon.svg" className="imagem" alt="SearchButton" /> : <img src="/images/ShareButtonIcon.svg" className="imagem" alt="SearchButton" /> }
           </Button>
         </OverlayTrigger>
       ))}

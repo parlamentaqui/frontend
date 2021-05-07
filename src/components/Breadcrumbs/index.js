@@ -42,7 +42,6 @@ const defineNome = (pathnames) => {
   return [String(pathnames[0][0]).toUpperCase() + String(pathnames[0]).substring(1)];
 };
 
-
 const Breadcrumbs = (props) => {
   const {
     history,
@@ -53,7 +52,7 @@ const Breadcrumbs = (props) => {
     pathnames.length > 0 && (
       <Container className="mb-3 mt-3">
         <Breadcrumb aria-label="breadcrumb">
-        <Breadcrumb.Item onClick={() => history.push('/')}>Página Inicial</Breadcrumb.Item>
+          <Breadcrumb.Item onClick={() => history.push('/')}>Página Inicial</Breadcrumb.Item>
           {pathnames.map((name, index) => {
             const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
             const isLast = index === pathnames.length - 1;
