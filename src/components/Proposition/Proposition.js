@@ -76,7 +76,7 @@ export function getAuthorInfo(proposition) {
 
 export function getStatusInfo(proposition) {
   return (
-    <div className="propStatusBox" md="12" lg="6">
+    <div>
       <h5><strong>Status da proposição</strong></h5>
       {'\n'}
       <p>
@@ -108,37 +108,29 @@ function Proposition(props) {
 
   return (
     <Container>
-      <div>
-        <p className="propThemeBox">{proposition.tema_proposicao}</p>
-        <Row>
-          <Col md="12" lg="6">
-            <h1>
-              {proposition.descricao_tipo}
-              {' '}
-              {proposition.numero}
-              /
-              {proposition.ano}
-            </h1>
-            <p className="propMenu">{proposition.ementa}</p>
-          </Col>
-          <Col className="propAuthorBox" md="12" lg="6">
-            {getAuthorInfo(proposition)}
-          </Col>
-        </Row>
-      </div>
+      <p className="propThemeBox">{proposition.tema_proposicao}</p>
       <Row>
-        <Col>
+        <Col md="12" lg="6">
+          <h1>
+            {proposition.descricao_tipo}
+            {' '}
+            {proposition.numero}
+            /
+            {proposition.ano}
+          </h1>
+          <p className="propMenu">{proposition.ementa}</p>
+
           <p className="propDetailedMenuText">Detalhes da ementa:</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
           <p className="propDetailedMenu">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
         </Col>
-        <Col>
-          {getStatusInfo(proposition)}
+        <Col md="12" lg="6">
+          <div className="propAuthorBox">
+            {getAuthorInfo(proposition)}
+          </div>
+          <div className="propStatusBox">
+            {getStatusInfo(proposition)}
+          </div>
         </Col>
-
       </Row>
       <p className="propKeywords">
         Palavras-chave:

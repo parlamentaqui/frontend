@@ -31,7 +31,7 @@ const defineNome = (pathnames) => {
         });
       }, []);
 
-      const propName = proposicao.sigla_tipo.concat(' ', proposicao.numero, '/', proposicao.ano);
+      const propName = String(proposicao.descricao_tipo).concat(' ', proposicao.numero, '/', proposicao.ano);
 
       return ['Proposições', propName];
     }
