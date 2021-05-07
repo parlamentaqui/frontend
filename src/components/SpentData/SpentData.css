@@ -94,6 +94,13 @@ a:hover {
 }
 
 .ali {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-align-center{
+    display:flex;
     justify-content: center;
     align-items: center;
 }
