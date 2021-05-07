@@ -5,7 +5,7 @@ import { Router } from 'react-router';
 
 test(`breadcrumb is rendered as it should`, () => {
     const history = createMemoryHistory();
-    history.push('/deputados')
+    history.push('/deputados');
     const component = renderer.create(
         <Router history={history}>
             <Breadcrumbs />
