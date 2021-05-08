@@ -1,15 +1,16 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import ShareButton from '../ShareButton';
 import { getAuthorInfo, getStatusInfo } from './Proposition';
 import './PropositionMobile.css';
 
 function PropositionsMobile(props) {
   const history = useHistory();
+  const location = useLocation();
   const { proposition } = props;
-  const shareLink = history.location.pathname.split('/')[0];
-  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/`;
+  const shareLink = history.location.pathname;
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
   return (
     <div>
       <div className="propThemeBoxMobile">
