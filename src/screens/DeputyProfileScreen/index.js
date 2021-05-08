@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+=======
+>>>>>>> origin/devel
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import DataVotingMobile from '../../components/DataVoting/DataVotingMobile';
@@ -9,11 +13,16 @@ import SpentDataMobile from '../../components/SpentData/SpentDataMobile';
 import Perfil from '../../components/Profile/Profile';
 import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
-import { deputyTweetsRoute, profileRoute } from '../../Api';
+<<<<<<< HEAD
+import { deputyTweetsRoute, profileRoute } from '../../Api'; import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+=======
+=======
+>>>>>>> origin/devel
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
+import { profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const history = useHistory();

@@ -26,7 +26,7 @@ export function defineDate(date) {
 export function defineVote(vote) {
   const str = String(vote);
   const shareMessage = `Confira esse voto sobre ${vote.deputy_name} Via parlamentaqui.com`;
-  if (vote.localeCompare('Sim')) {
+  if (!vote.localeCompare('Sim')) {
     return (
       <div>
         <img

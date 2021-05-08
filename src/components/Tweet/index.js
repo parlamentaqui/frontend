@@ -10,6 +10,7 @@ function Tweet(props) {
   const { tweets } = props;
   return (
     <div className="tweet-wrapper">
+<<<<<<< HEAD
       <h2 className="title mb-3">Tweets</h2>
       <Row>
         {tweets.map((tweet) => (
@@ -23,6 +24,17 @@ function Tweet(props) {
           </Col>
         )}
       </Row>
+=======
+      <Container>
+        <Row>
+          {tweets.map((tweet) => (
+            <Col lg="12">
+              <TweetEmbed key={tweet.tweet_id} id={`${tweet.tweet_id}`} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+>>>>>>> origin/devel
     </div>
   );
 }
