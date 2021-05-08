@@ -6,22 +6,15 @@ import './index.css';
 import TweetEmbed from 'react-tweet-embed';
 import { deputyTweetsRoute } from '../../Api';
 
-function Tweet() {
-  const history = useHistory();
-  const id = history.location.pathname.split('/')[2];
-  const [tweets, setTweets] = useState([]);
-  useEffect(() => {
-    axios.get(deputyTweetsRoute(id)).then((response) => {
-      setTweets(response.data);
-    });
-  }, []);
+function Tweet(props) {
+  const { tweets } = props;
   return (
     <div className="tweet-wrapper">
       <h2 className="title mb-3">Tweets</h2>
       <Row>
-        {tweets.map((item) => (
+        {tweets.map((tweet) => (
           <Col lg="12">
-            <TweetEmbed key={item.tweet_id} id={`${item.tweet_id}`} />
+            <TweetEmbed key={tweet.tweet_id} id={`${tweet.tweet_id}`} />
           </Col>
         ))}
         {tweets.length === 0 && (

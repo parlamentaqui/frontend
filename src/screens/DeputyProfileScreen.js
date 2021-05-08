@@ -12,20 +12,26 @@ import '../css/DeputyProfileScreen.css';
 import IconFace from '../images/face.png';
 import IconInsta from '../images/insta.png';
 import IconTT from '../images/twitter.png';
-import { profileRoute } from '../Api';
+import { profileRoute, deputyTweetsRoute } from '../Api';
 import News from '../components/News/News';
 import NewsMobile from '../components/News/NewsMobile';
+import Tweet from '../components/Tweet';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
   const [deputado, setDeputado] = useState({});
-
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     axios.get(profileRoute(id)).then((response) => {
       // console.log('string:: ', response.data);
       setDeputado(response.data);
     });
+    axios.get(deputyTweetsRoute(id)).then((response) => {
+      setTweets(response.data);
+      console.log(response.data);
+    });
   }, []);
+
 
   function calculateAge(birthday) {
     // birthday is a date
@@ -51,7 +57,14 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <SpentData />
         <Row className="space" />
-        <News />
+        <Row>
+          <Col md={{ span: 6, offset: 6 }}>
+            <News />
+          </Col>
+          <Col md={{ span: 6, offset: 6 }}>
+            <Tweet tweet={tweets}/>
+          </Col>
+        </Row>
       </Container>
       <Row className="space" />
     </main>
