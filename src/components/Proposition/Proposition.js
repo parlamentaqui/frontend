@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { profileRoute } from '../../Api';
 import './Proposition.css';
@@ -107,9 +107,10 @@ export function getStatusInfo(proposition) {
 
 function Proposition(props) {
   const history = useHistory();
+  const location = useLocation();
   const { proposition } = props;
-  const shareLink = history.location.pathname.split('/')[0];
-  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/`;
+  const shareLink = history.location.pathname;
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
   return (
     <Container>
       <div>
@@ -145,15 +146,21 @@ function Proposition(props) {
 
       </Row>
       <Row>
-        <p className="propKeywords">
-          Palavras-chave:
-          {' '}
-          {proposition.keywords}
-        </p>
-        <ShareButton
-          message={shareMessage}
-          link={shareLink}
-        />
+        <Col>
+          <Col>
+            <p className="propKeywords">
+              Palavras-chave:
+              {' '}
+              {proposition.keywords}
+            </p>
+          </Col>
+          <Col>
+            <ShareButton
+              message={shareMessage}
+              link={shareLink}
+            />
+          </Col>
+        </Col>
       </Row>
     </Container>
   );
