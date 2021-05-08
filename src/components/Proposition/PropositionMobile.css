@@ -73,14 +73,15 @@
     line-height: 24px;
 }
 
-.propDetailedMenuText {
-    font-family: Montserrat;
-    font-weight: bold;
+.propDetailedMenuTextMobile {
+    font-family: 'Montserrat';
     margin-top: 31px;
     margin-bottom: 16px;
+    font-size: 19.2px;
+    font-weight: bold;
 }
 
-.propDetailedMenu{
+.propDetailedMenuMobile {
     font-family: Open Sans;
     font-size: 18px;
 }

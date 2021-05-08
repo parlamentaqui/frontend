@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { profileRoute } from '../../Api';
 import './Proposition.css';
@@ -28,35 +29,39 @@ export function getAuthorInfo(proposition) {
     }, []);
 
     return (
-      <div>
-        <Row>
-          <img
-            src={deputy.photo_url}
-            alt="FotoAutorProp"
-            className="icon-author"
-          />
-          <div>
-            <p className="authorNameInfo">
-              Autoria:
-              {' '}
-              {proposition.nome_autor}
-            </p>
-            <p className="authorPartyAndRegionInfo">
-              {deputy.party}
-              {' '}
-              -
-              {' '}
-              {deputy.federative_unity}
-            </p>
-          </div>
-          <Image
-            media="screen and (min-width: 480px)"
-            src={ArrowRight}
-            alt="acessar perfil"
-            className="arrowRight"
-          />
-        </Row>
-      </div>
+      <Link to={`/deputados/${deputy.id}`}>
+        <div>
+          <Row>
+            <img
+              src={deputy.photo_url}
+              alt="FotoAutorProp"
+              className="icon-author"
+            />
+            <div>
+              <p className="authorNameInfo">
+                Autoria:
+                {' '}
+                {proposition.nome_autor}
+              </p>
+              <p className="authorPartyAndRegionInfo">
+                {deputy.party}
+                {' '}
+                -
+                {' '}
+                {deputy.federative_unity}
+              </p>
+            </div>
+            <Col md="1" lg="1">
+              <Image
+                media="screen and (min-width: 480px)"
+                src={ArrowRight}
+                alt="acessar perfil"
+                className="arrowRight"
+              />
+            </Col>
+          </Row>
+        </div>
+      </Link>
     );
   }
   return (
