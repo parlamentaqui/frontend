@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SpentData.css';
 import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import IconGasto from '../../images/gasto.png';
@@ -12,7 +12,7 @@ import IconGrafico from '../../images/grafico.png';
 import { expenseRoute, profileRoute } from '../../Api';
 import sirene from '../../images/sirene.svg';
 import ShareButton from '../ShareButton';
-import ChartPie from '../Charts/index';
+import Charts from '../Charts/index';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -206,7 +206,7 @@ function SpentData() {
             expenses.slice(0, 5).map((element) => spentRow(element))
           ) : (
             <div className="ali">
-              <ChartPie expense={expenses} />
+              <Charts expenses={expenses} deputy={deputy} />
             </div>
           )}
           <Row className="col-line-top">
