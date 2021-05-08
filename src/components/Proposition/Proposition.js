@@ -11,7 +11,6 @@ import { defineDate } from '../DataVoting/DataVoting';
 
 -> Existem deputados que criaram proposições que não estão na legislatura atual,
 logo, não é possível recuperar infirmações sobre esse deputado
--> Não é possível deixar espaços em branco para apresentação sem o linter acusar
 
 */
 
@@ -29,39 +28,42 @@ export function getAuthorInfo(proposition) {
     }, []);
 
     return (
-      <Link to={`/deputados/${deputy.id}`}>
-        <div>
-          <Row>
-            <img
-              src={deputy.photo_url}
-              alt="FotoAutorProp"
-              className="icon-author"
+    // Foi comentado o Link aqui porque existem deputados que não estão no DB, logo haveriam erros
+    // <Link to={`/deputados/${deputy.id}`}>
+      <div>
+        <Row>
+          <img
+            src={deputy.photo_url}
+            alt="FotoAutorProp"
+            className="icon-author"
+          />
+          <div>
+            <p className="authorNameInfo">
+              Autoria:
+              {' '}
+              {proposition.nome_autor}
+            </p>
+            <p className="authorPartyAndRegionInfo">
+              {deputy.party}
+              {' '}
+              -
+              {' '}
+              {deputy.federative_unity}
+            </p>
+          </div>
+          {/* A img da seta foi comentada pra não deixar a
+          impressão de que há um link para a pagina do deputado */}
+          {/* <Col md="1" lg="1">
+            <Image
+              media="screen and (min-width: 480px)"
+              src={ArrowRight}
+              alt="acessar perfil"
+              className="arrowRight"
             />
-            <div>
-              <p className="authorNameInfo">
-                Autoria:
-                {' '}
-                {proposition.nome_autor}
-              </p>
-              <p className="authorPartyAndRegionInfo">
-                {deputy.party}
-                {' '}
-                -
-                {' '}
-                {deputy.federative_unity}
-              </p>
-            </div>
-            <Col md="1" lg="1">
-              <Image
-                media="screen and (min-width: 480px)"
-                src={ArrowRight}
-                alt="acessar perfil"
-                className="arrowRight"
-              />
-            </Col>
-          </Row>
-        </div>
-      </Link>
+          </Col> */}
+        </Row>
+      </div>
+      // </Link>
     );
   }
   return (

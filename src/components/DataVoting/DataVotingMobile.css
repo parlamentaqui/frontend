@@ -39,6 +39,11 @@
     line-height: 23px;
     color: #212529;
 }
+
+.propositionLink {
+    /* text-align: center; */
+    margin-left: 6em;
+}
   
 .p-table {
     font-family: Montserrat, sans-serif;

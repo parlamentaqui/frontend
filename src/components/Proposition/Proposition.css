@@ -89,10 +89,11 @@
     font-size: 18px;
 }
 
-@media screen and (max-device-width: 480px) {
+/* Estilização da seta comentada
+/* @media screen and (max-device-width: 480px) {
     .arrowRight {
       display: none;
       margin-right: 50px;
       text-align: right;
     }
-}
+} */
