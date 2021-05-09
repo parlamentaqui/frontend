@@ -5,6 +5,7 @@
 .col-format {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .align {
@@ -66,4 +67,34 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   padding-left: 70px;
+}
+
+.col-esp3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-right: 0;
+}
+
+.col-esp4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-left: 4px;
+  text-align: left;
+}
+
+.col-esp5 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-left: 0px;
+}
+
+.col-esp6 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-right: 0;
+}
+
+.col-ali {
+  width: 82% !important;
+  margin-left: 20px;
 }

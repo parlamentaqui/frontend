@@ -71,7 +71,7 @@ function Charts(props) {
         </Col>
       </Row>
       <Row className="borda mr-4 ml-2 d-flex d-lg-none">
-        <Row className="align d-flex d-lg-none">
+        <Row className="w-100 align d-flex d-lg-none">
           <PieChart dados={custosDeputados} />
         </Row>
         <Row className="col-format pr-3 d-flex d-lg-none">
