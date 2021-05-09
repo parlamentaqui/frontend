@@ -25,16 +25,12 @@ function PropositionsMobile(props) {
           {proposition.ementa}
         </div>
         <div>
-          <Row>
-            <Col className="propAuthorBoxMobile">
-              {getAuthorInfo(proposition)}
-            </Col>
-          </Row>
-          <Row>
-            <Col className="propStatusBoxMobile">
-              {getStatusInfo(proposition)}
-            </Col>
-          </Row>
+          <div className="propAuthorBoxMobile">
+            {getAuthorInfo(proposition)}
+          </div>
+          <div className="propStatusBoxMobile">
+            {getStatusInfo(proposition)}
+          </div>
         </div>
       </div>
       <div>
