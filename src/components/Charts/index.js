@@ -61,14 +61,24 @@ function Charts(props) {
     color: getColor(index),
   }));
   return (
-    <Row className="w-100 borda">
-      <Col xs={6} className="col-format pr-3">
-        <Format dados={custosDeputados} name={deputy} total={total} />
-      </Col>
-      <Col xs={6} className="align">
-        <PieChart dados={custosDeputados} />
-      </Col>
-    </Row>
+    <>
+      <Row className="w-100 borda d-none d-lg-flex">
+        <Col xs={6} className="col-format pr-3 d-none d-lg-flex">
+          <Format dados={custosDeputados} name={deputy} total={total} />
+        </Col>
+        <Col xs={6} className="align d-none d-lg-flex">
+          <PieChart dados={custosDeputados} />
+        </Col>
+      </Row>
+      <Row className="borda mr-4 ml-2 d-flex d-lg-none">
+        <Row className="align d-flex d-lg-none">
+          <PieChart dados={custosDeputados} />
+        </Row>
+        <Row className="col-format pr-3 d-flex d-lg-none">
+          <Format dados={custosDeputados} name={deputy} total={total} />
+        </Row>
+      </Row>
+    </>
   );
 }
 
