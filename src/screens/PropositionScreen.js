@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Container, Image } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { propositionRoute } from '../Api';
 import Proposition from '../components/Proposition/Proposition';
-import PropMobile from '../components/Proposition/PropositionMobile';
+import PropMobile from '../components/Proposition/PropositionsMobile';
 
 function PropositionScreen() {
   const history = useHistory();

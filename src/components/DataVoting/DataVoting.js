@@ -78,12 +78,6 @@ function DataVoting() {
     setVotes(result.data);
     const result2 = await axios(propositionRoute(id));
     setProposition(result2.data);
-    // useEffect(() => {
-    //   axios.get(voteRoute(id)).then((response) => {
-    //     setVotes(response.data);
-    //     console.log(response.data);
-    //   });
-    // }, []);
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 

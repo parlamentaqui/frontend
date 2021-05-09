@@ -1,6 +1,8 @@
 .text-news-font-mb {
   padding-bottom: 10px;
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 13.33px;
@@ -12,7 +14,8 @@
 
 .text-news-title-mb {
   padding-bottom: 10px;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
+
   font-style: normal;
   font-weight: 500;
   font-size: 19.2px;
@@ -24,7 +27,9 @@
 }
 
 .text-news-body-mb {
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -47,7 +52,8 @@
 }
 
 .title {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
+
   font-style: normal;
   font-weight: normal;
   font-size: 33.18px;
