@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './SpentDataMobile.css';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import IconGasto from '../../images/gasto.png';
 import IconAnexo from '../../images/anexo.png';
-// import IconGrafico from '../../images/grafico.png';
+import IconGrafico from '../../images/grafico.png';
 import sirene from '../../images/sirene.svg';
 import { expenseMobileRoute, profileRoute } from '../../Api';
 import ShareButton from '../ShareButton';
 import { defineDate, spentUrl, deputyShareMessage, deputyShareLink } from './SpentData';
+import Charts from '../Charts/index';
 
 export const deputyShareExpenseMessage = (dep, exp) => `O ${dep} gastou R$ ${exp.document_value} com ${exp.expenses_type}.`;
 
@@ -77,6 +78,7 @@ function SpentDataMobile() {
   const location = useLocation();
   const id = history.location.pathname.split('/')[2];
   const [deputy, setDeputy] = useState([]);
+  const [openG, setOpenG] = useState(false);
   const [expenses, setExpensesMobile] = useState([]);
   useEffect(() => {
     axios.get(expenseMobileRoute(id)).then((response) => {
@@ -90,20 +92,36 @@ function SpentDataMobile() {
   return (
     <div>
       <Row className="ali">
-        <Col>
+        <Col xs={6} md="4">
           <img src={IconGasto} alt="Gasto" className="icon-gasto" />
           GASTOS
         </Col>
-        <Col>
+        <Col xs={6} md="4" className="ali">
           <ShareButton
             message={deputyShareMessage(deputy.name)}
             link={deputyShareLink(id)}
           />
-          {/* <img src={IconGrafico} alt="Grafico" className="icon-grafico-mb" /> */}
+          <Button
+            variant="outline-light"
+            onClick={() => {
+              if (!openG) {
+                setOpenG(true);
+              } else {
+                setOpenG(false);
+              }
+            }}
+          >
+            <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
+          </Button>
         </Col>
       </Row>
-      {expenses.slice(0, 2).map((element) => spentRow(element, deputy, id))}
-
+      {!openG ? (expenses.slice(0, 2).map((element) => spentRow(element, deputy, id))) : (
+        <div className="d-flex justify-content-center div-body">
+          <Row className="background-div-1">
+            <Charts expenses={expenses} deputy={deputy} />
+          </Row>
+        </div>
+      )}
       <Row>
         <Col md="12" className="alinhamento-end">
           <a href={`/deputados/${id}/gastos`}>VER MAIS</a>

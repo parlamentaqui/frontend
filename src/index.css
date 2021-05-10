@@ -74,8 +74,8 @@ body h5.title{
   line-height: 19px;
 }
 
-body p{
-  font-family: 'Open Sans';
+body p{  
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

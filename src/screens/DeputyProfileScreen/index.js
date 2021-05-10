@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import DataVotingMobile from '../../components/DataVoting/DataVotingMobile';
@@ -10,16 +10,21 @@ import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
-import ComparationSpent from '../../components/ComparationSpent/index';
+import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
-import { profileRoute } from '../../Api';
+import ComparationSpent from '../../components/ComparationSpent/index';
+import { deputyTweetsRoute, profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
   const [deputado, setDeputado] = useState({});
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     axios.get(profileRoute(id)).then((response) => {
       setDeputado(response.data);
+    });
+    axios.get(deputyTweetsRoute(id)).then((response) => {
+      setTweets(response.data);
     });
   }, []);
   return (
@@ -31,6 +36,7 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <SpentDataMobile />
         <NewsMobile />
+        <Tweets tweets={tweets} />
       </Container>
       <Container className="d-none d-sm-block">
         <Perfil deputy={deputado} />
@@ -42,6 +48,9 @@ function DeputyProfileScreen() {
         <Row>
           <Col md="6">
             <News />
+          </Col>
+          <Col md="6">
+            <Tweets tweets={tweets} />
           </Col>
         </Row>
         <ComparationSpent />

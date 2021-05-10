@@ -31,7 +31,7 @@ Este projeto segue as diretrizes da comunidade de software livre do GitHub.
 
 # Guia de execução
 
-Para rodar o projeto pela primeira vez execute
+Para rodar o projeto pela primeira vez execute:
 
         make install
 
