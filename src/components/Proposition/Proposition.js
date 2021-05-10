@@ -7,6 +7,7 @@ import './Proposition.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 import DefaultPicture from '../../images/default-user.png';
 import { defineDate } from '../DataVoting/DataVoting';
+import Tweet from '../Tweet';
 
 /* OBS:
 
@@ -112,7 +113,7 @@ export function getStatusInfo(proposition) {
 }
 
 function Proposition(props) {
-  const { proposition } = props;
+  const { proposition, tweets } = props;
 
   return (
     <Container>
@@ -143,6 +144,14 @@ function Proposition(props) {
           <div className="propStatusBox">
             {getStatusInfo(proposition)}
           </div>
+          <h2 className="mt-5 mb-3">Tweets</h2>
+          {tweets.length === 0 ? (
+            <div className="no-tweets pl-2">
+              <p>Não existem tweets.</p>
+            </div>
+          ) : (
+            <Tweet tweets={tweets} />
+          )}
         </Col>
       </Row>
     </Container>

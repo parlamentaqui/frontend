@@ -27,26 +27,12 @@ function PropositionScreen() {
       {/* <Container> */}
       <Container className="d-block d-sm-none">
         {/* <h1>Página de uma proposição</h1> */}
-        <PropMobile proposition={proposition} />
+        <PropMobile proposition={proposition} tweets={tweets} />
       </Container>
       {/* <Container> */}
       <Container className="d-none d-sm-block">
         {/* <h1>Página de uma proposicao yay</h1> */}
-        <Proposition proposition={proposition} />
-      </Container>
-      <Container className="mt-4 mb-2">
-        <Row>
-          <Col md={{ span: 6, offset: 6 }}>
-            <h2 className="mb-3">Tweets</h2>
-            {tweets.length === 0 ? (
-              <div className="no-tweets pl-2">
-                <p>Não existem tweets.</p>
-              </div>
-            ) : (
-              <Tweet tweets={tweets} />
-            )}
-          </Col>
-        </Row>
+        <Proposition proposition={proposition} tweets={tweets} />
       </Container>
     </main>
   );
