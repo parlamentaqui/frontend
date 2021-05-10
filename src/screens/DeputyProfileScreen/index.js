@@ -10,6 +10,7 @@ import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
+import ComparationSpent from '../../components/ComparationSpent/index';
 import NewsMobile from '../../components/News/NewsMobile';
 import { profileRoute } from '../../Api';
 
@@ -43,6 +44,7 @@ function DeputyProfileScreen() {
             <News />
           </Col>
         </Row>
+        <ComparationSpent />
       </Container>
       <Row className="space" />
     </main>
