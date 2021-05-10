@@ -12,6 +12,7 @@ function dataF(dados) {
           R$
           {' '}
           {dados.value}
+          {',00'}
           <div className="circle" style={{ backgroundColor: dados.color }} />
         </Col>
         <Col xs={2} title={dados.percentage} className="d-flex align-items-center">
@@ -46,6 +47,7 @@ function Format(props) {
             R$
             {' '}
             {total}
+            {',00'}
           </Col>
           <Col xs={2} title="Total porcentagem">
             <p>100%</p>

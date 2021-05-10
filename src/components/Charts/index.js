@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Format from './Format';
-import PieChart from './PieChart';
+import ChartPie from './ChartPie';
 import './index.css';
 
 function group(expenses) {
@@ -63,12 +63,12 @@ function Charts(props) {
   return (
     <>
       <Col>
-        <Row className="col-line-top p-0">
+        <Row className="col-line-top p-0 top-line">
           <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 1 }} className="col-format table-border-right">
             <Format dados={custosDeputados} name={deputy} total={total} />
           </Col>
           <Col xs={{ span: 12, order: 1 }} lg={{ span: 6, order: 2 }} className="align graph-bordered">
-            <PieChart dados={custosDeputados} />
+            <ChartPie dados={custosDeputados} />
           </Col>
         </Row>
       </Col>
