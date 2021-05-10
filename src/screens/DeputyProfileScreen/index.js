@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import React, { useEffect, useState } from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -16,7 +15,6 @@ import NewsMobile from '../../components/News/NewsMobile';
 import { deputyTweetsRoute, profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
-  const history = useHistory();
   const { id } = useParams();
   const [deputado, setDeputado] = useState({});
   const [tweets, setTweets] = useState([]);
