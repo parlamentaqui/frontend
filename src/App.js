@@ -9,7 +9,8 @@ import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumbs';
 import Teste from './components/DataVoting/DataVoting';
-import DeputyProfileScreen from './screens/DeputyProfileScreen';
+import DeputyProfileScreen from './screens/DeputyProfileScreen/index';
+import PropositionScreen from './screens/PropositionScreen';
 import HomeScreen from './screens/HomeScreen';
 import ExpensesScreen from './screens/ExpensesScreen';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
+        <Route path="/proposicao/:id" component={PropositionScreen} />
         <Route path="/teste" component={Teste} />
         <Route component={ErrorScreen} />
       </Switch>
