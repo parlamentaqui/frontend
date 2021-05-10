@@ -3,16 +3,28 @@
     background: #FFFFFF;
     border-radius: 24px;
     border: 1px solid #343A40;
-}
 
-.col-info {
-    border-left: 2px solid #FFFFFF;
 }
+@media screen and (min-width: 778px) {
+    .col-line-top.top-line {
+        border-top: none;
+    }
+    .col-info {
+        border-left: 2px solid #FFFFFF;
+    }
 
-.col-line-top {
-    border-top: 1px solid #DADADA;
+    .col-line-top {
+        border-top: 1px solid #DADADA;
+    }
+
+    .table-border-right{
+        border-right: 1px solid #DADADA;
+    }
+
+    .table-border-bottom{
+        border-bottom: 1px solid #DADADA;
+    }
 }
-  
   /*ICONS*/
 
 .icon-share-black-mb {
