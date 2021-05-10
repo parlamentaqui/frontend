@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import React, { useEffect, useState } from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -17,8 +17,7 @@ import { deputyTweetsRoute, profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const history = useHistory();
-  const location = useLocation();
-  const id = history.location.pathname.split('/')[3];
+  const { id } = useParams();
   const [deputado, setDeputado] = useState({});
   const [tweets, setTweets] = useState([]);
   useEffect(() => {

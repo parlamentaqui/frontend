@@ -46,7 +46,7 @@ function HomeScreen() {
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
           <h3 className="recentActivity">Você pode se interessar</h3>
-          <Tweet tweets={tweets} />
+          <Tweet tweets={tweets} showTitle={false} />
           {/* Linha dos cards */}
           <hr />
           <div className="mt-3">
