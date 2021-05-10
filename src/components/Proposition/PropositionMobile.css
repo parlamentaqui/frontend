@@ -16,7 +16,7 @@
 }
 
 .propStatusBoxMobile h5 {
-    padding-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .authorNameInfo {
@@ -47,22 +47,23 @@
 .propThemeBoxMobile {
     background: #D2FFE1;
     border-radius: 12px;
-    padding: 4px 6px;
+    padding: 8px 12px;
     display: inline-block;
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-size: 13px;
+    line-height: 1;
 }
 
 .icon-author {
-    border-radius: 50%;
-    height: 64px;
-    width: 64px;
-    margin-left: 16px;
-    object-fit: cover;
-    object-position: top;
-    margin-top: 18.42px;
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  margin-left: 16px;
+  object-fit: cover;
+  object-position: top;
+  margin-top: 18.42px;
 }
 
 .propKeywordsMobile{
@@ -97,9 +98,9 @@
 }
 
 @media screen and (max-device-width: 480px) {
-    .arrowRight {
-      display: none;
-      margin-right: 50px;
-      text-align: right;
-    }
+  .arrowRight {
+    display: none;
+    margin-right: 50px;
+    text-align: right;
+  }
 }

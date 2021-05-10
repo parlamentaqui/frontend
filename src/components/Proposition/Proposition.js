@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { profileRoute } from '../../Api';
@@ -7,6 +8,7 @@ import './Proposition.css';
 import ArrowRight from '../../images/ArrowRight.svg';
 import DefaultPicture from '../../images/default-user.png';
 import { defineDate } from '../DataVoting/DataVoting';
+import ShareButton from '../ShareButton';
 import Tweet from '../Tweet';
 
 /* OBS:
@@ -113,11 +115,21 @@ export function getStatusInfo(proposition) {
 }
 
 function Proposition(props) {
+  const history = useHistory();
+  const shareLink = history.location.pathname;
   const { proposition, tweets } = props;
+
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
 
   return (
     <Container>
-      <p className="propThemeBox">{proposition.tema_proposicao}</p>
+      <div className="d-flex justify-content-between mb-2">
+        <p className="propThemeBox d-flex align-items-center">{proposition.tema_proposicao}</p>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
+      </div>
       <Row>
         <Col md="12" lg="6">
           <h1 className="mb-3">
