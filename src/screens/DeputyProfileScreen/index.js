@@ -8,17 +8,22 @@ import SpentDataMobile from '../../components/SpentData/SpentDataMobile';
 import Perfil from '../../components/Profile/Profile';
 import PerfilMobile from '../../components/Profile/ProfileMobile';
 import './index.css';
-import { profileRoute } from '../../Api';
 import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
+import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
+import { deputyTweetsRoute, profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
   const [deputado, setDeputado] = useState({});
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     axios.get(profileRoute(id)).then((response) => {
       setDeputado(response.data);
+    });
+    axios.get(deputyTweetsRoute(id)).then((response) => {
+      setTweets(response.data);
     });
   }, []);
   return (
@@ -30,6 +35,7 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <SpentDataMobile />
         <NewsMobile />
+        <Tweets tweets={tweets} />
       </Container>
       <Container className="d-none d-sm-block">
         <Perfil deputy={deputado} />
@@ -41,6 +47,9 @@ function DeputyProfileScreen() {
         <Row>
           <Col md="6">
             <News />
+          </Col>
+          <Col md="6">
+            <Tweets tweets={tweets} />
           </Col>
         </Row>
       </Container>

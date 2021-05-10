@@ -35,6 +35,7 @@ function News(props) {
                     <ShareButton
                       message={shareMessage(element)}
                       link={shareLink(element)}
+                      theme="light"
                     />
                   </span>
                 </Card.Text>

@@ -104,7 +104,7 @@ function ProfileD(props) {
               md="2"
               className="d-flex justify-content-end align-items-start"
             >
-              <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} />
+              <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} theme="dark" />
             </Col>
           </Row>
           <Row className="tam-row-info pt-0">

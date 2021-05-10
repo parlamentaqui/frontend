@@ -1,68 +1,75 @@
 .background-div-1 {
-    width: 100%;
-    background: #FFFFFF;
-    border-radius: 24px;
-    border: 1px solid #343A40;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #343a40;
 }
 
 .col-info {
-    border-left: 2px solid #FFFFFF;
+  border-left: 2px solid #ffffff;
 }
 
 .col-line-top {
-    border-top: 1px solid #DADADA;
+  border-top: 1px solid #dadada;
 }
-  
-  /*ICONS*/
+
+/*ICONS*/
 
 .icon-share-black {
-    width: 23px;
-    height: 20px;
-    margin-bottom: 10px;
-    margin-top: 20px;
+  width: 23px;
+  height: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 .icon-votacao {
-    margin-top: 20px;
-    margin-right: 10px;
-    margin-bottom: 25px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 25px;
 }
-.icon-confirma, .icon-cancela, .icon-share-table {
-    margin: 10px;
+.icon-confirma,
+.icon-cancela,
+.icon-share-table {
+  margin: 10px;
 }
 
-.underline{
-    padding: 5px;
-    box-shadow: #2e2e2e 0 1.5px 0px 0px;
+.underline {
+  padding: 5px;
+  box-shadow: #2e2e2e 0 1.5px 0px 0px;
 }
-  
+
 .h4-table {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 23.04px;
-    line-height: 23px;
-    color: #212529;
-}
-  
-.p-table {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: justify;
-    color: #212529;
-}
-  
-.alinhamento-end {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: end;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23.04px;
+  line-height: 23px;
+  color: #212529;
 }
 
-.col-center{
-    align-self: center;
-    justify-content: center;
+.p-table {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #212529;
+}
+
+.alinhamento-end {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: end;
+}
+
+.ali {
+  justify-content: center;
+  align-items: center;
+}
+
+.col-center {
+  align-self: center;
+  justify-content: center;
 }
