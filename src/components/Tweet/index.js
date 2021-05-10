@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import { Container, Row, Col } from 'react-bootstrap';
 import TweetEmbed from 'react-tweet-embed';
 
 function Tweet(props) {

@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-device-width: 480px) {
-    .deputy-info, .propAuthorBox{
+    .deputy-info, .propAuthorBox, .propAuthorBoxMobile {
         padding: 16px;  
     }
 } 
