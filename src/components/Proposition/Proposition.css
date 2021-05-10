@@ -5,8 +5,8 @@
     padding-left: 16px;
 }
 
-.deputy-info{
-    padding: 20px 32px 20px 16px
+.deputy-info, .propAuthorBox {
+    padding: 20px 32px 20px 16px;
 }
 
 
@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-device-width: 480px) {
-    .deputy-info{
+    .deputy-info, .propAuthorBox, .propAuthorBoxMobile {
         padding: 16px;  
     }
 } 
