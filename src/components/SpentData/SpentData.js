@@ -98,7 +98,7 @@ function SpentData() {
       <Row className="background-div-1">
         <Col>
           <Row>
-            <Col md="10">
+            <Col md="10" className="d-flex align-items-center">
               <img src={IconGasto} alt="Gasto" className="icon-gasto" />
               GASTOS
             </Col>
@@ -201,19 +201,20 @@ function SpentData() {
           ) : (
             ''
           )}
-          <Row className="pb-2" />
           {!openG ? (
-            expenses.slice(0, 5).map((element) => spentRow(element))
+            <>
+              {expenses.slice(0, 5).map((element) => spentRow(element))}
+              <Row className="col-line-top">
+                <Col md="12" className="alinhamento-end">
+                  <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
+                </Col>
+              </Row>
+            </>
           ) : (
             <div className="ali">
               <Charts expenses={expenses} deputy={deputy} />
             </div>
           )}
-          <Row className="col-line-top">
-            <Col md="12" className="alinhamento-end">
-              <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
-            </Col>
-          </Row>
         </Col>
       </Row>
     </div>
