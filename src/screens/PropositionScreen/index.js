@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { propositionRoute, tweetsPropositionRoute } from '../../Api';
 import Proposition from '../../components/Proposition/Proposition';
 import PropMobile from '../../components/Proposition/PropositionsMobile';
 import './index.css';
-import Tweet from '../../components/Tweet';
 
 function PropositionScreen() {
   const history = useHistory();
