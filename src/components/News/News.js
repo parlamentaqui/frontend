@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 import './News.css';
 import ShareButton from '../ShareButton/index';
 import { deputyNewsRoute } from '../../Api';
+/* eslint-disable eol-last */
 
 function News() {
   const history = useHistory();
@@ -20,9 +21,7 @@ function News() {
 
   return (
     <div>
-      <Row>
-        <h2 className="title">Notícias</h2>
-      </Row>
+      <h2 className="title">Notícias</h2>
       <div className="root">
         <Row>
           {news.slice(0, 3).map((element) => (
