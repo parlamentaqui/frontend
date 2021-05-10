@@ -2,19 +2,28 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import ShareButton from '../ShareButton';
+import Tweet from '../Tweet';
 import { getAuthorInfo, getStatusInfo } from './Proposition';
 import './PropositionMobile.css';
 
 function PropositionsMobile(props) {
   const history = useHistory();
   const location = useLocation();
-  const { proposition } = props;
   const shareLink = history.location.pathname;
+  const { proposition, tweets } = props;
+
   const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
+
   return (
     <div>
-      <div className="propThemeBoxMobile">
-        <p>{proposition.tema_proposicao}</p>
+      <div className="d-flex justify-content-between flex-row-reverse">
+        <div className="propThemeBoxMobile d-flex align-items-center">
+          <p>{proposition.tema_proposicao}</p>
+        </div>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
       </div>
       <div>
         <div>
@@ -30,16 +39,12 @@ function PropositionsMobile(props) {
           {proposition.ementa}
         </div>
         <div>
-          <Row>
-            <Col className="propAuthorBoxMobile">
-              {getAuthorInfo(proposition)}
-            </Col>
-          </Row>
-          <Row>
-            <Col className="propStatusBoxMobile">
-              {getStatusInfo(proposition)}
-            </Col>
-          </Row>
+          <div className="propAuthorBoxMobile w-100">
+            {getAuthorInfo(proposition)}
+          </div>
+          <div className="propStatusBoxMobile">
+            {getStatusInfo(proposition)}
+          </div>
         </div>
       </div>
       <div>
@@ -50,17 +55,23 @@ function PropositionsMobile(props) {
         </Row>
         <p className="propDetailedMenuMobile">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
       </div>
-      <Row>
-        <p className="propKeywordsMobile">
-          Palavras-chave:
-          {' '}
-          {proposition.keywords}
-        </p>
-        <ShareButton
-          message={shareMessage}
-          link={shareLink}
-        />
-      </Row>
+      <p className="propKeywordsMobile">
+        Palavras-chave:
+        {' '}
+        {proposition.keywords}
+      </p>
+      <div>
+        <h2 className="mt-5 mb-3">Tweets</h2>
+        {tweets.length === 0 ? (
+          <div className="no-tweets pl-2">
+            <p>Não existem tweets.</p>
+          </div>
+        ) : (
+          <div className="mb-5">
+            <Tweet tweets={tweets} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
