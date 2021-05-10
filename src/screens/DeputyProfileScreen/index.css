@@ -30,7 +30,9 @@
 
 .colInfo {
   height: 100%;
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -39,7 +41,9 @@
 
 .colInfo1 {
   height: 100%;
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
@@ -103,7 +107,9 @@
 }
 
 .othersInfo {
-  font-family: Open Sans;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

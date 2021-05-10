@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Row, Col, Container, Image } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router-dom';
+import { Row, Col, Container } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { propositionRoute, tweetsPropositionRoute } from '../../Api';
 import Proposition from '../../components/Proposition/Proposition';
-import PropMobile from '../../components/Proposition/PropositionMobile';
+import PropMobile from '../../components/Proposition/PropositionsMobile';
 import './index.css';
 import Tweet from '../../components/Tweet';
 
@@ -19,7 +19,6 @@ function PropositionScreen() {
     });
     axios.get(tweetsPropositionRoute(id)).then((response) => {
       setTweets(response.data);
-      console.log(response.data);
     });
   }, []);
 
