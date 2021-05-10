@@ -1,16 +1,28 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import ShareButton from '../ShareButton';
 import Tweet from '../Tweet';
 import { getAuthorInfo, getStatusInfo } from './Proposition';
 import './PropositionMobile.css';
 
 function PropositionsMobile(props) {
+  const history = useHistory();
+  const shareLink = history.location.pathname;
   const { proposition, tweets } = props;
+
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
 
   return (
     <div>
-      <div className="propThemeBoxMobile">
-        <p>{proposition.tema_proposicao}</p>
+      <div className="d-flex justify-content-between flex-row-reverse">
+        <div className="propThemeBoxMobile d-flex align-items-center">
+          <p>{proposition.tema_proposicao}</p>
+        </div>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
       </div>
       <div>
         <div>
