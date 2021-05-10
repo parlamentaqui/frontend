@@ -8,7 +8,6 @@ import './PropositionMobile.css';
 
 function PropositionsMobile(props) {
   const history = useHistory();
-  const location = useLocation();
   const shareLink = history.location.pathname;
   const { proposition, tweets } = props;
 
