@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import ShareButton from '../ShareButton';
 import Tweet from '../Tweet';
 import { getAuthorInfo, getStatusInfo } from './Proposition';
