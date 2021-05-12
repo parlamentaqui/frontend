@@ -18,3 +18,5 @@ export const deputyNewsRoute = (id) => `${newsURL}/latestNews/${id}`;
 export const deputyTweetsRoute = (id) => `${tweetURL}/tweets_by_id/${id}`;
 export const propositionRoute = (id) => `${camaraURL}/get_proposition_by_id/${id}`;
 export const tweetsPropositionRoute = (id) => `${tweetURL}/get_tweets_by_proposition_id/${id}`;
+export const totalExpenses = (id) => `${camaraURL}/get_all_expenses/${id}`;
+export const typeExpenses = (id) => `${camaraURL}/expenses_by_type/${id}`;

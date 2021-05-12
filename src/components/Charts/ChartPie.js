@@ -24,5 +24,4 @@ function ChartPie(props) {
     />
   );
 }
-
 export default ChartPie;

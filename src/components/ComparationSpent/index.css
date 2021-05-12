@@ -1,3 +1,11 @@
+.border-table {
+  border: 1px solid #dadada;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  height: auto;
+}
+
 .icon-share-black,
 .icon-grafico {
   width: 23px;
