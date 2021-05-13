@@ -1,0 +1,29 @@
+.deputy-img {
+  width: 167px;
+  height: 200px;
+  border-radius: 6px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.deputy-img:hover {
+  object-fit: cover;
+  filter: brightness(1);
+  width: 177px;
+  height: 210px;
+}
+
+.break-line {
+  flex-wrap: wrap;
+  display: flex !important;
+}
+
+.deputy-img h6 {
+  position: absolute;
+}
+/* Está pegando de proposition.css */
+.deputy-info {
+  position: absolute;
+  z-index: 1;
+  padding-bottom: 200px;
+}
