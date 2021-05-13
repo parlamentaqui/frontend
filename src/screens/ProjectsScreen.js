@@ -1,10 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+import ProjectsList from '../components/ProjectsList/ProjectsList';
 
 function ProjectsScreen() {
   return (
     <main>
-      <h1>Lista de projetos</h1>
+      <Container>
+        <ProjectsList />
+      </Container>
     </main>
   );
 }
