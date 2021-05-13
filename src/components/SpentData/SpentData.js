@@ -127,11 +127,7 @@ function SpentData() {
           Data
         </Col>
         <Col md="3" className="center">
-          {openCompanyName ? (
-            companyNameFilter()
-          ) : (
-            'Razão Social'
-          )}
+          {openCompanyName ? companyNameFilter() : 'Razão Social'}
           {!openCompanyName ? (
             <Button
               variant="outline-light"
@@ -211,16 +207,22 @@ function SpentData() {
                 }}
               >
                 {!openGraph ? (
-                  <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
+                  <img
+                    src={IconGrafico}
+                    alt="Grafico"
+                    className="icon-grafico"
+                  />
                 ) : (
-                  <img src={IconFecharGrafico} alt="Fechar gráfico" className="icon-grafico" />
+                  <img
+                    src={IconFecharGrafico}
+                    alt="Fechar gráfico"
+                    className="icon-grafico"
+                  />
                 )}
               </Button>
             </Col>
           </Row>
-          {!openGraph && (
-            tableComponent()
-          )}
+          {!openGraph && tableComponent()}
           {openGraph && (
             <div className="ali">
               <Charts expenses={expenses} deputy={deputy} />
