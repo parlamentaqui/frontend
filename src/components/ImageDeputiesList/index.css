@@ -3,7 +3,15 @@
   height: 200px;
   border-radius: 6px;
   object-fit: cover;
-  filter: brightness(0.7);
+  filter: brightness(0.60);
+}
+
+.deputy-image-box {
+
+}
+
+.deputy-image-box:hover .deputy-resumed-info {
+  display: none;
 }
 
 .deputy-img:hover {
@@ -11,19 +19,39 @@
   filter: brightness(1);
   width: 177px;
   height: 210px;
+  /* scale: (30px, 30px); */
 }
+
 
 .break-line {
   flex-wrap: wrap;
   display: flex !important;
 }
 
-.deputy-img h6 {
+/* .deputy-img h6 {
   position: absolute;
-}
+  
+} */
+
 /* Está pegando de proposition.css */
-.deputy-info {
-  position: absolute;
-  z-index: 1;
-  padding-bottom: 200px;
+.deputy-resumed-info {
+  z-index: 10;
+  /* float: left; */
+  padding-left: 10px;
+  /* right: 1; */
+  bottom: 60px;
+  /* position: absolute; */
 }
+
+.deputy-resumed-info p {
+  /* position: absolute; */
+  /* padding-bottom: 10px; */
+  width: 135px;
+  color: blue;
+}
+
+/*
+Dúvidas:
+
+-> Colocar as infos em cima da imagem
+*/
