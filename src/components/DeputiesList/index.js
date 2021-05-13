@@ -10,7 +10,12 @@ function DeputiesList(props) {
     <div className={`mt-3 deputies-list ${theme}`}>
       <ListGroup>
         {deputados.slice(0, end).map((element, index) => (
-          <ActivityListItem targetInfo={element} isLast={index === end - 1} key={element.id} />
+          <ActivityListItem
+            targetInfo={element}
+            isLast={index === end - 1}
+            key={element.id}
+            theme={props.theme}
+          />
         ))}
       </ListGroup>
     </div>
