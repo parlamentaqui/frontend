@@ -13,21 +13,23 @@ function formatPropImage(project) {
           alt="FotoProjeto"
           src={project.image_url ? project.image_url : DefaultPicture}
         />
-        <div className="prop-resumed-info mb-3">
-          <p>
-            <strong>
-              {project.sigla_tipo}
-              {' '}
-              {project.numero}
-              /
-              {project.ano}
+        <div className="transparent-filter">
+          <div className="prop-resumed-info mb-3">
+            <p>
+              <strong>
+                {project.sigla_tipo}
+                {' '}
+                {project.numero}
+                /
+                {project.ano}
 
-            </strong>
-          </p>
-          <p>
-            {project.tema_proposicao
-              ? (`${project.tema_proposicao}`) : 'Sem Tema'}
-          </p>
+              </strong>
+            </p>
+            <p>
+              {project.tema_proposicao
+                ? (`${project.tema_proposicao}`) : 'Sem Tema'}
+            </p>
+          </div>
         </div>
       </Link>
     </Col>
