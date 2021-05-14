@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import DefaultPicture from '../../images/default-user.png';
 import './index.css';
@@ -20,7 +20,9 @@ function formatDeputyImage(deputy) {
             </p>
             <p>
               {deputy.party
-                ? `${deputy.party} - ${deputy.federative_unity}`
+                ? `${deputy.party} - ${
+                  deputy.federative_unity ? deputy.federative_unity : 'EX'
+                }`
                 : 'Sem Info'}
             </p>
           </div>
@@ -32,7 +34,6 @@ function formatDeputyImage(deputy) {
 
 function ImageDeputiesList(props) {
   const { deputies } = props;
-  //   const end = elements != null && elements !== 0 ? elements : deputados.length;
   return (
     <Container className="break-line justify-content space-between">
       {deputies.map((element) => formatDeputyImage(element))}

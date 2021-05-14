@@ -14,7 +14,12 @@ function DeputiesScreen() {
 
   return (
     <main>
-      <ImageDeputiesList deputies={deputies} />
+      <div className="d-block d-sm-none">
+        <ImageDeputiesList deputies={deputies} />
+      </div>
+      <div className="d-none d-sm-block">
+        <ImageDeputiesList deputies={deputies} />
+      </div>
     </main>
   );
 }
