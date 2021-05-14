@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './index.css';
 import Format from '../Charts/Format';
+import Compare from './Compare';
 import { expenseRoute, profileRoute, deputadosHomeRoute } from '../../Api';
 
 function group(expenses) {
@@ -76,7 +77,7 @@ function ComparationSpent() {
             lg={{ span: 6, order: 2 }}
             className="align graph-bordered"
           >
-            ...
+            <Compare />
           </Col>
         </Row>
       </Col>

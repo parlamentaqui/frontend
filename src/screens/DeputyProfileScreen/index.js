@@ -53,7 +53,6 @@ function DeputyProfileScreen() {
             <Tweets tweets={tweets} />
           </Col>
         </Row>
-        <ComparationSpent />
       </Container>
       <Row className="space" />
     </main>
