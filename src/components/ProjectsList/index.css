@@ -1,0 +1,44 @@
+.prop-img {
+  width: 167px;
+  height: 200px;
+  border-radius: 6px;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.prop-image-box a {
+  display: block;
+  position: relative;
+}
+
+.prop-image-box:hover .prop-resumed-info {
+  display: none;
+}
+
+.prop-img:hover {
+  object-fit: cover;
+  filter: brightness(1);
+  width: 177px;
+  height: 210px;
+}
+
+.break-line {
+  flex-wrap: wrap;
+  display: flex !important;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+.prop-resumed-info {
+  z-index: 10;
+  left: 16px;
+  bottom: 8px;
+  position: absolute;
+}
+
+.prop-resumed-info p {
+  width: 135px;
+  color: white;
+  font-size: 16px;
+}

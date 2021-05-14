@@ -10,6 +10,7 @@ export const homeNewsRoute = `${newsURL}/latestNews`;
 export const deputadosHomeRoute = `${camaraURL}/home`;
 export const partiesSearchRoute = `${camaraURL}/parties`;
 export const ufSearchRoute = `${camaraURL}/federative_unities`;
+export const allPropositionsRoute = `${camaraURL}/propositions`;
 export const profileRoute = (id) => `${camaraURL}/profile/${id}`;
 export const expenseMobileRoute = (id) => `${camaraURL}/expenses/${id}`;
 export const expenseRoute = (id) => `${camaraURL}/filtered_expenses/${id}`;
