@@ -1,187 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
 import './index.css';
-import { Row, Col, Button, Form, FormControl } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Row, Col, Button, Collapse } from 'react-bootstrap';
+import { propositionsAuthorRoute } from '../../Api';
 import IconLampada from '../../images/light-bulb.svg';
-import IconFiltro from '../../images/filtro.png';
-import IconAnexo from '../../images/anexo.png';
-import IconGrafico from '../../images/grafico.png';
-import IconFecharGrafico from '../../images/close-graph.svg';
-import { expenseRoute, profileRoute } from '../../Api';
-import sirene from '../../images/sirene.svg';
-import ShareButton from '../ShareButton';
-import Charts from '../Charts/index';
+import IconSeta from '../../images/seta.png';
+import IconOcultar from '../../images/ocultar.png';
 
-// Este componente se baseia no SpentData
-
-export function defineDate(date) {
-  const data = new Date(date);
-  const dia = data.getDate().toString();
-  const diaF = dia.length === 1 ? '0'.concat(dia) : dia;
-  const mes = (data.getMonth() + 1).toString();
-  const mesF = mes.length === 1 ? '0'.concat(mes) : mes;
-  const anoF = data.getFullYear();
-  const str = '';
-
-  return str.concat(diaF, '/', mesF, '/', anoF);
-}
-
-export function spentUrl(expense) {
-  if (expense.document_url === null) {
-    return <img src={sirene} alt="Sirene" className="icon-sirene" />;
-  }
-  return (
-    <a href={expense.document_url} rel="noreferrer" target="_blank">
-      <img src={IconAnexo} alt="Anexo" className="icon-anexo" />
-    </a>
-  );
-}
-
-function spentRow(expense) {
+function authoredP(prop) {
   return (
     <Row className="col-line-top">
-      <Col md="3" className="truncate" title={expense.expenses_type}>
-        {expense.expenses_type}
+      <Col md="6" title={prop}>
+        {prop.descricao_tipo}
+        {' '}
+        {prop.numero}
+        {' '}
+        de
+        {' '}
+        {prop.ano}
+        {'.'}
       </Col>
-      <Col md="1" className="truncate" title={expense.document_value}>
-        R$
-        {expense.document_value}
+      <Col md="5" title={prop}>
+        {prop.tema_proposicao}
       </Col>
-      <Col md="2" className="truncate" title="Cota Parlamentar">
-        Cota Parlamentar
-      </Col>
-      <Col
-        md="2"
-        className="truncate"
-        title={defineDate(expense.document_date)}
-      >
-        {defineDate(expense.document_date)}
-      </Col>
-      <Col md="3" className="truncate" title={expense.supplier_name}>
-        {expense.supplier_name}
-      </Col>
-      <Col md="1" className="truncate" title={spentUrl(expense)}>
-        {spentUrl(expense)}
+      <Col md="1" title={prop}>
+        <Link to={`/proposicao/${prop.proposicao_id}`}>
+          <Button className="btn-seta">
+            <img src={IconSeta} alt="Seta" />
+          </Button>
+        </Link>
       </Col>
     </Row>
   );
 }
 
-const spentArray = [spentRow, spentRow, spentRow];
-export const deputyShareMessage = (dep) => `Veja os gastos do deputado ${dep}`;
-export const deputyShareLink = (id) => `parlamentaqui.com/deputado/${id}`;
-
-function SpentData() {
+function Author() {
   const history = useHistory();
-  const location = useLocation();
-  const [openCompanyName, setOpenCompanyName] = useState(false);
-  const [openGraph, setopenGraphraph] = useState(false);
   const id = history.location.pathname.split('/')[2];
-  const [expenses, setExpenses] = useState([]);
-  const [deputy, setDeputy] = useState([]);
-  const [companyName, setCompanyName] = useState('');
-  useEffect(() => {
-    const requestBody = {
-      razao_social: companyName ? `${companyName}` : '',
-      tipo_gasto: '',
-    };
-    axios.post(expenseRoute(id), requestBody).then((response) => {
-      setExpenses(response.data);
-    });
-    axios.get(profileRoute(id)).then((response) => {
-      setDeputy(response.data);
-    });
-  }, [companyName]);
+  const [authorP, setAuthor] = useState([]);
+  const [open, setOpen] = useState(false);
 
-  const companyNameFilter = () => (
-    <Form
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <FormControl
-        name="companyName"
-        type="text"
-        placeholder="Razão Social"
-        className="mr-sm-2"
-        onChange={(e) => {
-          setCompanyName(e.target.value);
-        }}
-      />
-    </Form>
-  );
+  useEffect(() => {
+    axios.get(propositionsAuthorRoute(id)).then((response) => {
+      setAuthor(response.data);
+    });
+  }, []);
 
   const tableComponent = () => (
     <>
       <Row className="col-line-top">
-        <Col md="3" className="center">
-          Serviço
+        <Col md="6" className="d-flex justfy-content-start">
+          <h5>Título</h5>
         </Col>
-        <Col md="1" className="center">
-          Valor
-        </Col>
-        <Col md="2" className="center">
-          Tipo de gasto
-        </Col>
-        <Col md="2" className="center left">
-          Data
-        </Col>
-        <Col md="3" className="center">
-          {openCompanyName ? (
-            companyNameFilter()
-          ) : (
-            'Razão Social'
-          )}
-          {!openCompanyName ? (
-            <Button
-              variant="outline-light"
-              onClick={() => {
-                if (!openCompanyName) {
-                  setOpenCompanyName(true);
-                } else {
-                  setOpenCompanyName(false);
-                  setCompanyName('');
-                }
-              }}
-            >
-              <img
-                src={IconFiltro}
-                alt="Filtro"
-                className={!openCompanyName ? 'icon-filtro' : 'd-none'}
-              />
-            </Button>
-          ) : (
-            <Button
-              variant="outline-light"
-              onClick={() => {
-                if (!openCompanyName) {
-                  setOpenCompanyName(true);
-                } else {
-                  setOpenCompanyName(false);
-                  setCompanyName('');
-                }
-              }}
-            >
-              <FontAwesomeIcon
-                icon={faTimes}
-                size="lg"
-                color="#000000"
-                className={!openCompanyName ? 'd-none' : 'ml-2'}
-              />
-            </Button>
-          )}
-        </Col>
-        <Col md="1" className="center">
-          Documento
+        <Col md="6" className="d-flex justfy-content-start">
+          <h5>Tema</h5>
         </Col>
       </Row>
-      {expenses.slice(0, 5).map((element) => spentRow(element))}
+      {authorP.map((element) => authoredP(element))}
       <Row className="col-line-top">
         <Col md="12" className="alinhamento-end">
-          <a href={`/deputados/${id}/gastos`}>VER MAIS</a>
+          <a href={`/proposicao/${id}`}>VER MAIS</a>
         </Col>
       </Row>
     </>
@@ -196,43 +75,27 @@ function SpentData() {
               <img src={IconLampada} alt="Proposta" className="icon-gasto" />
               PROPOSTAS
             </Col>
-            <Col md="2" className="ali">
-              {!openGraph && (
-                <ShareButton
-                  message={deputyShareMessage(deputy.name)}
-                  link={deputyShareLink(id)}
-                />
-              )}
+            <Col
+              md="2"
+              className="d-flex align-items-center justify-content-center"
+            >
               <Button
-                variant="outline-light"
-                onClick={() => {
-                  if (!openGraph) {
-                    setopenGraphraph(true);
-                  } else {
-                    setopenGraphraph(false);
-                  }
-                }}
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                className="btn-seta"
               >
-                {!openGraph ? (
-                  <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
-                ) : (
-                  <img src={IconFecharGrafico} alt="Fechar gráfico" className="icon-grafico" />
-                )}
+                <img src={IconOcultar} alt="Ocultar" />
               </Button>
             </Col>
           </Row>
-          {!openGraph && (
-            tableComponent()
-          )}
-          {openGraph && (
-            <div className="ali">
-              <Charts expenses={expenses} deputy={deputy} />
-            </div>
-          )}
+          <Collapse in={open}>
+            <div id="example-collapse-text">{tableComponent()}</div>
+          </Collapse>
         </Col>
       </Row>
     </div>
   );
 }
 
-export default SpentData;
+export default Author;
