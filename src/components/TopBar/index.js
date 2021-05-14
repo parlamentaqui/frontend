@@ -107,7 +107,7 @@ function TopBar() {
           <Nav className="mr-auto">
             <Nav.Link href="/">Início</Nav.Link>
             <Nav.Link href="/deputados">Deputados</Nav.Link>
-            <Nav.Link href="/partidos">Partidos</Nav.Link>
+            {/* <Nav.Link href="/partidos">Partidos</Nav.Link> */}
             <Nav.Link href="/projetos">Projetos</Nav.Link>
           </Nav>
           {notInSearch ? (

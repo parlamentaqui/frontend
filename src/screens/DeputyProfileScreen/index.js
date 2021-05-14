@@ -12,6 +12,7 @@ import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
+import AuthoredPropositions from '../../components/AuthoredPropositions/index';
 import { deputyTweetsRoute, profileRoute } from '../../Api';
 
 function DeputyProfileScreen() {
@@ -43,6 +44,8 @@ function DeputyProfileScreen() {
         <DataVoting />
         <Row className="space" />
         <SpentData />
+        <Row className="space" />
+        <AuthoredPropositions />
         <Row className="space" />
         <Row>
           <Col md="6">

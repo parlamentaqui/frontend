@@ -1,0 +1,106 @@
+.icon-share-black,
+.icon-grafico {
+  width: 23px;
+  height: 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.icon-gasto {
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.test {
+  background-color: aqua;
+}
+
+.col-line-top {
+  border-top: 1px solid #dadada;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.light {
+  background-color: #ffffff;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled).active:focus.btn,
+.btn-outline-light:not(:disabled):not(.disabled):active:focus.btn,
+.show > .btn-outline-light.dropdown-toggle:focus.btn {
+  box-shadow: none;
+}
+
+.btn-outline-light:hover.btn {
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #6c757d;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+a {
+  color: #212529;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #212529;
+  text-decoration: underline;
+}
+
+:focus {
+  outline: none;
+}
+
+.truncate {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.center {
+  justify-content: center;
+  padding-left: 0;
+}
+
+.left {
+  text-align: left;
+  justify-content: left;
+  padding-left: 35px;
+}
+
+.ali {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
