@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import './index.css';
+import './AuthoredPropositionMobile.css';
 import { Row, Col, Button, Collapse, Container } from 'react-bootstrap';
 import { propositionsAuthorRoute } from '../../Api';
 import IconLampada from '../../images/light-bulb.svg';
@@ -15,8 +15,8 @@ function authoredM(prop) {
         <Col>
           <Row>
             <Row>
-              <Col md="12" className="text-sm">Título:</Col>
-              <Col className="d-flex justify-content-end text-sm" title={prop}>
+              <Col md="12" className="text-table">Título:</Col>
+              <Col className="d-flex justify-content-end text-table" title={prop}>
                 {prop.descricao_tipo}
                 {' '}
                 {prop.numero}
@@ -26,8 +26,8 @@ function authoredM(prop) {
                 {prop.ano}
                 {'.'}
               </Col>
-              <Col md="12" className="text-sm col-line-top">Tema:</Col>
-              <Col className="text-sm" title={prop}>
+              <Col md="12" className="text-table col-line-top">Tema:</Col>
+              <Col className="text-table" title={prop}>
                 {prop.tema_proposicao}
               </Col>
               <Col
