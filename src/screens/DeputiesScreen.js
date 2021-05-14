@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ImageDeputiesList from '../components/ImageDeputiesList/index';
-import { deputadosHomeRoute } from '../Api';
+import { deputiesRoute } from '../Api';
 
 function DeputiesScreen() {
   const [deputies, setDeputies] = useState([]);
 
   useEffect(async () => {
-    const result = await axios(deputadosHomeRoute);
+    const result = await axios(deputiesRoute);
     setDeputies(result.data);
   }, []);
 
