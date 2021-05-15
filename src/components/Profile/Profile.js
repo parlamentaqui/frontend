@@ -84,7 +84,7 @@ function ProfileD(props) {
       setCuriosity(response.data);
     });
   }, []);
-  console.log(curiosity);
+  console.log('dadiawda', curiosity);
   return (
     <div className="d-flex justify-content-center position-relative">
       <div className="background-div d-flex">
@@ -134,14 +134,7 @@ function ProfileD(props) {
               {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
               <p>
                 {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
-                {curiosity && (curiosity.curiosity)}
               </p>
-
             </div>
           </div>
         </div>

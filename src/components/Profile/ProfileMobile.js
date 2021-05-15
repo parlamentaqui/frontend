@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './ProfileMobile.css';
 import { Row, Col } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
 import ShareButton from '../ShareButton';
+import IconInfo from '../../images/icon-info.png';
+import { curiositiesRoute } from '../../Api';
 import {
   showDeputyCabinetInfo,
   showPersonalDeputyInfo,
@@ -15,7 +19,15 @@ import {
 
 function ProfileMobile(props) {
   const { deputy } = props;
-
+  const history = useHistory();
+  const location = useLocation();
+  const id = history.location.pathname.split('/')[2];
+  const [curiosity, setCuriosity] = useState({});
+  useEffect(() => {
+    axios.get(curiositiesRoute(id)).then((response) => {
+      setCuriosity(response.data);
+    });
+  }, []);
   return (
     <div className="d-flex justify-content-center">
       <Row className="background-div-mb">
@@ -58,6 +70,17 @@ function ProfileMobile(props) {
             <img src={IconTwitter} alt="Twitter" className="icon-tt" />
             <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} />
           </Row>
+        </Col>
+        <Col>
+          <div className="curiosityMob">
+            <div className="d-flex align-items-center">
+              <img src={IconInfo} alt="Info" className="icon-info mr-3" />
+              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
+              <p>
+                {curiosity && (curiosity.curiosity)}
+              </p>
+            </div>
+          </div>
         </Col>
       </Row>
     </div>
