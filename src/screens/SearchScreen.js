@@ -33,7 +33,7 @@ function SearchScreen() {
     <main>
       <SearchFilter estados={estados} partidos={partidos} />
       <Container>
-        <DeputiesList deputados={deputados} />
+        <DeputiesList deputados={deputados} theme="light" />
       </Container>
     </main>
   );
