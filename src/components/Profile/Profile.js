@@ -84,7 +84,6 @@ function ProfileD(props) {
       setCuriosity(response.data);
     });
   }, []);
-  console.log('dadiawda', curiosity);
   return (
     <div className="d-flex justify-content-center position-relative">
       <div className="background-div d-flex">
