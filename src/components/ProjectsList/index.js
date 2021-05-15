@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import queryString from 'query-string';
 import { Col, Container, Image, Button, Row } from 'react-bootstrap';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { propositionYearRoute } from '../../Api';
 import DefaultPicture from '../../images/default-project.png';
 import IconMore from '../../images/icon-more.png';
 import './index.css';
+import CalculateYear from '../CalculateYear';
 
 function formatPropImage(project) {
   return (
-    <Col md="2" className="prop-image-box p-0 m-0">
+    <Col xs={6} md="2" className="prop-image-box m-0 mb-3 mb-lg-4">
       <Link to={`/proposicao/${project.proposicao_id}`}>
         <Image
-          className="prop-img m-2"
+          className="prop-img"
           alt="FotoProjeto"
           src={project.image_url ? project.image_url : DefaultPicture}
         />
@@ -39,30 +41,25 @@ function formatPropImage(project) {
   );
 }
 
-function ImageDeputiesList(props) {
-  const history = useHistory();
+function ImageDeputiesList() {
   const location = useLocation();
-  const { project } = props;
-  const year = history.location.pathname.split('/')[2];
+  const parameters = queryString.parse(location.search);
+  const year = parameters.year ? parameters.year : 2021;
   const [limit, setLimit] = useState(30);
-  const [filter, setFilter] = useState({});
+  const [projects, setProjects] = useState([]);
   useEffect(() => {
     axios.get(propositionYearRoute(year)).then((response) => {
-      setFilter(response.data);
-      console.log(response.data);
+      setProjects(response.data);
     });
   }, [year]);
   return (
     <Container className="break-line">
-      {/* <Row>
-        {year.map((element) => calculateYear(element))}
-      </Row> */}
-      <Row>
-        {project.slice(0, limit).map((element) => formatPropImage(element))}
+      <CalculateYear year={year} />
+      <Row className="w-100 m-0">
+        {projects.slice(0, limit).map((element) => formatPropImage(element))}
       </Row>
-      <Row className="more mt-4 mb-4">
-        {console.log(project.length)}
-        {project.length > limit ? (
+      <Row className="more mt-4 mb-4 w-100">
+        {projects.length > limit ? (
           <>
             <Button
               variant="outline-light"

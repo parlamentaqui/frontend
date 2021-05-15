@@ -1,0 +1,15 @@
+.anos,
+.anos:hover {
+  font-weight: 600;
+  color: #0059b8;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.anos.selecionado {
+  text-decoration: underline;
+}
+
+.anos-wrapper {
+  flex-wrap: inherit;
+}
