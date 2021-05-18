@@ -1,21 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Col, Container, Row } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
-import { profileRoute, propositionRoute } from '../../Api';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row, Image } from 'react-bootstrap';
+import { profileRoute } from '../../Api';
 import './Proposition.css';
-import AuthorPhoto from '../../images/Kokay.jpg';
+import ArrowRight from '../../images/ArrowRight.svg';
+import DefaultPicture from '../../images/default-user.png';
+import { defineDate } from '../DataVoting/DataVoting';
+import ShareButton from '../ShareButton';
+import Tweet from '../Tweet';
 
 /* OBS:
 
 -> Existem deputados que criaram proposições que não estão na legislatura atual,
 logo, não é possível recuperar infirmações sobre esse deputado
--> Não é possível deixar espaços em branco para apresentação sem o linter acusar
 
 */
 
+function getAuthorInnerInfo(deputy, proposition) {
+  return (
+    <div className="d-flex deputy-info align-items-center justify-content-between">
+      <div className="d-flex align-items-center">
+        <img
+          src={deputy.photo_url ? deputy.photo_url : DefaultPicture}
+          alt="FotoAutorProp"
+          className="icon-author ml-0 my-0 mr-3"
+        />
+        <div>
+          <p className="authorNameInfo m-0">
+            Autoria:
+            {' '}
+            {proposition.nome_autor}
+          </p>
+          <p className="authorPartyAndRegionInfo mx-0">
+            {deputy.party ? `${deputy.party} - ${deputy.federative_unity}` : 'Informações adicionais não disponíveis'}
+          </p>
+        </div>
+      </div>
+      {deputy.id && (
+        <Image
+          media="screen and (min-width: 480px)"
+          src={ArrowRight}
+          alt="acessar perfil"
+          className="arrowRight"
+        />
+      )}
+    </div>
+  );
+}
+
 // Formata o div da informação do autor da proposição
-function getAuthorInfo(proposition) {
+export function getAuthorInfo(proposition) {
   const str = String(proposition.tipoAutor);
 
   if (!str.localeCompare('Deputado')) {
@@ -26,72 +62,110 @@ function getAuthorInfo(proposition) {
         setDeputy(response.data);
       });
     }, []);
-
     return (
-      <div>
-        <Row>
-          <img
-            src={deputy.photo_url}
-            alt="FotoAutorProp"
-            className="icon-author"
-          />
-          <div>
-            <p className="authorNameInfo">
-              Autoria:
-              {proposition.nome_autor}
-            </p>
-            <p className="authorPartyAndRegionInfo">
-              {deputy.party}
-              -
-              {deputy.federative_unity}
-            </p>
-          </div>
-        </Row>
-      </div>
+      <>
+        {deputy.id ? (
+          <Link to={`/deputados/${deputy.id}`}>
+            {getAuthorInnerInfo(deputy, proposition)}
+          </Link>
+        ) : (
+          getAuthorInnerInfo(deputy, proposition)
+        )}
+      </>
     );
   }
   return (
+    <div className="d-flex align-items-center h-100">
+      <p className="authorNameInfo m-0">
+        Autoria:
+        {' '}
+        {proposition.nome_autor}
+      </p>
+    </div>
+  );
+}
+
+export function getStatusInfo(proposition) {
+  return (
     <div>
-      <Row>
-        <div>
-          <p className="authorNameInfo">
-            Autoria:
-            {proposition.nome_autor}
-          </p>
-        </div>
-      </Row>
+      <h5><strong>Status da proposição</strong></h5>
+      {'\n'}
+      <p>
+        <strong>Data:</strong>
+        {' '}
+        {defineDate(proposition.data_proposicao)}
+      </p>
+      <p>
+        <strong>Despacho:</strong>
+        {' '}
+        {proposition.despacho}
+      </p>
+      <p>
+        <strong>Situação:</strong>
+        {' '}
+        {proposition.descricao_situacao}
+      </p>
+      <p>
+        <strong>Orgao:</strong>
+        {' '}
+        {proposition.sigla_orgao}
+      </p>
     </div>
   );
 }
 
 function Proposition(props) {
-  const { proposition } = props;
+  const history = useHistory();
+  const shareLink = history.location.pathname;
+  const { proposition, tweets } = props;
+
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
 
   return (
     <Container>
+      <div className="d-flex justify-content-between mb-2">
+        <p className="propThemeBox d-flex align-items-center">{proposition.tema_proposicao}</p>
+        <ShareButton
+          message={shareMessage}
+          link={shareLink}
+        />
+      </div>
       <Row>
         <Col md="12" lg="6">
-          <h1>
+          <h1 className="mb-3">
             {proposition.descricao_tipo}
+            {' '}
             {proposition.numero}
             /
             {proposition.ano}
           </h1>
+          <p className="propMenu">{proposition.ementa}</p>
+
+          <p className="propDetailedMenuText">Detalhes da ementa:</p>
+          <p className="propDetailedMenu">{String(proposition.ementa_detalhada).length > 0 ? proposition.ementa_detalhada : 'Não há detalhes sobre a ementa.'}</p>
+          <p className="propKeywords">
+            Palavras-chave:
+            {' '}
+            {proposition.keywords}
+          </p>
         </Col>
-        <Col className="propAuthorBox" md="12" lg="6">
-          {getAuthorInfo(proposition)}
+        <Col md="12" lg="6">
+          <div className="propAuthorBox">
+            {getAuthorInfo(proposition)}
+          </div>
+          <div className="propStatusBox">
+            {getStatusInfo(proposition)}
+          </div>
+          <h2 className="mt-5 mb-3">Tweets</h2>
+          {tweets.length === 0 ? (
+            <div className="no-tweets pl-2">
+              <p>Não existem tweets.</p>
+            </div>
+          ) : (
+            <Tweet tweets={tweets} />
+          )}
         </Col>
       </Row>
-
-      <Container classname="propThemeBox">
-        <p>{proposition.tema_proposicao}</p>
-        <br />
-        <p>{proposition.ementa}</p>
-        <p>
-          <br />
-          {proposition.ementa_detalhada}
-        </p>
-      </Container>
     </Container>
   );
 }

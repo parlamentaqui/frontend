@@ -11,6 +11,9 @@
   background: #ebebeb;
   margin-bottom: 0;
 }
+.activityContainer.light hr{
+  background: #EBEBEB;
+}
 
 .center {
   display: flex;
@@ -73,4 +76,8 @@
 .activityContainer.list-group-item h5,
 .activityContainer.list-group-item p {
   color: #fff;
+}
+
+.activityContainer.light.list-group-item h5, .activityContainer.light.list-group-item p{
+  color: #212529;
 }

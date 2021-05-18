@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './DataVoting.css';
 import { Row, Col } from 'react-bootstrap';
 import IconVoto from '../../images/votacao.png';
@@ -8,7 +8,7 @@ import IconConfirma from '../../images/icon-confirma.png';
 import IconConfirmaBlack from '../../images/icon-confirma-black.png';
 import IconCancela from '../../images/icon-cancela.png';
 import IconCancelaRed from '../../images/icon-cancela-red.png';
-import { voteRoute } from '../../Api';
+import { propositionRoute, voteRoute } from '../../Api';
 import ShareButton from '../ShareButton';
 
 export function defineDate(date) {
@@ -52,15 +52,32 @@ export function defineVote(vote) {
   );
 }
 
+export function getPropositionName(proposition, vote) {
+  if (proposition.length > 0) {
+    return (
+      <Link to={`/proposicoes/${proposition.proposition_id}`}>
+        {String(proposition.sigla_tipo).concat(' ', proposition.numero, '/', proposition.ano)}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={vote.proposition_link}>
+      Link para Proposicao
+    </a>
+  );
+}
+
 function DataVoting() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [votes, setVotes] = useState([]);
-
-  useEffect(() => {
-    axios.get(voteRoute(id)).then((response) => {
-      setVotes(response.data);
-    });
+  const [proposition, setProposition] = useState([]);
+  useEffect(async () => {
+    const result = await axios(voteRoute(id));
+    setVotes(result.data);
+    const result2 = await axios(propositionRoute(id));
+    setProposition(result2.data);
   }, []);
   const shareMessage = `Confira esse voto sobre ${votes.deputy_name} Via parlamentaqui.com`;
 
@@ -69,11 +86,11 @@ function DataVoting() {
       <Row className="background-div-1">
         <Col>
           <Row>
-            <Col md="11">
+            <Col md="10">
               <img src={IconVoto} alt="Voto" className="icon-votacao" />
               VOTAÇÕES
             </Col>
-            <Col md="1">
+            <Col md="2" className="ali">
               <ShareButton message={shareMessage} />
             </Col>
           </Row>
@@ -92,7 +109,7 @@ function DataVoting() {
                 {defineDate(element.date_time_vote)}
               </Col>
               <Col md="2" className="col-center">
-                {element.proposition_id}
+                {getPropositionName(proposition, element)}
               </Col>
               <Col md="2" className="col-center">
                 {defineVote(element.vote)}

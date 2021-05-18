@@ -6,14 +6,18 @@ import './index.css';
 import MobileLogo from '../../images/LogoMobile.svg';
 import News from '../../components/HomeNews';
 import Tweet from '../../components/Tweet';
-import { homeNewsRoute, deputadosHomeRoute } from '../../Api';
+import { homeNewsRoute, deputadosHomeRoute, homeTweetRoute } from '../../Api';
 import DeputiesList from '../../components/DeputiesList';
 import SearchHome from '../../components/SearchHome/index';
 
 function HomeScreen() {
   const [news, setNews] = useState([]);
+  const [tweets, setTweets] = useState([]);
   const [deputados, setDeputados] = useState([]);
   useEffect(() => {
+    axios.get(homeTweetRoute).then((response) => {
+      setTweets(response.data);
+    });
     axios.get(homeNewsRoute).then((response) => {
       setNews(response.data);
     });
@@ -21,7 +25,6 @@ function HomeScreen() {
       setDeputados(response.data);
     });
   }, []);
-
   return (
     <Container as="main" className="layout">
       <Row className="justify-content-center">
@@ -43,7 +46,7 @@ function HomeScreen() {
           {/* <Link to={`${tweetUrl}`} className="link">*
           </Link> */}
           <h3 className="recentActivity">Você pode se interessar</h3>
-          <Tweet />
+          <Tweet tweets={tweets} showTitle={false} />
           {/* Linha dos cards */}
           <hr />
           <div className="mt-3">
@@ -54,5 +57,4 @@ function HomeScreen() {
     </Container>
   );
 }
-
 export default HomeScreen;
