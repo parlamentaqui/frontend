@@ -1,0 +1,117 @@
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  background-color: green;
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #fff;
+  transform: translateX(0.75rem);
+}
+
+.text-style {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.btn-primary.btn {
+  color: #212529;
+  background: #d2ffe1;
+  border-color: #3b1c32;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #3b1c32;
+  border-color: #005cbf;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: none;
+  border-color: none;
+  box-shadow: none;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #6c757d;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: white;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.filter {
+  background: #2c2229;
+}
+
+.corpo {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  background: #2c2229;
+}
+
+.col-md-2 {
+  align-items: flex-end;
+  display: flex;
+}
+
+.space {
+  height: 30px;
+}
+
+path {
+  d: path(
+    'M 11.264 0 L 5.26 6.004 L 2.103 2.847 L 0 4.95 l 5.26 5.26 l 8.108 -8.107 L 11.264 0'
+  );
+  fill: none;
+  fill-rule: evenodd;
+}
+
+@media screen and (max-width: 778px) {
+  div.filter {
+    background-color: transparent;
+  }
+  .space {
+    height: 0;
+  }
+}
