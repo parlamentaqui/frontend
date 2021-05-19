@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useHistory, useLocation } from 'react-router-dom';
 import './Profile.css';
 import { Row, Col } from 'react-bootstrap';
 import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
 import IconTwitter from '../../images/twitter.png';
+import IconInfo from '../../images/icon-info.png';
 import ShareButton from '../ShareButton';
+import { curiositiesRoute } from '../../Api';
 
 export const calculateAge = (birth) => {
   const birthday = new Date(birth);
@@ -71,9 +75,17 @@ export function showDeputyCabinetInfo(deputy) {
 
 function ProfileD(props) {
   const { deputy } = props;
-
+  const history = useHistory();
+  const location = useLocation();
+  const id = history.location.pathname.split('/')[2];
+  const [curiosity, setCuriosity] = useState({});
+  useEffect(() => {
+    axios.get(curiositiesRoute(id)).then((response) => {
+      setCuriosity(response.data);
+    });
+  }, []);
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center position-relative">
       <div className="background-div d-flex">
         <div
           className="d-flex justify-content-center align-items-center flex-column deputy-picture"
@@ -115,6 +127,15 @@ function ProfileD(props) {
               {showDeputyCabinetInfo(deputy)}
             </Col>
           </Row>
+          <div className="curiosity">
+            <div className="d-flex align-items-center">
+              <img src={IconInfo} alt="Info" className="icon-info mr-3" />
+              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
+              <p>
+                {curiosity && (curiosity.curiosity)}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
