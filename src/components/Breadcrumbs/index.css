@@ -1,25 +1,23 @@
-
 .breadcrumb-item a {
-    font-weight: lighter;
-    font-family: 'Montserrat', sans-serif;
-    color: #0059B8;
+  font-weight: lighter;
+  font-family: 'Montserrat', sans-serif;
+  color: #0059b8;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
+  content: '>';
 }
 
-.breadcrumb>.active {
-    font-weight: normal;
+.breadcrumb > .active {
+  font-weight: normal;
 }
 
-.breadcrumb { 
-    display: flex;
-    flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: white;
-    border-radius: .25rem;
-    font-size: 15px;
-};
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  list-style: none;
+  background-color: white;
+  border-radius: 0.25rem;
+  font-size: 15px;
+}
