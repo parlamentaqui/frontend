@@ -39,7 +39,7 @@ function Author() {
   const history = useHistory();
   const id = history.location.pathname.split('/')[2];
   const [authorP, setAuthor] = useState([]);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     axios.get(propositionsAuthorRoute(id)).then((response) => {
@@ -58,11 +58,6 @@ function Author() {
         </Col>
       </Row>
       {authorP.map((element) => authoredP(element))}
-      <Row className="col-line-top">
-        <Col md="12" className="alinhamento-end">
-          <a href={`/proposicao/${id}`}>VER MAIS</a>
-        </Col>
-      </Row>
     </>
   );
 
@@ -71,22 +66,9 @@ function Author() {
       <Row className="background-div-1">
         <Col>
           <Row>
-            <Col md="10" className="d-flex align-items-center">
+            <Col md="12" className="d-flex align-items-center">
               <img src={IconLampada} alt="Proposta" className="icon-gasto" />
               PROPOSTAS
-            </Col>
-            <Col
-              md="2"
-              className="d-flex align-items-center justify-content-center"
-            >
-              <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="example-collapse-text"
-                aria-expanded={open}
-                className="btn-seta"
-              >
-                <img src={IconOcultar} alt="Ocultar" />
-              </Button>
             </Col>
           </Row>
           <Collapse in={open}>
