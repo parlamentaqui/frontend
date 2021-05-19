@@ -2,11 +2,21 @@
   display: inline-flex;
 }
 
+.op-0{
+  opacity: 0;
+}
+
 .card {
   display: inline-flex;
   width: 100%;
   height: unset;
   object-fit: contain;
+}
+
+.card .position-absolute{
+  bottom: 16px;
+  top: unset;
+  left: 20px;
 }
 
 .card:hover {
