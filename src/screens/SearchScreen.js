@@ -31,11 +31,10 @@ function SearchScreen() {
       partido: `${parameters.partido || ''}`,
     };
     const requestBody2 = {
-      proposicao: `${parameters.p || ''}`,
+      proposicao: `${parameters.q || ''}`,
       deputado: `${parameters.deputados || ''}`,
       partido: `${parameters.partido || ''}`,
     };
-    console.log(requestBody2);
     axios.post(camaraSearchRoute, requestBody).then((response) => {
       setDeputados(response.data);
     });
@@ -48,6 +47,9 @@ function SearchScreen() {
     axios.post(propositionSearchRoute, requestBody2).then((response) => {
       setProposicao(response.data);
     });
+    if (parameters.modo) {
+      setMode(parameters.modo);
+    }
   }, []);
   return (
     <main>
@@ -60,7 +62,7 @@ function SearchScreen() {
             setMode={(value) => setMode(value)}
           />
           <Container>
-            <DeputiesList deputados={deputados} />
+            <DeputiesList deputados={deputados} theme="light" />
           </Container>
         </>
       ) : (

@@ -88,6 +88,7 @@ function SearchFilter(props) {
                   {estados.map(ufElement)}
                 </Form.Control>
               </Col>
+              <input type="text" className="d-none" value="Deputados" name="modo" />
               <Col md={2} className="mb-3 mb-md-0">
                 <Button variant="primary" className="w-100" type="submit">
                   Buscar

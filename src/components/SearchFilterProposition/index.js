@@ -17,7 +17,6 @@ function SearchFilterP(props) {
   const parameters = queryString.parse(location.search);
   const { partidos, deputados, setMode } = props;
   function partiesElement(element) {
-    console.log(element);
     return element === parameters.partido ? (
       <option selected value={element}>
         {element}
@@ -27,7 +26,6 @@ function SearchFilterP(props) {
     );
   }
   function deputyElement(element) {
-    console.log(element.name);
     return element === parameters.deputado ? (
       <option selected value={element.name}>
         {element.name}
@@ -44,7 +42,7 @@ function SearchFilterP(props) {
           <Col md="6">
             <h1>
               RESULTADO DA BUSCA: &quot;
-              {parameters.p}
+              {parameters.q}
               &quot;
             </h1>
           </Col>
@@ -66,8 +64,8 @@ function SearchFilterP(props) {
               <Col md={4} className="mb-3 mb-md-0">
                 <h6>Busca</h6>
                 <FormControl
-                  defaultValue={parameters.p}
-                  name="p"
+                  defaultValue={parameters.q}
+                  name="q"
                   type="text"
                   placeholder=""
                   className="mr-sm-2"
@@ -87,6 +85,7 @@ function SearchFilterP(props) {
                   {partidos.map(partiesElement)}
                 </Form.Control>
               </Col>
+              <input type="text" className="d-none" value="Proposições" name="modo" />
               <Col md={2} className="mb-3 mb-md-0">
                 <Button variant="primary" className="w-100" type="submit">
                   Buscar
