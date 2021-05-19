@@ -56,7 +56,7 @@ const Breadcrumbs = (props) => {
   const pathnames = defineNome(pathname.split('/').filter((x) => x));
   return (
     pathnames.length > 0 && (
-      <Container className="mb-3 mt-3">
+      <Container className="mb-3 p-2 mt-3">
         <Breadcrumb aria-label="breadcrumb">
           <Breadcrumb.Item onClick={() => history.push('/')}>Página Inicial</Breadcrumb.Item>
           {pathnames.map((name, index) => {
