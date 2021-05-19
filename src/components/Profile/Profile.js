@@ -11,6 +11,8 @@ import IconInfo from '../../images/icon-info.png';
 import ShareButton from '../ShareButton';
 import { curiositiesRoute } from '../../Api';
 
+// Demora em carregar as curiosidades
+
 export const calculateAge = (birth) => {
   const birthday = new Date(birth);
   const ageDifMs = Date.now() - birthday.getTime();
@@ -87,9 +89,7 @@ function ProfileD(props) {
   return (
     <div className="d-flex justify-content-center position-relative">
       <div className="background-div d-flex">
-        <div
-          className="d-flex justify-content-center align-items-center flex-column deputy-picture"
-        >
+        <div className="d-flex justify-content-center align-items-center flex-column deputy-picture">
           <img
             src={deputy.photo_url}
             alt="Profile"
@@ -107,9 +107,7 @@ function ProfileD(props) {
         <div className="w-100">
           <Row className="tam-row-name p-0">
             <Col md="10">
-              <h1 className="mb-2">
-                {deputy.name}
-              </h1>
+              <h1 className="mb-2">{deputy.name}</h1>
               <h4 className="mb-3 tit-exercicio">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
             <Col
@@ -120,9 +118,7 @@ function ProfileD(props) {
             </Col>
           </Row>
           <Row className="tam-row-info pt-0">
-            <Col md="6">
-              {showPersonalDeputyInfo(deputy)}
-            </Col>
+            <Col md="6">{showPersonalDeputyInfo(deputy)}</Col>
             <Col md="6" className="col-info">
               {showDeputyCabinetInfo(deputy)}
             </Col>
@@ -131,9 +127,8 @@ function ProfileD(props) {
             <div className="d-flex align-items-center">
               <img src={IconInfo} alt="Info" className="icon-info mr-3" />
               {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
-              <p>
-                {curiosity && (curiosity.curiosity)}
-              </p>
+              <p>{curiosity && curiosity.curiosity}</p>
+              <p>{curiosity && curiosity.gov_align}</p>
             </div>
           </div>
         </div>
