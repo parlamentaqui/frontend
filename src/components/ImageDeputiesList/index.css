@@ -1,0 +1,41 @@
+.deputy-img {
+  width: 167px;
+  height: 200px;
+  border-radius: 6px;
+  object-fit: cover;
+  filter: brightness(0.60);
+}
+
+.deputy-image-box a {
+  display: block;
+  position: relative;
+}
+
+.deputy-image-box:hover .deputy-resumed-info {
+  display: none;
+}
+
+.deputy-img:hover {
+  object-fit: cover;
+  filter: brightness(1);
+  width: 177px;
+  height: 210px;
+}
+
+.break-line {
+  flex-wrap: wrap;
+  display: flex !important;
+}
+
+.deputy-resumed-info {
+  z-index: 10;
+  left: 16px;
+  bottom: 8px;
+  position: absolute;
+}
+
+.deputy-resumed-info p {
+  width: 135px;
+  color: white;
+  font-size: 16px;
+}
