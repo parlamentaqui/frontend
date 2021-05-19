@@ -13,6 +13,7 @@ import News from '../../components/News/News';
 import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
 import { deputyTweetsRoute, profileRoute } from '../../Api';
+import PratrimonialGrowth from '../../components/PatrimonialGrowth';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -43,6 +44,8 @@ function DeputyProfileScreen() {
         <DataVoting />
         <Row className="space" />
         <SpentData />
+        <Row className="space" />
+        <PratrimonialGrowth />
         <Row className="space" />
         <Row>
           <Col md="6">

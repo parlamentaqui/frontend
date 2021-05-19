@@ -1,0 +1,14 @@
+.growth {
+  border-top: 1px solid #dadada;
+}
+
+.borda {
+  border-right: 1px solid #dadada;
+  height: 100%;
+  width: 100%;
+}
+
+.crescimento img {
+  height: 2.5em;
+  border: none;
+}
