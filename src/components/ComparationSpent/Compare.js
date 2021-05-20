@@ -1,8 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
 import axios from 'axios';
+import { useLocation } from 'react-router';
+import queryString from 'query-string';
+import { Col, Form, Row } from 'react-bootstrap';
 import './index.css';
-import { deputadosHomeRoute } from '../../Api';
+import { allExpenseRoute } from '../../Api';
+
+function group(expenses) {
+  let newExpenses = [];
+  expenses.forEach((element) => {
+    const index = newExpenses.findIndex(
+      (elemNewExpenses) => elemNewExpenses.expenses_type === element.expenses_type
+    );
+    if (index !== -1) {
+      const elementToChange = newExpenses[index];
+      elementToChange.document_value += element.document_value;
+      newExpenses[index] = elementToChange;
+    } else {
+      newExpenses = newExpenses.concat({ ...element });
+    }
+  });
+  return newExpenses;
+}
 
 function dataC(dados) {
   return (
@@ -15,8 +34,7 @@ function dataC(dados) {
           R$
           {' '}
           {dados.value}
-          {',00'}
-          <div className="circle" style={{ backgroundColor: dados.color }} />
+          ,00
         </Col>
         <Col xs={2} title={dados.percentage} className="d-flex align-items-center">
           {dados.percentage.toFixed(1)}
@@ -27,43 +45,66 @@ function dataC(dados) {
   );
 }
 
-function dataComparation() {
-  const [deputies, setDeputies] = useState([]);
-
+function dataComparation(props) {
+  const { id, deputados } = props;
+  const location = useLocation();
+  const parameters = queryString.parse(location.search);
+  const [compareExpense, setcompareExpense] = useState([]);
+  console.log(deputados);
   useEffect(() => {
-    axios.get(deputadosHomeRoute).then((response) => {
-      setDeputies(response.data);
-      console.log('AQUI MEU DEUS', response.data);
+    axios.get(allExpenseRoute(id)).then((response) => {
+      setcompareExpense(response.data);
     });
   }, []);
+
+  const dadosAgrupados = group(compareExpense);
+  let total = 0;
+  if (dadosAgrupados) {
+    dadosAgrupados.forEach((element) => {
+      total += element.document_value;
+    });
+  }
+  const custosDeputados = dadosAgrupados.map((element, index) => ({
+    label: element.expenses_type,
+    value: element.document_value,
+    percentage: (element.document_value * 100) / total,
+  }));
+
+  function DeputyCompare(element) {
+    return element === parameters.q ? (
+      <option selected value={element}>
+        {element}
+      </option>
+    ) : (
+      <option value={element}>{element}</option>
+    );
+  }
+
   return (
     <>
       <div>
         <Row className="py-4 table-border-bottom">
           <Col xs={12}>
             <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Control as="select">
-                {deputies.map((element) => (
-                  <option selected value={element}>
-                    {element.name}
-                  </option>
-                ))}
+              <Form.Control as="select" name="q">
+                <option value="">Todos</option>
+                {deputados.map(DeputyCompare)}
               </Form.Control>
             </Form.Group>
           </Col>
         </Row>
         <Row className="table-data">
-          {/* {deputies.map((element) => dataC(element))} */}
+          {compareExpense.map((element) => dataC(element))}
         </Row>
         <Row className="pt-2 pb-3">
-          <Col xs={6} title="Total">
+          <Col xs={4} title="Total">
             <b>TOTAL</b>
           </Col>
-          <Col xs={4} title="Total de gastos">
+          <Col xs={6} title="Total de gastos">
             R$
-            {/* {' '}
+            {' '}
             {total}
-            {',00'} */}
+            ,00
           </Col>
           <Col xs={2} title="Total porcentagem">
             <p>100%</p>

@@ -4,10 +4,8 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import IconGasto from '../../images/gasto.png';
-import IconAnexo from '../../images/anexo.png';
 import IconGrafico from '../../images/grafico.png';
-import sirene from '../../images/sirene.svg';
-import { expenseMobileRoute, profileRoute } from '../../Api';
+import { allExpenseRoute, profileRoute } from '../../Api';
 import ShareButton from '../ShareButton';
 import { defineDate, spentUrl, deputyShareMessage, deputyShareLink } from './SpentData';
 import Charts from '../Charts/index';
@@ -81,7 +79,7 @@ function SpentDataMobile() {
   const [openG, setOpenG] = useState(false);
   const [expenses, setExpensesMobile] = useState([]);
   useEffect(() => {
-    axios.get(expenseMobileRoute(id)).then((response) => {
+    axios.get(allExpenseRoute(id)).then((response) => {
       setExpensesMobile(response.data);
     });
     axios.get(profileRoute(id)).then((response) => {

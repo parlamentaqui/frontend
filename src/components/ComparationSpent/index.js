@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import queryString from 'query-string';
+import { Col, Row } from 'react-bootstrap';
 import './index.css';
 import Format from '../Charts/Format';
 import Compare from './Compare';
-import { expenseRoute, profileRoute, deputadosHomeRoute } from '../../Api';
+import { allExpenseRoute, profileRoute, deputyCompareRoute, allDeputiesRoute } from '../../Api';
 
 function group(expenses) {
   let newExpenses = [];
@@ -26,28 +27,34 @@ function group(expenses) {
 
 function ComparationSpent() {
   const history = useHistory();
+  const location = useLocation();
+  const parameters = queryString.parse(location.search);
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
-  const [companyName, setCompanyName] = useState('');
   const [deputy, setDeputy] = useState([]);
-  const [listDeputy, setListDeputy] = useState([]);
+  const [deputadosC, setDeputadosC] = useState([]);
+  const [compareDeputy, setCompareDeputy] = useState([]);
 
   useEffect(() => {
     const requestBody = {
-      razao_social: companyName ? `${companyName}` : '',
-      tipo_gasto: '',
+      nome: `${parameters.q || ''}`,
     };
-    axios.post(expenseRoute(id), requestBody).then((response) => {
+    axios.get(allExpenseRoute(id)).then((response) => {
       setExpenses(response.data);
     });
     axios.get(profileRoute(id)).then((response) => {
       setDeputy(response.data);
     });
-    axios.get(deputadosHomeRoute).then((response) => {
-      setListDeputy(response.data);
+    axios.get(allDeputiesRoute).then((response) => {
+      setDeputadosC(response.data);
+      console.log(response.data);
     });
-  }, [companyName]);
+    axios.post(deputyCompareRoute, requestBody).then((response) => {
+      setCompareDeputy(response.data);
+    });
+  }, [compareDeputy]);
 
+  console.log(deputadosC);
   const dadosAgrupados = group(expenses);
   let total = 0;
   if (dadosAgrupados) {
@@ -77,7 +84,7 @@ function ComparationSpent() {
             lg={{ span: 6, order: 2 }}
             className="align graph-bordered"
           >
-            <Compare />
+            <Compare id={compareDeputy.id} deputados={deputadosC.name} />
           </Col>
         </Row>
       </Col>

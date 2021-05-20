@@ -1,11 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Image } from 'react-bootstrap';
 import DefaultPicture from '../../images/default-user.png';
 import './index.css';
 
 function formatDeputyImage(deputy) {
-  console.log('AQUI', deputy);
   return (
     <>
       <div>
