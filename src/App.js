@@ -9,10 +9,10 @@ import PartyScreen from './screens/PartyScreen';
 import SearchScreen from './screens/SearchScreen';
 import Breadcrumbs from './components/Breadcrumbs';
 import Teste from './components/DataVoting/DataVoting';
-import DeputyProfileScreen from './screens/DeputyProfileScreen/index';
-import PropositionScreen from './screens/PropositionScreen';
+import DeputyProfileScreen from './screens/DeputyProfileScreen';
 import HomeScreen from './screens/HomeScreen';
 import ExpensesScreen from './screens/ExpensesScreen';
+import PropositionScreen from './screens/PropositionScreen';
 
 function App() {
   return (
