@@ -61,15 +61,19 @@ export function showDeputyCabinetInfo(deputy) {
       <h5>Informações do gabinete</h5>
       <p>
         <b>Número da sala:</b>
+        {` ${deputy.office_number ? deputy.office_number : 'Não disponivel'}`}
       </p>
       <p>
         <b>Andar:</b>
+        {` ${deputy.office_floor ? deputy.office_floor : 'Não disponivel'}`}
       </p>
       <p>
         <b>Prédio:</b>
+        {` ${deputy.office_premise ? deputy.office_premise : 'Não disponivel'}`}
       </p>
       <p>
         <b>Telefone:</b>
+        {` ${deputy.office_phone ? deputy.office_phone : 'Não disponivel'}`}
       </p>
     </div>
   );
@@ -124,11 +128,10 @@ function ProfileD(props) {
             </Col>
           </Row>
           <div className="curiosity">
-            <div className="d-flex align-items-center">
-              <img src={IconInfo} alt="Info" className="icon-info mr-3" />
-              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
+            <div className="d-flex align-items-flex-end">
+              <img src={IconInfo} alt="Info" className="icon-info mr-3 align-self-auto" />
               <p>{curiosity && curiosity.curiosity}</p>
-              <p>{curiosity && curiosity.gov_align}</p>
+              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
             </div>
           </div>
         </div>

@@ -58,7 +58,19 @@
         margin: 10px;
     }
 
-    h3 {
+    .tam-row-info-mb p{
+        color: white;
+    }
+
+    .col-info-mb b {
+        color: white;
+    }
+
+    .col-info-mb h5 {
+        color: white;
+    }
+
+    .tam-row-name-mb h3 {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -67,8 +79,8 @@
         color: #FFFFFF;
         opacity: 0.87;
     }
-        
-    h4 {
+       
+    .tam-row-name-mb h4 {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: normal;
@@ -77,7 +89,7 @@
         color: #FFFFFF;
     }
         
-    h5 {
+    .tam-row-name-mb h5 {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: normal;
@@ -86,7 +98,7 @@
         color: #FFFFFF;
     }
         
-    h6 {
+    .tam-row-name-mb h6 {
         font-family: 'Open Sans', sans-serif;;
         font-style: normal;
         font-weight: bold;

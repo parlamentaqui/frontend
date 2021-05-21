@@ -77,7 +77,6 @@ function ProfileMobile(props) {
               <img src={IconInfo} alt="Info" className="icon-info mr-3" />
               {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
               <p>{curiosity && curiosity.curiosity}</p>
-              <p>{curiosity && curiosity.gov_align}</p>
             </div>
           </div>
         </Col>
