@@ -133,7 +133,7 @@ function ProfileD(props) {
               <img src={IconInfo} alt="Info" className="icon-info mr-3" />
               <div>
                 <Dotdotdot clamp={6}>
-                  <p>
+                  <p title={curiosity.curiosity}>
                     {curiosity && (curiosity.curiosity)}
                   </p>
                 </Dotdotdot>
