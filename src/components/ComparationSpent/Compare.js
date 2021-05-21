@@ -1,27 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useLocation } from 'react-router';
 import queryString from 'query-string';
 import { Col, Form, Row } from 'react-bootstrap';
 import './index.css';
-import { allExpenseRoute } from '../../Api';
-
-function group(expenses) {
-  let newExpenses = [];
-  expenses.forEach((element) => {
-    const index = newExpenses.findIndex(
-      (elemNewExpenses) => elemNewExpenses.expenses_type === element.expenses_type
-    );
-    if (index !== -1) {
-      const elementToChange = newExpenses[index];
-      elementToChange.document_value += element.document_value;
-      newExpenses[index] = elementToChange;
-    } else {
-      newExpenses = newExpenses.concat({ ...element });
-    }
-  });
-  return newExpenses;
-}
+// eslint-disable-next-line import/no-cycle
+import { group } from './index';
 
 function dataC(dados) {
   return (
@@ -46,16 +29,14 @@ function dataC(dados) {
 }
 
 function dataComparation(props) {
-  const { id, deputados } = props;
+  const { deputados, compareExpense, SelectDeputy } = props;
   const location = useLocation();
   const parameters = queryString.parse(location.search);
-  const [compareExpense, setcompareExpense] = useState([]);
-  console.log(deputados);
-  useEffect(() => {
-    axios.get(allExpenseRoute(id)).then((response) => {
-      setcompareExpense(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(allExpenseRoute(id)).then((response) => {
+  //     setcompareExpense(response.data);
+  //   });
+  // }, []);
 
   const dadosAgrupados = group(compareExpense);
   let total = 0;
@@ -67,16 +48,17 @@ function dataComparation(props) {
   const custosDeputados = dadosAgrupados.map((element, index) => ({
     label: element.expenses_type,
     value: element.document_value,
-    percentage: (element.document_value * 100) / total,
+    percentage: total === 0 ? 0 : (element.document_value * 100) / total,
   }));
 
   function DeputyCompare(element) {
-    return element === parameters.q ? (
-      <option selected value={element}>
-        {element}
+    const { name, id } = element;
+    return name === parameters.q ? (
+      <option selected value={id}>
+        {name}
       </option>
     ) : (
-      <option value={element}>{element}</option>
+      <option value={id}>{name}</option>
     );
   }
 
@@ -85,22 +67,22 @@ function dataComparation(props) {
       <div>
         <Row className="py-4 table-border-bottom">
           <Col xs={12}>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Control as="select" name="q">
+            <Form.Group controlId="exampleForm.ControlSelect1" className="m-0">
+              <Form.Control as="select" name="q" onChange={SelectDeputy}>
                 <option value="">Todos</option>
                 {deputados.map(DeputyCompare)}
               </Form.Control>
             </Form.Group>
           </Col>
         </Row>
-        <Row className="table-data">
-          {compareExpense.map((element) => dataC(element))}
+        <Row className="table-data text-left">
+          {custosDeputados.map((element) => dataC(element))}
         </Row>
-        <Row className="pt-2 pb-3">
-          <Col xs={4} title="Total">
+        <Row className="pt-2 pb-3 text-left">
+          <Col xs={6} title="Total">
             <b>TOTAL</b>
           </Col>
-          <Col xs={6} title="Total de gastos">
+          <Col xs={4} title="Total de gastos">
             R$
             {' '}
             {total}

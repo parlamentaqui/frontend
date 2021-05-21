@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import './format.css';
 
 function dataF(dados) {
   return (
@@ -12,7 +13,7 @@ function dataF(dados) {
           R$
           {' '}
           {dados.value}
-          {',00'}
+          ,00
           <div className="circle" style={{ backgroundColor: dados.color }} />
         </Col>
         <Col xs={2} title={dados.percentage} className="d-flex align-items-center">
@@ -28,12 +29,14 @@ function Format(props) {
   const { dados } = props;
   const { name } = props;
   const { total } = props;
+  const { h5Class } = props;
+
   return (
     <>
       <div>
         <Row className="py-4 table-border-bottom">
           <Col xs={12}>
-            <h5>{name.name}</h5>
+            <h5 className={h5Class}>{name.name}</h5>
           </Col>
         </Row>
         <Row className="table-data">
@@ -47,7 +50,7 @@ function Format(props) {
             R$
             {' '}
             {total}
-            {',00'}
+            ,00
           </Col>
           <Col xs={2} title="Total porcentagem">
             <p>100%</p>

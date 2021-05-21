@@ -7,9 +7,12 @@
   margin: 4px auto;
 }
 
-.activityContainer hr{
+.activityContainer hr {
   background: #ebebeb;
   margin-bottom: 0;
+}
+.activityContainer.light hr{
+  background: #EBEBEB;
 }
 
 .center {
@@ -47,11 +50,12 @@
   object-position: top;
 }
 
-.targetInfoTitle{
+.targetInfoTitle {
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
+  color: #212529;
 }
 
 @media (max-width: 700px) {
@@ -65,10 +69,15 @@
   }
 }
 
-.activityContainer.list-group-item{
+.activityContainer.list-group-item {
   background: transparent;
 }
 
-.activityContainer.list-group-item h5, .activityContainer.list-group-item p{
+.activityContainer.list-group-item h5,
+.activityContainer.list-group-item p {
   color: #fff;
+}
+
+.activityContainer.light.list-group-item h5, .activityContainer.light.list-group-item p{
+  color: #212529;
 }

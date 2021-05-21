@@ -5,10 +5,16 @@ import queryString from 'query-string';
 import { Col, Row } from 'react-bootstrap';
 import './index.css';
 import Format from '../Charts/Format';
+// eslint-disable-next-line import/no-cycle
 import Compare from './Compare';
-import { allExpenseRoute, profileRoute, deputyCompareRoute, allDeputiesRoute } from '../../Api';
+import {
+  allExpenseRoute,
+  profileRoute,
+  deputyCompareRoute,
+  allDeputiesRoute,
+} from '../../Api';
 
-function group(expenses) {
+export function group(expenses) {
   let newExpenses = [];
   expenses.forEach((element) => {
     const index = newExpenses.findIndex(
@@ -22,7 +28,11 @@ function group(expenses) {
       newExpenses = newExpenses.concat({ ...element });
     }
   });
-  return newExpenses;
+  return newExpenses.sort((a, b) => {
+    if (a.expenses_type < b.expenses_type) { return -1; }
+    if (a.expenses_type > b.expenses_type) { return 1; }
+    return 0;
+  });
 }
 
 function ComparationSpent() {
@@ -33,12 +43,9 @@ function ComparationSpent() {
   const [expenses, setExpenses] = useState([]);
   const [deputy, setDeputy] = useState([]);
   const [deputadosC, setDeputadosC] = useState([]);
-  const [compareDeputy, setCompareDeputy] = useState([]);
+  const [compareExpense, setCompareExpense] = useState([]);
 
   useEffect(() => {
-    const requestBody = {
-      nome: `${parameters.q || ''}`,
-    };
     axios.get(allExpenseRoute(id)).then((response) => {
       setExpenses(response.data);
     });
@@ -47,14 +54,9 @@ function ComparationSpent() {
     });
     axios.get(allDeputiesRoute).then((response) => {
       setDeputadosC(response.data);
-      console.log(response.data);
     });
-    axios.post(deputyCompareRoute, requestBody).then((response) => {
-      setCompareDeputy(response.data);
-    });
-  }, [compareDeputy]);
+  }, []);
 
-  console.log(deputadosC);
   const dadosAgrupados = group(expenses);
   let total = 0;
   if (dadosAgrupados) {
@@ -68,6 +70,48 @@ function ComparationSpent() {
     percentage: (element.document_value * 100) / total,
   }));
 
+  function CreateEmptyLine(ExpensesType) {
+    return {
+      batch_cod: 0,
+      deputy_id: 0,
+      document_date: 0,
+      document_num: 0,
+      document_type: 0,
+      document_url: 0,
+      document_value: 0,
+      expenses_type: ExpensesType,
+      glosa_value: 0,
+      liquid_value: 0,
+      month: 0,
+      refund_num: 0,
+      supplier_cnpj_cpf: 0,
+      supplier_name: 0,
+      tranche: 0,
+      year: 0,
+    };
+  }
+
+  function SelectDeputy(event) {
+    axios.get(allExpenseRoute(event.target.value)).then((response) => {
+      const temp = response.data;
+      const temp2 = [...expenses];
+      custosDeputados.filter((element) => {
+        const { label } = element;
+        return !temp.find((element2) => label === element2.expenses_type);
+      }).forEach((element) => {
+        temp.push(CreateEmptyLine(element.label));
+      });
+      temp.filter((element) => {
+        const expensesType = element.expenses_type;
+        return !temp2.find((element2) => expensesType === element2.expenses_type);
+      }).forEach((element) => {
+        temp2.push(CreateEmptyLine(element.expenses_type));
+      });
+      setCompareExpense(temp);
+      setExpenses(temp2);
+    });
+  }
+
   return (
     <>
       <Col>
@@ -77,14 +121,18 @@ function ComparationSpent() {
             lg={{ span: 6, order: 1 }}
             className="col-format table-border-right"
           >
-            <Format dados={custosDeputados} name={deputy} total={total} />
+            <Format dados={custosDeputados} name={deputy} total={total} h5Class="spacer" />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
             lg={{ span: 6, order: 2 }}
             className="align graph-bordered"
           >
-            <Compare id={compareDeputy.id} deputados={deputadosC.name} />
+            <Compare
+              deputados={deputadosC}
+              compareExpense={compareExpense}
+              SelectDeputy={SelectDeputy}
+            />
           </Col>
         </Row>
       </Col>

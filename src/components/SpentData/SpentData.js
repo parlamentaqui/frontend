@@ -192,7 +192,7 @@ function SpentData() {
               <img src={IconGasto} alt="Gasto" className="icon-gasto" />
               GASTOS
             </Col>
-            <Col md="3" className="ali">
+            <Col md="3" className="ali justify-content-end">
               {!openGraph && !openCompare && (
                 <ShareButton
                   message={deputyShareMessage(deputy.name)}

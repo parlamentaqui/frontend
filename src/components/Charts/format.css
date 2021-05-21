@@ -1,0 +1,6 @@
+.spacer {
+  height: 38px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}

@@ -1,4 +1,11 @@
 .dark{
     background: #2C2229;
     border-radius: 4px;
+    color: white;
+}
+
+.light{
+    background: transparent;
+    border-radius: 4px;
+    color: #212529;
 }
