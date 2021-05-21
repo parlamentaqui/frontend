@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 import './Profile.css';
 import { Row, Col } from 'react-bootstrap';
+import Dotdotdot from 'react-dotdotdot';
 import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
@@ -130,10 +131,13 @@ function ProfileD(props) {
           <div className="curiosity">
             <div className="d-flex align-items-center">
               <img src={IconInfo} alt="Info" className="icon-info mr-3" />
-              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
-              <p>
-                {curiosity && (curiosity.curiosity)}
-              </p>
+              <div>
+                <Dotdotdot clamp={6}>
+                  <p>
+                    {curiosity && (curiosity.curiosity)}
+                  </p>
+                </Dotdotdot>
+              </div>
             </div>
           </div>
         </div>
