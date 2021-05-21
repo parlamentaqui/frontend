@@ -3,17 +3,15 @@ import { Chart } from 'react-google-charts';
 
 function AnnotationChat(props) {
   const { growth } = props;
+  const data = growth.map((element) => [`${element.year}`, element.value]);
+  data.unshift(['Ano', 'Declaração']);
   return growth ? (
     <Chart
       width="300px"
       height="250px"
       chartType="Bar"
       loader={<div>Carregando Gráfico</div>}
-      data={[
-        ['Ano', 'Declaração'],
-        [growth[0].year, growth[0].value],
-        [growth[1].year, growth[1].value],
-      ]}
+      data={data}
       options={{
         colors: ['Orange', 'Salmon'],
         chartArea: { width: '100%' },

@@ -35,6 +35,9 @@ function DeputyProfileScreen() {
         <DataVotingMobile />
         <Row className="space" />
         <SpentDataMobile />
+        <Row className="space" />
+        <PratrimonialGrowth />
+        <Row className="space" />
         <NewsMobile />
         <Tweets tweets={tweets} />
       </Container>

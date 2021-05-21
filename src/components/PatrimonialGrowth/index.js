@@ -11,10 +11,10 @@ function spentGrowth(growth) {
   return (
     <>
       <Row>
-        <Col className="py-3 w-100 h-100" title={growth.date}>
+        <Col xs={4} className="py-3 w-100 h-100" title={growth.date}>
           {growth.year}
         </Col>
-        <Col className="w-100 h-100 py-3" title={growth.value}>
+        <Col xs={8} className="w-100 h-100 py-3" title={growth.value}>
           R$
           {growth.value}
         </Col>
@@ -50,8 +50,8 @@ function PratrimonialGrowth() {
           ) : (
             <>
               <Row className="growth py-3">
-                <Col xs={3}>Ano</Col>
-                <Col xs={3}>Declaração de Patrimônio</Col>
+                <Col xs={2}>Ano</Col>
+                <Col xs={10}>Declaração de Patrimônio</Col>
               </Row>
               <Row className="growth">
                 <Col className="py-3 w-100">
