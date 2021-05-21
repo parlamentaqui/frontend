@@ -2,6 +2,7 @@ export const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhos
 export const basePort = '8001';
 export const apiURL = `${baseURL}:${basePort}`;
 export const camaraURL = `${apiURL}/camara`;
+export const tseURL = `${apiURL}/tse`;
 export const camaraSearchRoute = `${camaraURL}/resultado`;
 export const tweetURL = `${apiURL}/twitter`;
 export const homeTweetRoute = `${tweetURL}/tweets`;
@@ -18,4 +19,4 @@ export const deputyNewsRoute = (id) => `${newsURL}/latestNews/${id}`;
 export const deputyTweetsRoute = (id) => `${tweetURL}/tweets_by_id/${id}`;
 export const propositionRoute = (id) => `${camaraURL}/get_proposition_by_id/${id}`;
 export const tweetsPropositionRoute = (id) => `${tweetURL}/get_tweets_by_proposition_id/${id}`;
-export const growthRoute = (id) => `${camaraURL}/growth/${id}`;
+export const growthRoute = (id) => `${tseURL}/get_total_value_deputies_equity_by_year/${id}`;

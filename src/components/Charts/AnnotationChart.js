@@ -2,39 +2,26 @@ import React from 'react';
 import { Chart } from 'react-google-charts';
 
 function AnnotationChat(props) {
-  // const { growth } = props;
-  //   const dadosAgrupados = group(expenses);
-  //   let total = 0;
-  //   if (dadosAgrupados) {
-  //     dadosAgrupados.forEach((element) => {
-  //       total += element.value;
-  //     });
-  //   }
-  //   const custosDeputados = dadosAgrupados.map((element, index) => ({
-  //     year: element.year,
-  //     value: element.value,
-  //   }));
-  return (
-    // <Chart
-    //   width="600px"
-    //   height="400px"
-    //   chartType="LineChart"
-    //   loader={<div>Loading Chart</div>}
-    //   data={[custosDeputados]}
-    //   options={{
-    //     hAxis: {
-    //       title: 'Ano',
-    //     },
-    //     vAxis: {
-    //       title: 'Crescimento',
-    //     },
-    //     series: {
-    //       1: { curveType: 'function' },
-    //     },
-    //   }}
-    //   rootProps={{ 'data-testid': '2' }}
-    // />
-    <p>grafico</p>
+  const { growth } = props;
+  return growth ? (
+    <Chart
+      width="300px"
+      height="250px"
+      chartType="Bar"
+      loader={<div>Carregando Gráfico</div>}
+      data={[
+        ['Ano', 'Declaração'],
+        [growth[0].year, growth[0].value],
+        [growth[1].year, growth[1].value],
+      ]}
+      options={{
+        colors: ['Orange', 'Salmon'],
+        chartArea: { width: '100%' },
+      }}
+      rootProps={{ 'data-testid': '2' }}
+    />
+  ) : (
+    ''
   );
 }
 

@@ -3,9 +3,11 @@
 }
 
 .borda {
-  border-right: 1px solid #dadada;
-  height: 100%;
+  border-left: 1px solid #dadada;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .crescimento img {
