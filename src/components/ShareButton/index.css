@@ -30,6 +30,41 @@
   border-color: #ffffff;
 }
 
+.dark,
+.dark .btn,
+.dark .btn-secondary:not(:disabled):not(.disabled).active.btn,
+.dark .btn-secondary:not(:disabled):not(.disabled):active.btn,
+.dark .show > .btn-secondary.dropdown-toggle.btn,
+.dark .btn-secondary:hover.btn {
+  background-color: #2c2229;
+  border-color: #2c2229;
+}
+
+@media (max-width: 991.98px) {
+  .img-arredondada {
+    border-radius: 50%;
+    background-position: -15px -15px;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .col-info {
+    border-left: none;
+  }
+
+  .icon-share-mb {
+    display: none;
+    justify-content: left;
+  }
+
+  .icon-share-lg {
+    display: flex;
+    justify-content: left;
+  }
+}
+
 .cor {
   background-color: #3b1c32;
   border-radius: 0.3rem;
