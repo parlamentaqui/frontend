@@ -11,8 +11,6 @@ import IconInfo from '../../images/icon-info.png';
 import ShareButton from '../ShareButton';
 import { curiositiesRoute } from '../../Api';
 
-// Demora em carregar as curiosidades
-
 export const calculateAge = (birth) => {
   const birthday = new Date(birth);
   const ageDifMs = Date.now() - birthday.getTime();
@@ -29,15 +27,15 @@ export function showPersonalDeputyInfo(deputy) {
       <h5>Informações pessoais</h5>
       <p>
         <b>Nome:</b>
-        {` ${deputy.full_name}`}
+        {` ${deputy.full_name ? deputy.full_name : 'Não disponível'}`}
       </p>
       <p>
         <b>Partido:</b>
-        {` ${deputy.party}`}
+        {` ${deputy.party ? deputy.party : 'Não disponível'}`}
       </p>
       <p>
         <b>Estado:</b>
-        {` ${deputy.federative_unity}`}
+        {` ${deputy.federative_unity ? deputy.federative_unity : 'Não disponível'}`}
       </p>
       <p>
         <b>Sexo:</b>
@@ -49,7 +47,7 @@ export function showPersonalDeputyInfo(deputy) {
       </p>
       <p>
         <b>Email:</b>
-        {` ${deputy.email}`}
+        {` ${deputy.email ? deputy.email : 'Não disponível'}`}
       </p>
     </div>
   );
@@ -131,7 +129,6 @@ function ProfileD(props) {
             <div className="d-flex align-items-flex-end">
               <img src={IconInfo} alt="Info" className="icon-info mr-3 align-self-auto" />
               <p>{curiosity && curiosity.curiosity}</p>
-              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
             </div>
           </div>
         </div>
