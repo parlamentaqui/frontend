@@ -69,7 +69,11 @@ function ProfileMobile(props) {
             <img src={IconInsta} alt="Insta" className="icon-insta" />
             <img src={IconFace} alt="Face" className="icon-face" />
             <img src={IconTwitter} alt="Twitter" className="icon-tt" />
-            <ShareButton message={deputyShareMessage(deputy)} link={deputyShareLink(deputy)} />
+            <ShareButton
+              message={deputyShareMessage(deputy)}
+              link={deputyShareLink(deputy)}
+              theme="dark"
+            />
           </Row>
         </Col>
         <Col>

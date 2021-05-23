@@ -253,6 +253,7 @@ function SpentData() {
                   />
                 )}
                 {openGraph && !openCompare && (
+
                   <img
                     src={IconFecharGrafico}
                     alt="Fechar gráfico"
@@ -263,6 +264,7 @@ function SpentData() {
             </Col>
           </Row>
           {!openGraph && !openCompare && tableComponent()}
+
           {openGraph && (
             <div className="ali">
               <Charts expenses={expenses} deputy={deputy} />

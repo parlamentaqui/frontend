@@ -16,6 +16,7 @@ import ComparationSpent from '../../components/ComparationSpent/index';
 import AuthoredPropositions from '../../components/AuthoredPropositions/index';
 import AuthoredPropositionsMobile from '../../components/AuthoredPropositions/AuthoredPropositionMobile';
 import { deputyTweetsRoute, profileRoute } from '../../Api';
+import PratrimonialGrowth from '../../components/PatrimonialGrowth';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -38,7 +39,10 @@ function DeputyProfileScreen() {
         <Row className="space" />
         <SpentDataMobile />
         <Row className="space" />
+        <PratrimonialGrowth />
+        <Row className="space" />
         <AuthoredPropositionsMobile />
+        <Row className="space" />
         <NewsMobile />
         <Tweets tweets={tweets} />
       </Container>
@@ -48,6 +52,8 @@ function DeputyProfileScreen() {
         <DataVoting />
         <Row className="space" />
         <SpentData />
+        <Row className="space" />
+        <PratrimonialGrowth />
         <Row className="space" />
         <AuthoredPropositions />
         <Row className="space" />
