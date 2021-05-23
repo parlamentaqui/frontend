@@ -36,7 +36,7 @@ function SearchFilterP(props) {
   }
 
   return (
-    <>
+    <div className="SearchFilter">
       <Container>
         <Row>
           <Col md="6">
@@ -85,7 +85,12 @@ function SearchFilterP(props) {
                   {partidos.map(partiesElement)}
                 </Form.Control>
               </Col>
-              <input type="text" className="d-none" value="Proposições" name="modo" />
+              <input
+                type="text"
+                className="d-none"
+                value="Proposições"
+                name="modo"
+              />
               <Col md={2} className="mb-3 mb-md-0">
                 <Button variant="primary" className="w-100" type="submit">
                   Buscar
@@ -95,7 +100,7 @@ function SearchFilterP(props) {
           </Form>
         </Container>
       </div>
-    </>
+    </div>
   );
 }
 

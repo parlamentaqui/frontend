@@ -28,15 +28,15 @@ export function showPersonalDeputyInfo(deputy) {
       <h5>Informações pessoais</h5>
       <p>
         <b>Nome:</b>
-        {` ${deputy.full_name}`}
+        {` ${deputy.full_name ? deputy.full_name : 'Não disponível'}`}
       </p>
       <p>
         <b>Partido:</b>
-        {` ${deputy.party}`}
+        {` ${deputy.party ? deputy.party : 'Não disponível'}`}
       </p>
       <p>
         <b>Estado:</b>
-        {` ${deputy.federative_unity}`}
+        {` ${deputy.federative_unity ? deputy.federative_unity : 'Não disponível'}`}
       </p>
       <p>
         <b>Sexo:</b>
@@ -48,7 +48,7 @@ export function showPersonalDeputyInfo(deputy) {
       </p>
       <p>
         <b>Email:</b>
-        {` ${deputy.email}`}
+        {` ${deputy.email ? deputy.email : 'Não disponível'}`}
       </p>
     </div>
   );
@@ -60,15 +60,19 @@ export function showDeputyCabinetInfo(deputy) {
       <h5>Informações do gabinete</h5>
       <p>
         <b>Número da sala:</b>
+        {` ${deputy.office_number ? deputy.office_number : 'Não disponivel'}`}
       </p>
       <p>
         <b>Andar:</b>
+        {` ${deputy.office_floor ? deputy.office_floor : 'Não disponivel'}`}
       </p>
       <p>
         <b>Prédio:</b>
+        {` ${deputy.office_premise ? deputy.office_premise : 'Não disponivel'}`}
       </p>
       <p>
         <b>Telefone:</b>
+        {` ${deputy.office_phone ? deputy.office_phone : 'Não disponivel'}`}
       </p>
     </div>
   );
@@ -88,9 +92,7 @@ function ProfileD(props) {
   return (
     <div className="d-flex justify-content-center position-relative">
       <div className="background-div d-flex">
-        <div
-          className="d-flex justify-content-center align-items-center flex-column deputy-picture"
-        >
+        <div className="d-flex justify-content-center align-items-center flex-column deputy-picture">
           <img
             src={deputy.photo_url}
             alt="Profile"
@@ -108,9 +110,7 @@ function ProfileD(props) {
         <div className="w-100">
           <Row className="tam-row-name p-0">
             <Col md="10">
-              <h1 className="mb-2">
-                {deputy.name}
-              </h1>
+              <h1 className="mb-2">{deputy.name}</h1>
               <h4 className="mb-3 tit-exercicio">{`TITULAR EM EXERCÍCIO ${deputy.initial_legislature_year} - ${deputy.final_legislature_year}`}</h4>
             </Col>
             <Col
@@ -121,9 +121,7 @@ function ProfileD(props) {
             </Col>
           </Row>
           <Row className="tam-row-info pt-0">
-            <Col md="6">
-              {showPersonalDeputyInfo(deputy)}
-            </Col>
+            <Col md="6">{showPersonalDeputyInfo(deputy)}</Col>
             <Col md="6" className="col-info">
               {showDeputyCabinetInfo(deputy)}
             </Col>

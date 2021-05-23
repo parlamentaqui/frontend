@@ -42,6 +42,11 @@ function News() {
               </Col>
             </Row>
           ))}
+          {news.length === 0 && (
+          <Col lg="12">
+            <h5>Não existem Notícias</h5>
+          </Col>
+          )}
         </Row>
       </div>
     </div>

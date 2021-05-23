@@ -30,13 +30,13 @@ function ShareButton(props) {
           overlay={(
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Content className="cor">
-                <Button onClick={handleWppShare}>
+                <Button variant="danger" onClick={handleWppShare}>
                   <img src="/images/WhatsappIcon.svg" className="d-inline-block imagem" alt="WhatsappButton" />
                 </Button>
-                <Button onClick={handleFaceShare}>
+                <Button variant="danger" onClick={handleFaceShare}>
                   <img src="/images/FacebookIcon.svg" className="d-inline-block imagem" alt="FacebookButton" />
                 </Button>
-                <Button onClick={handleTweetShare}>
+                <Button variant="danger" onClick={handleTweetShare}>
                   <img
                     src="/images/TwitterIcon.svg"
                     className="d-inline-block imagem"

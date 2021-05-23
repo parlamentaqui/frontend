@@ -3,6 +3,14 @@
   background-color: #ffffff !important;
 }
 
+.prop {
+  border-top: 1px solid #dadada;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .icon-share-black,
 .icon-grafico {
   width: 23px;
