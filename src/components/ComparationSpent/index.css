@@ -1,3 +1,11 @@
+.border-table {
+  border: 1px solid #dadada;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  height: auto;
+}
+
 .icon-share-black,
 .icon-grafico {
   width: 23px;
@@ -9,7 +17,7 @@
   justify-content: flex-end !important;
 }
 
-.icon-gasto {
+.icon-compare {
   margin-top: 20px;
   margin-right: 10px;
   margin-bottom: 25px;
@@ -94,14 +102,6 @@ a:hover {
 }
 
 .ali {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.row-align-center {
-  display: flex;
   justify-content: center;
   align-items: center;
 }

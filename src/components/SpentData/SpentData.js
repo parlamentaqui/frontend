@@ -14,6 +14,8 @@ import { expenseRoute, profileRoute } from '../../Api';
 import sirene from '../../images/sirene.svg';
 import ShareButton from '../ShareButton';
 import Charts from '../Charts/index';
+import ComparationSpent from '../ComparationSpent/index';
+import CompareIcon from '../../images/compare.png';
 
 export function defineDate(date) {
   const data = new Date(date);
@@ -76,6 +78,7 @@ function SpentData() {
   const location = useLocation();
   const [openCompanyName, setOpenCompanyName] = useState(false);
   const [openGraph, setopenGraphraph] = useState(false);
+  const [openCompare, setopenCompare] = useState(false);
   const id = history.location.pathname.split('/')[2];
   const [expenses, setExpenses] = useState([]);
   const [deputy, setDeputy] = useState([]);
@@ -127,11 +130,7 @@ function SpentData() {
           Data
         </Col>
         <Col md="3" className="center">
-          {openCompanyName ? (
-            companyNameFilter()
-          ) : (
-            'Razão Social'
-          )}
+          {openCompanyName ? companyNameFilter() : 'Razão Social'}
           {!openCompanyName ? (
             <Button
               variant="outline-light"
@@ -189,16 +188,52 @@ function SpentData() {
       <Row className="background-div-1">
         <Col>
           <Row>
-            <Col md="10" className="d-flex align-items-center">
+            <Col md="9" className="d-flex align-items-center">
               <img src={IconGasto} alt="Gasto" className="icon-gasto" />
               GASTOS
             </Col>
-            <Col md="2" className="ali">
-              {!openGraph && (
+            <Col md="3" className="ali justify-content-end">
+              {!openGraph && !openCompare && (
                 <ShareButton
                   message={deputyShareMessage(deputy.name)}
                   link={deputyShareLink(id)}
                 />
+              )}
+              {!openGraph && !openCompare && (
+                <Button
+                  variant="outline-light"
+                  onClick={() => {
+                    if (!openCompare) {
+                      setopenCompare(true);
+                    } else {
+                      setopenCompare(false);
+                    }
+                  }}
+                >
+                  <img
+                    src={CompareIcon}
+                    alt="CompareIcon"
+                    className="icon-compare"
+                  />
+                </Button>
+              )}
+              {!openGraph && openCompare && (
+                <Button
+                  variant="outline-light"
+                  onClick={() => {
+                    if (!openCompare) {
+                      setopenCompare(true);
+                    } else {
+                      setopenCompare(false);
+                    }
+                  }}
+                >
+                  <img
+                    src={IconFecharGrafico}
+                    alt="Fechar gráfico"
+                    className="icon-grafico"
+                  />
+                </Button>
               )}
               <Button
                 variant="outline-light"
@@ -210,20 +245,34 @@ function SpentData() {
                   }
                 }}
               >
-                {!openGraph ? (
-                  <img src={IconGrafico} alt="Grafico" className="icon-grafico" />
-                ) : (
-                  <img src={IconFecharGrafico} alt="Fechar gráfico" className="icon-grafico" />
+                {!openGraph && !openCompare && (
+                  <img
+                    src={IconGrafico}
+                    alt="Grafico"
+                    className="icon-grafico"
+                  />
+                )}
+                {openGraph && !openCompare && (
+
+                  <img
+                    src={IconFecharGrafico}
+                    alt="Fechar gráfico"
+                    className="icon-grafico"
+                  />
                 )}
               </Button>
             </Col>
           </Row>
-          {!openGraph && (
-            tableComponent()
-          )}
+          {!openGraph && !openCompare && tableComponent()}
+
           {openGraph && (
             <div className="ali">
               <Charts expenses={expenses} deputy={deputy} />
+            </div>
+          )}
+          {openCompare && (
+            <div className="ali">
+              <ComparationSpent />
             </div>
           )}
         </Col>
