@@ -6,7 +6,6 @@ import ArrowRight from '../../images/ArrowRight.svg';
 
 // Esse componente é um item da lista de proposições da página do deputado
 function ActivityListProposition({ targetInfo, isLast, theme }) {
-  console.log(targetInfo);
   return (
     // fazer o cast do LisGroupItem pra div pra retornar corretamente
     <ListGroupItem as="div" className={`activityContainer ${theme} propositionList`}>

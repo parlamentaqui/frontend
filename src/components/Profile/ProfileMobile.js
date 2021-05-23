@@ -3,6 +3,7 @@ import axios from 'axios';
 import './ProfileMobile.css';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import Dotdotdot from 'react-dotdotdot';
 import IconInsta from '../../images/insta.png';
 import IconFace from '../../images/face.png';
 import IconEmail from '../../images/email.png';
@@ -79,10 +80,13 @@ function ProfileMobile(props) {
           <div className="curiosityMob">
             <div className="d-flex align-items-center">
               <img src={IconInfo} alt="Info" className="icon-info mr-3" />
-              {/* ToDo: olhar https://github.com/CezaryDanielNowak/React-dotdotdot p resolver */}
-              <p>
-                {curiosity && (curiosity.curiosity)}
-              </p>
+              <div>
+                <Dotdotdot clamp={6}>
+                  <p title={curiosity.curiosity}>
+                    {curiosity && (curiosity.curiosity)}
+                  </p>
+                </Dotdotdot>
+              </div>
             </div>
           </div>
         </Col>

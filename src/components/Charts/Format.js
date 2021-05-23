@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import './format.css';
 
 function dataF(dados) {
   return (
@@ -28,12 +29,14 @@ function Format(props) {
   const { dados } = props;
   const { name } = props;
   const { total } = props;
+  const { h5Class } = props;
+
   return (
     <>
       <div>
         <Row className="py-4 table-border-bottom">
           <Col xs={12}>
-            <h5>{name.name}</h5>
+            <h5 className={h5Class}>{name.name}</h5>
           </Col>
         </Row>
         <Row className="table-data">
@@ -57,5 +60,4 @@ function Format(props) {
     </>
   );
 }
-
 export default Format;
