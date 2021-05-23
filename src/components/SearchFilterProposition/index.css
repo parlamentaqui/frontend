@@ -99,7 +99,7 @@
   height: 30px;
 }
 
-path {
+.react-switch-bg path {
   d: path(
     'M 11.264 0 L 5.26 6.004 L 2.103 2.847 L 0 4.95 l 5.26 5.26 l 8.108 -8.107 L 11.264 0'
   );

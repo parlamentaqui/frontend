@@ -12,7 +12,7 @@ import CalculateYear from '../CalculateYear';
 function formatPropImage(project) {
   return (
     <Col xs={6} md="2" className="prop-image-box m-0 mb-3 mb-lg-4">
-      <Link to={`/proposicao/${project.proposicao_id}`}>
+      <Link to={`/projetos/${project.proposicao_id}`}>
         <Image
           className="prop-img"
           alt="FotoProjeto"

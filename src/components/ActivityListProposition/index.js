@@ -12,7 +12,7 @@ function ActivityListProposition({ targetInfo, isLast, theme }) {
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
       <Link
-        to={`/proposicao/${targetInfo.proposicao_id}`}
+        to={`/projetos/${targetInfo.proposicao_id}`}
         className="link d-block"
       >
         <div className="d-flex justify-content-between">

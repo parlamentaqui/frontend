@@ -119,7 +119,7 @@ function Proposition(props) {
   const shareLink = history.location.pathname;
   const { proposition, tweets } = props;
 
-  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/proposicao/${proposition.numero}`;
+  const shareMessage = `Confira a ${proposition.tema_proposicao} em parlamentaqui.com/projetos/${proposition.numero}`;
 
   return (
     <Container>
