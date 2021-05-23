@@ -12,7 +12,10 @@ import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
+import AuthoredPropositions from '../../components/AuthoredPropositions/index';
+import AuthoredPropositionsMobile from '../../components/AuthoredPropositions/AuthoredPropositionMobile';
 import { deputyTweetsRoute, profileRoute } from '../../Api';
+import PratrimonialGrowth from '../../components/PatrimonialGrowth';
 
 function DeputyProfileScreen() {
   const { id } = useParams();
@@ -34,6 +37,11 @@ function DeputyProfileScreen() {
         <DataVotingMobile />
         <Row className="space" />
         <SpentDataMobile />
+        <Row className="space" />
+        <PratrimonialGrowth />
+        <Row className="space" />
+        <AuthoredPropositionsMobile />
+        <Row className="space" />
         <NewsMobile />
         <Tweets tweets={tweets} />
       </Container>
@@ -43,6 +51,10 @@ function DeputyProfileScreen() {
         <DataVoting />
         <Row className="space" />
         <SpentData />
+        <Row className="space" />
+        <PratrimonialGrowth />
+        <Row className="space" />
+        <AuthoredPropositions />
         <Row className="space" />
         <Row>
           <Col md="6">

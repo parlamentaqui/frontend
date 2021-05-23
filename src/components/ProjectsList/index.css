@@ -1,0 +1,56 @@
+.prop-img {
+  height: 200px;
+  border-radius: 6px;
+  object-fit: cover;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.prop-image-box a {
+  display: block;
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.transparent-filter {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 6px;
+}
+
+.transparent-filter:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.break-line {
+  flex-wrap: wrap;
+  display: flex !important;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+.prop-resumed-info {
+  z-index: 10;
+  left: 16px;
+  bottom: 8px;
+  position: absolute;
+}
+
+.prop-resumed-info p {
+  width: 135px;
+  color: white;
+  font-size: 16px;
+}
