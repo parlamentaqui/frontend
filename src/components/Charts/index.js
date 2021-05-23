@@ -64,10 +64,18 @@ function Charts(props) {
     <>
       <Col>
         <Row className="col-line-top p-0 top-line">
-          <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 1 }} className="col-format table-border-right">
+          <Col
+            xs={{ span: 12, order: 2 }}
+            lg={{ span: 6, order: 1 }}
+            className="col-format table-border-right"
+          >
             <Format dados={custosDeputados} name={deputy} total={total} />
           </Col>
-          <Col xs={{ span: 12, order: 1 }} lg={{ span: 6, order: 2 }} className="align graph-bordered">
+          <Col
+            xs={{ span: 12, order: 1 }}
+            lg={{ span: 6, order: 2 }}
+            className="align graph-bordered"
+          >
             <ChartPie dados={custosDeputados} />
           </Col>
         </Row>

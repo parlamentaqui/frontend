@@ -22,7 +22,7 @@ const defineNome = (pathnames) => {
       return ['Deputados', deputado.name];
     }
 
-    if (!pathnames[0].localeCompare('proposicao')) {
+    if (!pathnames[0].localeCompare('projetos')) {
       const [proposicao, setProposicao] = useState([]);
 
       useEffect(() => {
@@ -33,10 +33,8 @@ const defineNome = (pathnames) => {
 
       const propName = String(proposicao.descricao_tipo).concat(' ', proposicao.numero, '/', proposicao.ano);
 
-      return ['Proposições', propName];
+      return ['Projetos', propName];
     }
-
-    // Implementar para as outras entidades que virão (proposições, partidos, etc)
   }
 
   // Retorna vazio caso esteja na Home

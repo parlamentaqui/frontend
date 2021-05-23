@@ -12,6 +12,7 @@ import DataVoting from '../../components/DataVoting/DataVoting';
 import News from '../../components/News/News';
 import Tweets from '../../components/Tweet/index';
 import NewsMobile from '../../components/News/NewsMobile';
+import ComparationSpent from '../../components/ComparationSpent/index';
 import AuthoredPropositions from '../../components/AuthoredPropositions/index';
 import AuthoredPropositionsMobile from '../../components/AuthoredPropositions/AuthoredPropositionMobile';
 import { deputyTweetsRoute, profileRoute } from '../../Api';

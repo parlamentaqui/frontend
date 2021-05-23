@@ -6,14 +6,13 @@ import ArrowRight from '../../images/ArrowRight.svg';
 
 // Esse componente é um item da lista de proposições da página do deputado
 function ActivityListProposition({ targetInfo, isLast, theme }) {
-  console.log(targetInfo);
   return (
     // fazer o cast do LisGroupItem pra div pra retornar corretamente
     <ListGroupItem as="div" className={`activityContainer ${theme} propositionList`}>
       {/* Link para página do deputado em questão. Esse deputado é passado pela
       classe que desenha o componente na tela */}
       <Link
-        to={`/proposicao/${targetInfo.proposicao_id}`}
+        to={`/projetos/${targetInfo.proposicao_id}`}
         className="link d-block"
       >
         <div className="d-flex justify-content-between">

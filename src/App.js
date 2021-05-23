@@ -24,11 +24,10 @@ function App() {
         <Route path="/deputados/:id/gastos" component={ExpensesScreen} />
         <Route path="/deputados/:id" component={DeputyProfileScreen} />
         <Route path="/deputados" component={DeputiesScreen} />
+        <Route path="/projetos/:id" component={PropositionScreen} />
         <Route path="/projetos" component={ProjectsScreen} />
         <Route path="/partidos" component={PartyScreen} />
         <Route path="/busca" component={SearchScreen} />
-        <Route path="/proposicao/:id" component={PropositionScreen} />
-        <Route path="/teste" component={Teste} />
         <Route component={ErrorScreen} />
       </Switch>
     </main>
