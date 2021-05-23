@@ -55,7 +55,7 @@ export function defineVote(vote) {
 export function getPropositionName(proposition, vote) {
   if (proposition.length > 0) {
     return (
-      <Link to={`/proposicoes/${proposition.proposition_id}`}>
+      <Link to={`/projetos/${proposition.proposition_id}`}>
         {String(proposition.sigla_tipo).concat(' ', proposition.numero, '/', proposition.ano)}
       </Link>
     );

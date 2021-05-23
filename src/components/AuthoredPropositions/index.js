@@ -19,13 +19,13 @@ function authoredP(prop) {
         de
         {' '}
         {prop.ano}
-        {'.'}
+        .
       </Col>
       <Col md="5" title={prop}>
         {prop.tema_proposicao}
       </Col>
       <Col md="1" title={prop}>
-        <Link to={`/proposicao/${prop.proposicao_id}`}>
+        <Link to={`/projetos/${prop.proposicao_id}`}>
           <Button className="btn-seta">
             <img src={IconSeta} alt="Seta" />
           </Button>
@@ -46,18 +46,22 @@ function Author() {
       setAuthor(response.data);
     });
   }, []);
-
   const tableComponent = () => (
     <>
-      <Row className="col-line-top">
-        <Col md="6" className="d-flex justfy-content-start">
-          <h5>Título</h5>
-        </Col>
-        <Col md="6" className="d-flex justfy-content-start">
-          <h5>Tema</h5>
-        </Col>
-      </Row>
-      {authorP.map((element) => authoredP(element))}
+      {!authorP.length === 0 ? (
+        <>
+          {' '}
+          <Row className="col-line-top">
+            <Col md="6" className="d-flex justfy-content-start">
+              <h5>Título</h5>
+            </Col>
+            <Col md="6" className="d-flex justfy-content-start">
+              <h5>Tema</h5>
+            </Col>
+          </Row>
+          {authorP.map((element) => authoredP(element))}
+        </>
+      ) : (<p className="py-3 prop">Sem Propostas </p>) }
     </>
   );
 

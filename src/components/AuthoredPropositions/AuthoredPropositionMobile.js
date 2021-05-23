@@ -24,7 +24,7 @@ function authoredM(prop) {
                 de
                 {' '}
                 {prop.ano}
-                {'.'}
+                .
               </Col>
               <Col md="12" className="text-table col-line-top">Tema:</Col>
               <Col className="text-table" title={prop}>
@@ -35,7 +35,7 @@ function authoredM(prop) {
                 className="d-flex justify-content-center col-line-top"
                 title={prop}
               >
-                <Link to={`/proposicao/${prop.proposicao_id}`}>
+                <Link to={`/projetos/${prop.proposicao_id}`}>
                   <Button className="btn-seta">
                     <img src={IconSeta} alt="Seta" />
                   </Button>
@@ -70,7 +70,7 @@ function AuthorMobile() {
       </Row>
       <Row className="col-line-top">
         <Col md="12" className="alinhamento-center">
-          <a href={`/proposicao/${id}`}>VER MAIS</a>
+          <a href={`/projetos/${id}`}>VER MAIS</a>
         </Col>
       </Row>
     </>
